@@ -1,0 +1,39 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+    <div class="nav-wrapper position-relative d-flex flex-column">
+        <ul class="navbar-nav pe-3 order-1 flex-fill justify-content-center">
+            <f:for each="{main}" as="menu">
+                <li class="nav-item me-md-5 mb-3 mb-lg-0{f:if(condition: menu.children, then:' dropdown ')}{f:if(condition: '{menu.current} || {menu.active}', then:'current')}" itemprop="name">
+                    <f:if condition="{menu.children}">
+                        <f:then>
+                            <f:render partial="Navigation/Sub" arguments="{menu:menu}" />
+                        </f:then>
+                        <f:else>
+                            <a href="{menu.link}"
+                                class="nav-link {f:if(condition: menu.active, then:'active')}"
+                                {f:if(condition:menu.target,then: 'target="{menu.target}"')}
+                                itemprop="url"
+                                title="{menu.title}">
+                                {menu.title}
+                            </a>
+                        </f:else>
+                    </f:if>
+                    
+                </li>
+            </f:for>
+        </ul>
+        <ul class="d-xl-none navbar-nav social-nav position-relative position-md-absolute bottom-0 end-0 order-3 mt-3">
+            <f:for each="{social}" as="menu">
+                <li class="nav-item {f:if(condition: menu.current,then:'current')}" itemprop="name">
+                    <a href="{menu.link}"
+                        class="nav-link {f:if(condition: menu.active,then:'active')}"
+                        {f:if(condition:menu.target,then: 'target="{menu.target}"')}
+                        itemprop="url"
+                        title="{menu.title}">
+                            {menu.title}
+                    </a>
+                </li>
+            </f:for>
+        </ul>
+    </div>   
+</html>

@@ -1,0 +1,9 @@
+  temp.TOPHEADER = CONTENT
+  temp.TOPHEADER {
+   table = tt_content
+   select {
+     pidInList = {$TOPHEADERID}
+     where = hidden = 0 and deleted = 0
+   }  
+  }
+

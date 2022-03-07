@@ -1,0 +1,31 @@
+page{
+    includeCSS {
+        # abovethefold = {$thierolf.resourcePath}Public/StyleSheet/abovethefold.css
+        # abovethefold.inline {
+        #     inline = 1
+        #     forceOnTop = 1
+        #     media = all
+        # }
+        # fonts = {$thierolf.resourcePath}Public/StyleSheet/fonts.css
+        # fontawesome = {$thierolf.resourcePath}Public/StyleSheet/font-awesome.css
+    }
+    includeJSFooterlibs {
+        jquery = {$thierolf.resourcePath}Public/JavaScript/jquery.js
+        jquery.forceOnTop = 1
+        bootstrap = {$thierolf.resourcePath}Public/JavaScript/bootstrap.bundle.min.js
+        bootstrap-select = {$thierolf.resourcePath}Public/JavaScript/bootstrap-select.min.js
+        animsition = {$thierolf.resourcePath}Public/JavaScript/animsition.min.js
+    }
+    includeJSFooter {
+        stickit = {$thierolf.resourcePath}Public/JavaScript/jquery-stickit.js
+        appear = {$thierolf.resourcePath}Public/JavaScript/jquery.appear.js
+        countto = {$thierolf.resourcePath}Public/JavaScript/countto.js
+        slick = {$thierolf.resourcePath}Public/JavaScript/slick.js
+        jquery-parallax = {$thierolf.resourcePath}Public/JavaScript/jquery-parallax.js
+        owl.carousel = {$thierolf.resourcePath}Public/JavaScript/owl.carousel.js
+        masonry-layout = {$thierolf.resourcePath}Public/JavaScript/masonry-layout.js
+        magnific-popup = {$thierolf.resourcePath}Public/JavaScript/magnific-popup.js
+        wow = {$thierolf.resourcePath}Public/JavaScript/wow.min.js
+        main = {$thierolf.resourcePath}Public/JavaScript/main.js
+    }
+}

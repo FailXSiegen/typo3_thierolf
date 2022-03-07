@@ -1,0 +1,6 @@
+plugin.tx_form {
+    view {
+        templateRootPaths.1 = EXT:fx_templates_hhhuerth/Resources/Private/Extensions/Form/Frontend/Templates/
+        partialRootPaths.1 = EXT:fx_templates_hhhuerth/Resources/Private/Extensions/Form/Frontend/Partials/
+    }
+}

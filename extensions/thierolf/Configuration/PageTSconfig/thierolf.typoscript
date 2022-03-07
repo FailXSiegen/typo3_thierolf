@@ -1,0 +1,51 @@
+RTE.default {
+   //--Eigene  CSS Klassen für Links festlegen--//
+ buttons.link.properties.class.allowedClasses := addToList(buttontransparent, buttonrot, buttonkellblau, buttonblau, buttontransparentbreit, buttonrotbreit, buttonkellblaubreit, buttonblaubreit )
+}
+
+TCEFORM {
+    tt_content {
+        layout {
+            altLabels {
+                0 = Standard
+                1 = hellblau
+                2 = dunkelblau
+                3 = rot
+            }
+        }
+    }
+}
+
+mod {
+    web_layout {
+        BackendLayouts {
+            default {
+                title = Default
+                config {
+                    backend_layout {
+                        colCount = 1
+                        rowCount = 2
+                        rows {
+                            1 {
+                                columns {
+                                    1 {
+                                        name = Content
+                                        colPos = 0
+                                    }
+                                }
+                            }
+                            2 {
+                                columns {
+                                    1 {
+                                        name = Footer
+                                        colPos = 2
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+			}
+        }
+    }
+}

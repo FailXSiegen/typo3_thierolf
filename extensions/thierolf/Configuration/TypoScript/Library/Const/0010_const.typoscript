@@ -1,0 +1,42 @@
+plugin {
+    tx_thierolf {
+        settings {
+            # cat=plugin.tx_fxtemplateshhhuerth/basic/2; type=string; label=Root page id
+            rootPageUid = 1
+            # cat=plugin.tx_fxtemplateshhhuerth/basic/3; type=string; label=Main Navigation Path
+            mainNavPageUid = 39
+            # cat=plugin.tx_fxtemplateshhhuerth/basic/4; type=string; label=Top Navigation Path
+            headerNavPageUid =
+            # cat=plugin.tx_fxtemplateshhhuerth/basic/5; type=string; label=Footer Navigation Path
+            footerNavPageUid = 6
+            # cat=plugin.tx_fxtemplateshhhuerth/basic/11; type=string; label=CTA Navigation path id
+            ctaNavPageUid = 44
+            # cat=plugin.tx_fxtemplateshhhuerth/basic/12; type=string; label=Logo path
+            logoPath = EXT:thierolf/Resources/Public/Images/hans-hermann_huerth_500px.gif
+        }
+    }
+}
+
+thierolf.resourcePath = EXT:thierolf/Resources/
+
+page {
+    fluidtemplate {
+        layoutRootPath = EXT:thierolf/Resources/Private/Page/Layouts/
+        partialRootPath = EXT:thierolf/Resources/Private/Page/Partials/
+        templateRootPath = EXT:thierolf/Resources/Private/Page/Templates/
+    }
+}
+
+BASEURL = http://2020.thierolf.de/
+NAVIGATION = 3
+TOPHEADERID = 5
+FOOTERID = 7
+LOGOSRC = logo.png
+FOOTERBOX1ID = 8
+FOOTERBOX2ID = 9
+FOOTERBOX3ID = 10
+FOOTERBOX4ID = 11
+SLIDERID = 21
+GITTARENNAVIID = 6
+
+styles.content.textmedia.maxW = 1200

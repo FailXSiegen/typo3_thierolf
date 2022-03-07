@@ -1,0 +1,43 @@
+temp.NAVIGATION = COA
+temp.NAVIGATION.10 = COA
+
+temp.NAVIGATION.10.20 = HMENU
+temp.NAVIGATION.10.20 {
+    special = directory
+    special.value = {$NAVIGATION}
+    1 = TMENU
+    1 {
+        expAll = 1
+        wrap = <ul id="primary-nav" class="primary-nav is-fixed">|</ul>
+        NO.wrapItemAndSub = <li>|</li>
+        IFSUB = 1
+        IFSUB.wrapItemAndSub= <li class="has-children">|</li>
+        }
+    2 = TMENU
+    2 {
+        expAll = 1
+        wrap = <ul class="dropdown-nav is-hidden"><li class="go-back"><a href="#0">Menu</a></li>|</ul>
+        NO.wrapItemAndSub = <li>|</li>
+        ACT = 0
+        CUR = 0
+        IFSUB = 1
+        IFSUB.wrapItemAndSub= <li class="has-children">|</li>
+        
+    }
+    3 = TMENU
+    3 {
+        expAll = 1
+        wrap = <li class="go-back"><a href="#0"></a></li>|
+        NO.wrapItemAndSub = <li>|</li>
+        ACT = 0
+        CUR = 0
+    }
+    4 = TMENU
+    4 {
+        expAll = 1
+        wrap = <ul>|</ul>
+        NO.wrapItemAndSub = <li>|</li>
+        ACT = 0
+        CUR = 0
+    }
+}

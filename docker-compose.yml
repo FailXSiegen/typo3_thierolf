@@ -1,0 +1,58 @@
+version: '2.3'
+services:
+  #======================================================
+  # TYPO3
+  #======================================================
+  typo3:
+    container_name: typo3
+    image: riconet/typo3:10.4
+    ports:
+      - 80:80
+    volumes:
+      - ./:/var/www/html:cached
+      - ~/.composer/docker-cache/:/root/.composer:cached
+    depends_on:
+      - db
+  #======================================================
+  # Database
+  #======================================================
+  db:
+    container_name: db
+    image: mysql:5.7
+    command: mysqld --character-set-server=utf8
+    ports:
+      - 3306:3306
+    volumes:
+      - .database:/var/lib/mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=1234
+      - MYSQL_DATABASE=application
+  #======================================================
+  # Adminer
+  #======================================================
+  adminer:
+    container_name: adminer
+    image: adminer:latest
+    links:
+      - db
+    restart: always
+    ports:
+      - 8080:8080
+  #======================================================
+  # Mailhog
+  #======================================================
+  mailhog:
+    container_name: mailhog
+    image: mailhog/mailhog
+    ports:
+      - 8025:8025
+      - 1025:1025
+#======================================================
+# Networks
+#======================================================
+networks:
+  default:
+    name: local_development

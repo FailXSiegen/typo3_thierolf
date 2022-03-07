@@ -1,0 +1,25 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+    <a href="#"
+        class="nav-link dropdown-toggle {f:if(condition: menu.active, then:'active')}"
+        role="button" 
+        data-bs-toggle="dropdown"
+        {f:if(condition:menu.target,then: 'target="{menu.target}"')}
+        itemprop="url"
+        title="{menu.title}">
+        {menu.title}
+    </a>
+    <ul class="dropdown-menu">
+        <f:for each="{menu.children}" as="submenu">
+            <li>
+                <a href="{submenu.link}"
+                    class="dropdown-item {f:if(condition: submenu.active, then:'active')}"
+                    {f:if(condition:submenu.target,then: 'target="{submenu.target}"')}
+                    itemprop="url"
+                    title="{submenu.title}">
+                    {submenu.title}
+                </a>
+            </li>
+        </f:for>
+    </ul>  
+</html>

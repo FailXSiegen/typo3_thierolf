@@ -1,0 +1,34 @@
+[page["uid"] in [3,67]]
+    temp.breadcrumb = TEXT
+    temp.breadcrumb.data = ""
+[else]
+    temp.breadcrumb = COA
+    temp.breadcrumb {
+        wrap =    |
+        10 = TEXT
+        10 {
+            field  = subtitle // title
+            wrap = <section class="banner-section"><div class="section-bg"></div><div class="container"><div class="row"><div class="page-banner-content col"><h1 class="text-white">|</h1></div></div></div></section>
+        }
+        20 = HMENU
+        20 {
+            special = rootline
+            special.range = 1|2
+            wrap = <div class="container breadcrumb_thierolf" ><a href="/">Startseite</a>&nbsp;>&nbsp;| </div>
+            entryLevel = 1
+            includeNotInMenu = 1
+
+            1 = TMENU
+            1 {
+                NO.linkWrap = |&nbsp;>&nbsp;
+                NO.stdWrap2.noTrimWrap = | | | 
+                CUR < .NO
+                CUR = 1
+                CUR {
+                linkWrap = <strong>|</strong>
+                doNotLinkIt = 1
+                }
+            }
+        }
+    }
+[global]

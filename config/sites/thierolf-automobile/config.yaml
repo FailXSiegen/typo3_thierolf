@@ -1,0 +1,20 @@
+base: 'https://automobile.thierolf.de'
+baseVariants: {  }
+errorHandling: {  }
+languages:
+  -
+    title: Deutsch
+    enabled: true
+    languageId: '0'
+    base: /
+    typo3Language: de
+    locale: de_DE
+    iso-639-1: de
+    navigationTitle: Deutsch
+    hreflang: de_DE
+    direction: ltr
+    flag: de
+    websiteTitle: ''
+rootPageId: 67
+routes: {  }
+websiteTitle: ''
