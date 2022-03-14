@@ -1,14 +1,11 @@
 <INCLUDE_TYPOSCRIPT: source="DIR: ./Temp" extensions="typoscript">
 
-includeLibs.user_thierolf = EXT:ttpdf/thierolf.php
-
 page = PAGE
 page {
   typeNum = 0
   headerData.14 = TEXT
   headerData.14.value (
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-      <link rel="stylesheet" type="text/css" href="fileadmin/layout/style.css">
       <link rel="shortcut icon" href="fileadmin/layout/icon/favicon.png">
       <link rel="apple-touch-icon-precomposed" href="fileadmin/layout/icon/apple-touch-icon-158-precomposed.png">
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -51,19 +48,31 @@ page {
       1 = {$thierolf.resourcePath}Private/Page/Templates/
     } 
     variables {
-        TOPHEADER < temp.TOPHEADER
-        LOGO < temp.LOGO
+        logosrc = TEXT
+        logosrc.value = {$LOGOSRC}
+        topHeaderId = TEXT
+        topHeaderId.value = {$TOPHEADERID}
+
+        gitarrenNaviId = TEXT
+        gitarrenNaviId.value = {$GITTARENNAVIID}
+
+        footerId = TEXT
+        footerId.value = {$FOOTERID}
+
+        footerBox1Id = TEXT
+        footerBox1Id.value = {$FOOTERBOX1ID}
+        
+        footerBox2Id = TEXT
+        footerBox2Id.value = {$FOOTERBOX2ID}
+
+        footerBox3Id = TEXT
+        footerBox3Id.value = {$FOOTERBOX3ID}
+
+        footerBox4Id = TEXT
+        footerBox4Id.value = {$FOOTERBOX4ID}
+
         NAVIGATION < temp.NAVIGATION
         HEADER < temp.breadcrumb
-        SLIDER < temp.SLIDER
-        INHALT < temp.INHALT
-        FOOTERBOX1 < temp.FOOTERBOX1
-        FOOTERBOX2 < temp.FOOTERBOX2
-        FOOTERBOX3 < temp.FOOTERBOX3
-        FOOTERBOX4 < temp.FOOTERBOX4
-        FOOTER < temp.FOOTER
-        GITARRENNAVI < temp.GITARRENNAVI
-        NAVBOTTOM < temp.GITARRENNAVI
       }
   }
 }

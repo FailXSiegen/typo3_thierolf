@@ -1,13 +1,8 @@
 page{
     includeCSS {
-        # abovethefold = {$thierolf.resourcePath}Public/StyleSheet/abovethefold.css
-        # abovethefold.inline {
-        #     inline = 1
-        #     forceOnTop = 1
-        #     media = all
-        # }
-        # fonts = {$thierolf.resourcePath}Public/StyleSheet/fonts.css
-        # fontawesome = {$thierolf.resourcePath}Public/StyleSheet/font-awesome.css
+        fonts = {$thierolf.resourcePath}Public/StyleSheet/fonts.css
+        fontawesome = {$thierolf.resourcePath}Public/css/font-awesome.css
+        bootstrap = {$thierolf.resourcePath}Public/Vendor/bootstrap/dist/css/bootstrap.min.css
     }
     includeJSFooterlibs {
         jquery = {$thierolf.resourcePath}Public/JavaScript/jquery.js

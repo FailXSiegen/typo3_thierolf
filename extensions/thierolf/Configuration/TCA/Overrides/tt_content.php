@@ -30,7 +30,30 @@ if (!defined('TYPO3_MODE')) {
 
 call_user_func(
     function ($_EXTKEY) {
-        //     // Create TCA columns.
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+            'tt_content',
+            'CType',
+            [
+                 'PDF Viewer',
+                 'pdfviewer',
+                 'content-list',
+             ],
+            'textmedia',
+            'after'
+        );
+        $GLOBALS['TCA']['tt_content']['types']['pdfviewer'] = [
+            'showitem' => '
+                     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+                    --palette--;;general,
+                    header,
+                    --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
+                    --palette--;;frames,
+                    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+                    --palette--;;hidden,
+                    --palette--;;access,
+               ',
+         ];
+    //     // Create TCA columns.
     //     $columns = [
     //         'header' => [
     //             'config' => [

@@ -1,15 +1,9 @@
 <?php
-class user_thierolf
+namespace Thierolf\Ttpdf;
+
+class Directory
 {
-    public $cObj;// The backReference to the mother cObj object set at call time
-
-    public function main($content, $conf)
-    {
-        $value = $conf['value'];
-        return $content;
-    }
-
-    public function show_pdfs()
+    public function showPdfs()
     {
         $verzeichnis = getcwd()."/fileadmin/fahrzeuge/";
         $verzeichnislink = "/fileadmin/fahrzeuge/";
@@ -23,7 +17,6 @@ class user_thierolf
                 $dirFiles[$file] = $teile[1];
             }
         }
-        fclose($dh);
         asort($dirFiles);
         foreach ($dirFiles as $file => $value) {
             $teile = explode("_", $file);

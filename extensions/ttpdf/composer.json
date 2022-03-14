@@ -15,6 +15,11 @@
     "replace": {
       "ttpdf": "self.version"
     },
+    "autoload": {
+      "psr-4": {
+        "Thierolf\\Ttpdf\\": "Classes/"
+      }
+    },
     "config": {
       "vendor-dir": ".Build/vendor",
       "bin-dir": ".Build/bin",

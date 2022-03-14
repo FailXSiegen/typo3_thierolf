@@ -1,4 +1,0 @@
-temp.LOGO = TEXT
-temp.LOGO.value = {$LOGOSRC}
-temp.LOGO.wrap  = <a class="main-logo" href="/"><img src="fileadmin/layout/img/|" alt="Treffpunkt Thierolf"></a> 
-

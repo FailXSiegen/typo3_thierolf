@@ -1,13 +1,13 @@
 lib {
     contentElement {
         templateRootPaths {
-            20 = EXT:fx_templates_hhhuerth/Resources/Private/Extensions/FluidStyledContent/Templates/
+            20 = {$thierolf.resourcePath}Private/Content/Templates/
         }
         partialRootPaths {
-            20 = EXT:fx_templates_hhhuerth/Resources/Private/Extensions/FluidStyledContent/Partials/
+            20 = {$thierolf.resourcePath}Private/Content/Partials/
         }
         layoutRootPaths {
-            20 = EXT:fx_templates_hhhuerth/Resources/Private/Extensions/FluidStyledContent/Layouts/
+            20 = {$thierolf.resourcePath}Private/Content/Layouts/
         }
     }
     fluidContent < .contentElement
@@ -25,5 +25,12 @@ lib {
             data.insertData = 1
         }
         90 = RESTORE_REGISTER
+    }
+}
+
+tt_content {
+    pdfviewer =< lib.contentElement
+    pdfviewer {
+        templateName = Pdfviewer
     }
 }

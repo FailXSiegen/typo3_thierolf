@@ -14,7 +14,7 @@ languages:
     locale: de_DE
     iso-639-1: de
     navigationTitle: Deutsch
-    hreflang: de-de
+    hreflang: de
     direction: ltr
     flag: de
     websiteTitle: ''

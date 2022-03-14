@@ -21,3 +21,4 @@ deploy_rsa
 !/public/typo3conf/LocalConfiguration.php
 node_modules/
 Vendor/
+*.sql

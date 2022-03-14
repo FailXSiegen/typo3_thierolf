@@ -20,25 +20,67 @@ mod {
     web_layout {
         BackendLayouts {
             default {
-                title = Default
+                title = Inhalt 75% / Rechte Spalte 25%
+                icon = EXT:thierolf/Resources/Public/Images/BackendLayouts/default.svg
                 config {
                     backend_layout {
-                        colCount = 1
-                        rowCount = 2
+                        colCount = 2
+                        rowCount = 1
                         rows {
                             1 {
                                 columns {
                                     1 {
-                                        name = Content
+                                        name = Hauptbereich
+                                        colPos = 0
+                                    }
+                                    2 {
+                                        name = Rechte Spalte
+                                        colPos = 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+			}
+            fullwidth {
+                title = Volle Breite
+                icon = EXT:thierolf/Resources/Public/Images/BackendLayouts/fullwidth.svg
+                config {
+                    backend_layout {
+                        colCount = 1
+                        rowCount = 1
+                        rows {
+                            1 {
+                                columns {
+                                    1 {
+                                        name = Hauptbereich
                                         colPos = 0
                                     }
                                 }
                             }
-                            2 {
+                        }
+                    } 
+                }
+			}
+
+            pdfviewer {
+                title = Inhalt 66% / Rechte Spalte 33%
+                icon = EXT:thierolf/Resources/Public/Images/BackendLayouts/pdfviewer.svg
+                config {
+                    backend_layout {
+                        colCount = 2
+                        rowCount = 1
+                        rows {
+                            1 {
                                 columns {
                                     1 {
-                                        name = Footer
-                                        colPos = 2
+                                        name = Hauptbereich
+                                        colPos = 0
+                                    }
+                                    2 {
+                                        name = Rechte Spalte
+                                        colPos = 1
                                     }
                                 }
                             }
@@ -48,4 +90,21 @@ mod {
 			}
         }
     }
+}
+
+
+mod.wizards.newContentElement.wizardItems {
+   // add the content element to the tab "common"
+   common {
+      elements {
+         pdfviewer {
+            iconIdentifier = content-list
+            title = pdfviewer
+            tt_content_defValues {
+               CType = pdfviewer
+            }
+         }
+      }
+      show := addToList(pdfviewer)
+   }
 }

@@ -1,0 +1,3 @@
+
+lib.pdfViewer = USER_INT
+lib.pdfViewer.userFunc = Thierolf\Ttpdf\Directory->showPdfs

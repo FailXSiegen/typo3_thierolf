@@ -1,8 +1,0 @@
-temp.GITARRENNAVI = CONTENT
-temp.GITARRENNAVI {
-    table = tt_content
-    select {
-        pidInList = {$GITTARENNAVIID}
-        where = hidden = 0 and deleted = 0
-    }  
-}
