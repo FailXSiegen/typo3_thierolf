@@ -144,7 +144,7 @@ module.exports = {
     // Path to your entry point. From this file Webpack will begin its work
     entry: {
         // 'jquery' : './../../Public/Vendor/jquery/dist/jquery.js',
-        // 'bootstrap' : './../../Public/Vendor/bootstrap/dist/js/bootstrap.bundle.min.js',
+        'bootstrap' : './../../Public/Vendor/bootstrap/scss/bootstrap.scss',
         // 'bootstrap-select' : './../../Public/Vendor/bootstrap-select/dist/js/bootstrap-select.min.js',
         // 'animsition' : './../../Public/Vendor/animsition/dist/js/animsition.min.js',
         'jquery.appear' : './../../Public/Vendor/jquery.appear/jquery.appear.js',

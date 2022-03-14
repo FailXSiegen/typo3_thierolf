@@ -2,7 +2,7 @@ page{
     includeCSS {
         fonts = {$thierolf.resourcePath}Public/StyleSheet/fonts.css
         fontawesome = {$thierolf.resourcePath}Public/css/font-awesome.css
-        bootstrap = {$thierolf.resourcePath}Public/Vendor/bootstrap/dist/css/bootstrap.min.css
+        bootstrap = {$thierolf.resourcePath}Public/StyleSheet/bootstrap.css
     }
     includeJSFooterlibs {
         jquery = {$thierolf.resourcePath}Public/JavaScript/jquery.js
