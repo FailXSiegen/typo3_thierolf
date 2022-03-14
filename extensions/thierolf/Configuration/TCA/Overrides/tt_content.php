@@ -53,22 +53,21 @@ call_user_func(
                     --palette--;;access,
                ',
          ];
-    //     // Create TCA columns.
-    //     $columns = [
-    //         'header' => [
-    //             'config' => [
-    //                 'type' => 'text',
-    //                 'cols' => 40,
-    //                 'rows' => 3,
-    //                 'eval' => 'required',
-    //             ],
-    //         ],
-    //     ];
-    //     // Add TCA columns.
-    //     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
-    //         'tt_content',
-    //         $columns
-    //     );
+        // Create TCA columns.
+        $columns = [
+            'header' => [
+                'config' => [
+                    'type' => 'text',
+                    'cols' => 40,
+                    'rows' => 3,
+                ],
+            ],
+        ];
+        // Add TCA columns.
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
+            'tt_content',
+            $columns
+        );
     },
     'thierolf'
 );

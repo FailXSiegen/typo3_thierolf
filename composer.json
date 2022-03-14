@@ -65,7 +65,6 @@
         "plan2net/webp": "^3.0",
         "svewap/ws-flexslider": "^1.5",
         "jigal/t3adminer":"^9.5",
-        "nbg/new-bootstrap-gridelements": "@dev",
         "thierolf/ttpdf": "@dev",
         "failx/templates-thierolf": "@dev"
     },
