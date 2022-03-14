@@ -12,13 +12,13 @@ vendor/
 /public/uploads
 /public/index.php
 /public/.htaccess
-/public/typo3conf/PackageStates.php
-/public/typo3conf/
+/public/typo3conf/*
+!/public/typo3conf/AdditionalConfiguration.php
 /var/
 !/var/tests/.gitkeep
 /tests/Acceptance/Support/_generated
 deploy_rsa
-!/public/typo3conf/LocalConfiguration.php
+
 node_modules/
 Vendor/
-*.sql
+*.sqlgit AdditionalConfiguration
