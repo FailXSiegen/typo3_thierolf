@@ -18,7 +18,6 @@ vendor/
 !/var/tests/.gitkeep
 /tests/Acceptance/Support/_generated
 deploy_rsa
-
 node_modules/
 Vendor/
-*.sqlgit AdditionalConfiguration
+*.sql
