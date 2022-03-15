@@ -47,6 +47,22 @@ page {
     templateRootPaths {
       1 = {$thierolf.resourcePath}Private/Page/Templates/
     } 
+    dataProcessing {
+      10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+      10 {
+          special = directory
+          special.value = {$NAVIGATION}
+          levels = 3
+          includeSpacer = 1
+          as = mainNavigation
+          dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            10 {
+                references.fieldName = media
+            }
+          }
+      }
+    }
     variables {
         logosrc = TEXT
         logosrc.value = {$LOGOSRC}
