@@ -148,6 +148,7 @@ module.exports = {
         // 'bootstrap-select' : './../../Public/Vendor/bootstrap-select/dist/js/bootstrap-select.min.js',
         // 'animsition' : './../../Public/Vendor/animsition/dist/js/animsition.min.js',
         'accordion' : './src/scss/accordion.scss',   
+        'teasermenu' : './src/scss/teasermenu.scss',   
         'jquery.appear' : './../../Public/Vendor/jquery.appear/jquery.appear.js',
         'countto': './src/javascript/countto.js',
         'slick' : './../../Public/Vendor/slick-carousel/slick/slick.min.js',

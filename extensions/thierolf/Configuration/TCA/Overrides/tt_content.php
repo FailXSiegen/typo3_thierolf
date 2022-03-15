@@ -36,7 +36,7 @@ call_user_func(
             [
                  'PDF Viewer',
                  'pdfviewer',
-                 'content-list',
+                 'content-bullets',
              ],
             'textmedia',
             'after'
@@ -52,7 +52,35 @@ call_user_func(
                     --palette--;;hidden,
                     --palette--;;access,
                ',
-         ];
+        ];
+
+
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+            'tt_content',
+            'CType',
+            [
+                 'Teaser Menu Kacheln',
+                 'teasermenu',
+                 'content-menu-sitemap-pages',
+             ],
+            'textmedia',
+            'after'
+        );
+      
+        $GLOBALS['TCA']['tt_content']['types']['teasermenu'] = [
+            'showitem' => '
+                     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+                    --palette--;;general,
+                    header;Interner Titel,
+                    image;Menüpunkte mit Bildern,
+                    --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
+                    --palette--;;frames,
+                    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+                    --palette--;;hidden,
+                    --palette--;;access,
+               ',
+        ];
+
         // Create TCA columns.
         $columns = [
             'header' => [

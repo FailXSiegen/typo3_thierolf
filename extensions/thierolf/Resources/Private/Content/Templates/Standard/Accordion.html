@@ -12,11 +12,11 @@
                 <f:if condition="{columns.101}">
                     <f:for each="{columns.101}" as="child" iteration="iteration">
                         <div class="card">
-                            <div class="card-header" id="heading-c{child.data.uid}">
+                            <div class="card-header p-0" id="heading-c{child.data.uid}">
                                 <h5 class="mb-0">
                                     <span 
                                     role="button"
-                                    class="w-100  d-flex justify-content-between align-items-center {f:if(condition:iteration.index,then:'',else:'collapsed')}" 
+                                    class="w-100 p-3 d-flex justify-content-between align-items-center {f:if(condition:iteration.index,then:'',else:'collapsed')}" 
                                     data-toggle="collapse" 
                                     data-parent="#accordion-{f:if(condition:data._LOCALIZED_UID, then:data._LOCALIZED_UID, else:data.uid)}" 
                                     data-target="#collapse-{child.data.uid}"

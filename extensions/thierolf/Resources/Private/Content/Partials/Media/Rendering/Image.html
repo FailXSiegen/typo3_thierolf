@@ -1,0 +1,36 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    <f:comment>
+        <f:media class="image-embed-item img img-fluid" file="{file}" width="{dimensions.width}"
+                 height="{dimensions.height}" alt="{file.alternative}" title="{file.title}" />
+    </f:comment>
+    <f:variable name="imageStyle" value="{file.properties.image_style}" />
+    <f:variable name="pictureClass" value="{f:if(condition:pPictureClass, then:'{pPictureClass} {imageStyle}', else:'position-relative {imageStyle}')}" />
+    <f:variable name="imageClass" value="{f:if(condition:pImageClass, then:'{pImageClass}', else:'image-embed-item  img img-fluid')}" />
+    <f:if condition="{file.originalResource.properties.image_style}">
+        <f:variable name="imageStyle" value="{file.originalResource.properties.image_style}" />
+    </f:if>
+    
+    <picture class="{pictureClass}">
+        <source media="(max-width: 767px) and (orientation:portrait)"
+                srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'767m',cropVariant:'smartphone-portrait')}">
+        <source media="(max-width: 767px) and (orientation:landscape)"
+                srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'767m',cropVariant:'smartphone-landscape')}">
+        <source media="(max-width: 991px) and (orientation:portrait)"
+                srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'991m',cropVariant:'tablet-portrait')}">
+        <source media="(max-width: 991px) and (orientation:landscape)"
+                srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'991m',cropVariant:'tablet-landscape')}">
+        <source media="(max-width: 1199px) and (min-width:992px)"
+                srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'1200m',cropVariant:'desktop-md')}">
+        <source media="(min-width: 1200px)"
+                srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'{dimensions.width}',maxWidth: '2121',cropVariant:'default')}">
+        <f:image treatIdAsReference="1"
+                 class="{imageClass}" 
+                 width="{dimensions.width}" 
+                 maxWidth="2121"
+                 height="{dimensions.height}" 
+                 src="{file.uid}" 
+                 title="{file.title}" 
+                 alt="{file.alternative}"
+                 crop="{file.crop}" />
+    </picture>
+</html>

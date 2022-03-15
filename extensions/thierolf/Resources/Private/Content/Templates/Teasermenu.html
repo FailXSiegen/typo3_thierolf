@@ -1,0 +1,49 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+      <f:asset.css 
+        href="EXT:thierolf/Resources/Public/StyleSheet/teasermenu.css"
+        identifier="teasermenu" />
+    <div class="row">
+      <f:for each="{tiles}" as="tile">
+        <f:variable name="tileFormat" value="{tile.properties.tile_format}" />
+        <f:if condition="{tile.originalResource.properties.tile_format}">
+          <f:variable name="tileFormat" value="{tile.originalResource.properties.tile_format}" />
+        </f:if>
+        <f:switch expression="{tileFormat}">
+          <f:case value="1x1">
+            <f:variable name="tileClass" value="col-lg-3 size-1" />
+          </f:case>
+          <f:case value="2x1">
+            <f:variable name="tileClass" value="col-lg-6 size-1" />
+          </f:case>
+          <f:case value="2x2">
+            <f:variable name="tileClass" value="col-lg-6 size-2" />
+          </f:case>
+          <f:case value="1x2">
+            <f:variable name="tileClass" value="col-lg-3 size-2" />
+          </f:case>
+          <f:defaultCase>
+            <f:variable name="tileClass" value="col-lg-3" />
+          </f:defaultCase>
+        </f:switch>
+        <div class="col-12 {tileClass}">
+          <div class="tile position-relative overflow-hidden">
+            <span class="position-absolute bg-image top-0 start-0 w-100 h-100">
+              <f:render partial="Media/Rendering/Image" arguments="{
+                  file: tile,
+                  pPictureClass: 'position-absolute start-0 top-0 w-100 h-100',
+                  pImageClass: 'image-cover'
+                }" />
+            </span>
+            <div class="tile-content d-flex p-5">
+              <span class="h2">
+                {tile.title}
+              </span>
+              <span class="fa fa-arrow-right position-absolute bottom-0 end-0 p-3"></span>
+            </div>
+            <a href="{f:uri.typolink(parameter:tile.link)}" class="position-absolute w-100 h-100 top-0 start-0"></a>
+          </div>
+        </div>
+      </f:for>
+    </div>
+</html>

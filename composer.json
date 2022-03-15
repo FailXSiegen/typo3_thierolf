@@ -67,7 +67,6 @@
         "t3/min": "^1.7",
         "georgringer/news": "^9.1",
         "lochmueller/staticfilecache": "^11.1",
-        "plan2net/webp": "^3.0",
         "svewap/ws-flexslider": "^1.5",
         "jigal/t3adminer":"^9.5",
         "thierolf/ttpdf": "@dev",

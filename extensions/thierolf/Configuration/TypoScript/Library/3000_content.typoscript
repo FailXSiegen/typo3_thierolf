@@ -33,4 +33,15 @@ tt_content {
     pdfviewer {
         templateName = Pdfviewer
     }
+    teasermenu =< lib.contentElement
+    teasermenu {
+        templateName = Teasermenu
+        dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            10 {
+                references.fieldName = image
+                as = tiles
+            }
+        }
+    }
 }

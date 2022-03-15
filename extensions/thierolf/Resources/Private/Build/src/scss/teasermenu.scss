@@ -1,0 +1,12 @@
+@import 'content';
+.col-12 {
+    margin-bottom: 30px;
+}
+.size {
+    &-1 .tile{
+        min-height: 150px;
+    }
+    &-2 .tile{
+        min-height: 330px;
+    }
+}
