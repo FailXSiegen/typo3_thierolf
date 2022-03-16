@@ -9,18 +9,32 @@
         title="{menu.title}">
         {menu.title}
     </a>
-    <ul class="dropdown-nav is-hidden">
+    <f:variable name="columnCounter" value="1" />
+    <f:for each="{menu.children}" as="submenu">
+        <f:if condition="{submenu.spacer}">
+            <f:variable name="columnCounter" value="{columnCounter + 1}" />
+        </f:if>
+    </f:for>
+    <ul class="dropdown-nav is-hidden item-width-{100 / columnCounter}">
         <li class="go-back"><a href="#0">Menu</a></li>
         <f:for each="{menu.children}" as="submenu">
-            <li>
-                <a href="{submenu.link}"
-                    class="{f:if(condition: submenu.active, then:'active')}"
-                    {f:if(condition:submenu.target,then: 'target="{submenu.target}"')}
-                    itemprop="url"
-                    title="{submenu.title}">
-                    {submenu.title}
-                </a>
-            </li>
+            <f:if condition="{submenu.spacer}">
+                <f:then>
+                    <li class="w-100 clearfix"></li>
+                </f:then>
+                <f:else>
+                    <li>
+                        <a href="{submenu.link}"
+                            class="{f:if(condition: submenu.active, then:'active')}"
+                            {f:if(condition:submenu.target,then: 'target="{submenu.target}"')}
+                            itemprop="url"
+                            title="{submenu.title}">
+                            {submenu.title}
+                        </a>
+                    </li>
+                </f:else>
+            </f:if>
+           
         </f:for>
     </ul>  
 </html>

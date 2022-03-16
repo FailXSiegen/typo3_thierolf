@@ -20,4 +20,4 @@ vendor/
 deploy_rsa
 node_modules/
 Vendor/
-*.sql
+update_aftersync.sql

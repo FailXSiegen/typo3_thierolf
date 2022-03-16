@@ -15,6 +15,10 @@ plugin {
             logoPath = EXT:thierolf/Resources/Public/Images/hans-hermann_huerth_500px.gif
         }
     }
+    tx_news.view.twb {
+        templateRootPath = EXT:thierolf/Resources/Private/Extensions/News/Templates/
+        partialRootPath = EXT:thierolf/Resources/Private/Extensions/News/Partials/
+    }
 }
 
 thierolf.resourcePath = EXT:thierolf/Resources/

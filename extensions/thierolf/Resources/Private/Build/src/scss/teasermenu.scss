@@ -1,3 +1,4 @@
+@import 'variables';
 @import 'content';
 .col-12 {
     margin-bottom: 30px;
@@ -8,5 +9,14 @@
     }
     &-2 .tile{
         min-height: 330px;
+    }
+}
+.tile {
+    &:active,
+    &:hover,
+    &:focus {
+        .fa {
+            color: $lightblue;
+        }
     }
 }

@@ -37,3 +37,7 @@
 .size-2 .tile {
   min-height: 330px;
 }
+
+.tile:active .fa, .tile:hover .fa, .tile:focus .fa {
+  color: #02aff3;
+}

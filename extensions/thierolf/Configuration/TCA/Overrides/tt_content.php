@@ -72,13 +72,13 @@ call_user_func(
                      --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
                     --palette--;;general,
                     header;Interner Titel,
-                    image;Menüpunkte mit Bildern,
+                    teaserimage;Menüpunkte mit Bildern,
                     --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
                     --palette--;;frames,
                     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
                     --palette--;;hidden,
                     --palette--;;access,
-               ',
+            ',
         ];
 
         // Create TCA columns.
@@ -89,6 +89,61 @@ call_user_func(
                     'cols' => 40,
                     'rows' => 3,
                 ],
+            ],
+            'teaserimage' => [
+                'exclude' => true,
+                'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.images',
+                'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+                    'image',
+                    [
+                        'behaviour' => [
+                            'allowLanguageSynchronization' => true,
+                        ],
+                        // custom configuration for displaying fields in the overlay/reference table
+                        // to use the newsPalette and imageoverlayPalette instead of the basicoverlayPalette
+                        'overrideChildTca' => [
+                            'types' => [
+                                \TYPO3\CMS\Core\Resource\File::FILETYPE_UNKNOWN => [
+                                    'showitem' => '
+                                        --palette--;Teaserformat;teaserPalette,
+                                        --palette--;;imageoverlayPalette,
+                                        --palette--;;filePalette'
+                                ],
+                                \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
+                                    'showitem' => '
+                                        --palette--;Teaserformat;teaserPalette,
+                                        --palette--;;imageoverlayPalette,
+                                        --palette--;;filePalette'
+                                ],
+                                \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+                                    'showitem' => '
+                                        --palette--;Teaserformat;teaserPalette,
+                                        --palette--;;imageoverlayPalette,
+                                        --palette--;;filePalette'
+                                ],
+                                \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => [
+                                    'showitem' => '
+                                        --palette--;Teaserformat;teaserPalette,
+                                        --palette--;;audioOverlayPalette,
+                                        --palette--;;filePalette'
+                                ],
+                                \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
+                                    'showitem' => '
+                                        --palette--;Teaserformat;teaserPalette,
+                                        --palette--;;videoOverlayPalette,
+                                        --palette--;;filePalette'
+                                ],
+                                \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => [
+                                    'showitem' => '
+                                        --palette--;Teaserformat;teaserPalette,
+                                        --palette--;;imageoverlayPalette,
+                                        --palette--;;filePalette'
+                                ]
+                            ],
+                        ],
+                    ],
+                    $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']
+                )
             ],
         ];
         // Add TCA columns.

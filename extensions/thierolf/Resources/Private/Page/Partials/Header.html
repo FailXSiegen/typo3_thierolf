@@ -6,16 +6,14 @@
                 typoscriptObjectPath="lib.dynamicContent" 
                 data="{colPos:'0', pageUid: topHeaderId}" />
         </div>
-        <div class="container">
+        <div class="container d-flex justify-content-between">
             <a class="main-logo" href="/">
                 <img src="fileadmin/layout/img/{logosrc}" alt="Treffpunkt Thierolf">
             </a>
             <ul class="header-buttons">
                 <li><a class="nav-trigger">Menu<span></span></a></li>
             </ul>
-            <nav class="nav">
-                <f:render partial="Navigation/Main" arguments="{_all}" />
-            </nav>
+            <f:render partial="Navigation/Main" arguments="{_all}" />
         </div>
     </header>
 </html>

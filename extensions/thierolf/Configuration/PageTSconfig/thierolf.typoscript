@@ -27,6 +27,15 @@ mod.wizards.newContentElement.wizardItems {
 }
 
 TCEFORM {
+    pages {
+        layout {
+            altLabels {
+                0 = Standard
+                1 = Großes Menu
+            }
+            removeItems = 2,3
+        }
+    }
     tt_content {
         layout {
             altLabels {

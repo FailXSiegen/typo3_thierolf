@@ -1,0 +1,29 @@
+@import 'variables';
+@import '../../../../Public/Vendor/bootstrap/scss/functions';
+@import '../../../../Public/Vendor/bootstrap/scss/variables';
+@import '../../../../Public/Vendor/bootstrap/scss/mixins';
+
+.nav {
+    float: none;
+}
+#primary-nav {
+    width: 100%;
+    max-width: 260px;
+    overflow: hidden;
+    @include media-breakpoint-up(xl) { 
+        max-width: 100%;
+        overflow: visible;
+    }
+    .layout-1 {
+        position:static;
+        > ul.dropdown-nav {
+            width: 100%;
+            left: 0;
+        }
+    }
+    .item-width-50 {
+        li {
+            width: 50%;
+        }
+    }
+}

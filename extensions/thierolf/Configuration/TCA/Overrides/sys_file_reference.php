@@ -13,9 +13,7 @@ call_user_func(
                     'renderType' => 'selectSingle',
                     'items' => [
                         ['1x1 - kleine Kachel', '1x1'],
-                        ['2x1 - Breite Kachel', '2x1'],
-                        ['1x2 - Hohe Kachel', '1x2'],
-                        ['2x2 - Große Kachel', '2x2'],
+                        ['2x1 - Breite Kachel', '2x1']
                     ],
                     'maxitems' => '1',
                 ],
@@ -23,14 +21,7 @@ call_user_func(
                 'label' => 'Format Teaser Block'
             ],
         ]);
-        $GLOBALS['TCA']['sys_file_reference']['palettes']['imageoverlayPalette']['showitem'] = '
-        title,alternative,
-        --linebreak--,
-        tile_format,
-        --linebreak--,
-        description,link,
-        --linebreak--,
-        crop';
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette($table, 'teaserPalette', 'tile_format');
     },
     'thierolf',
     'sys_file_reference'

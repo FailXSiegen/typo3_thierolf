@@ -148,7 +148,8 @@ module.exports = {
         // 'bootstrap-select' : './../../Public/Vendor/bootstrap-select/dist/js/bootstrap-select.min.js',
         // 'animsition' : './../../Public/Vendor/animsition/dist/js/animsition.min.js',
         'accordion' : './src/scss/accordion.scss',   
-        'teasermenu' : './src/scss/teasermenu.scss',   
+        'teasermenu' : './src/scss/teasermenu.scss',  
+        'style': './src/scss/main.scss',  
         'jquery.appear' : './../../Public/Vendor/jquery.appear/jquery.appear.js',
         'countto': './src/javascript/countto.js',
         'slick' : './../../Public/Vendor/slick-carousel/slick/slick.min.js',
@@ -159,6 +160,7 @@ module.exports = {
         'magnific-popup' : './../../Public/Vendor/magnific-popup/dist/jquery.magnific-popup.min.js',
         // 'wow' : './../../Public/Vendor/wow.js/dist/wow.min.js',
         'main': './src/javascript/main.js',       
+         
     },
 
     // Path and filename of your result bundle.

@@ -1,0 +1,5 @@
+plugin.tx_news.view {
+    partialRootPaths {
+        50 = {$thierolf.resourcePath}Private/Content/Partials/
+    }
+}

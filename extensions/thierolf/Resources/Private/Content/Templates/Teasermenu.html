@@ -27,7 +27,7 @@
           </f:defaultCase>
         </f:switch>
         <div class="col-12 {tileClass}">
-          <div class="tile position-relative overflow-hidden">
+          <div class="tile position-relative overflow-hidden h-100">
             <span class="position-absolute bg-image top-0 start-0 w-100 h-100">
               <f:render partial="Media/Rendering/Image" arguments="{
                   file: tile,
@@ -35,13 +35,22 @@
                   pImageClass: 'image-cover'
                 }" />
             </span>
-            <div class="tile-content d-flex p-5">
+            <div class="tile-content d-flex flex-column p-5">
               <span class="h2">
                 {tile.title}
               </span>
-              <span class="fa fa-arrow-right position-absolute bottom-0 end-0 p-3"></span>
+              <f:if condition="{tile.description}">
+                <p class="description">
+                  {tile.description -> f:format.nl2br()}
+                </p>
+              </f:if>
+              <f:if condition="{tile.link}">
+                <span class="fa fa-2x fa-chevron-right position-absolute bottom-0 end-0 p-3"></span>
+              </f:if>
             </div>
-            <a href="{f:uri.typolink(parameter:tile.link)}" class="position-absolute w-100 h-100 top-0 start-0"></a>
+            <f:if condition="{tile.link}">
+              <a href="{f:uri.typolink(parameter:tile.link)}" class="position-absolute w-100 h-100 top-0 start-0"></a>
+            </f:if>
           </div>
         </div>
       </f:for>
