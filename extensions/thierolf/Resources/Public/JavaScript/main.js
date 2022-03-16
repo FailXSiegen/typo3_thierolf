@@ -52,7 +52,9 @@ var __webpack_exports__ = {};
 
         self.mainSlider(); // Gallery
 
-        self.gallery();
+        self.gallery(); //softScroll
+
+        self.softScroll();
       });
     },
     // Sticky Header
@@ -539,6 +541,20 @@ var __webpack_exports__ = {};
           $(this).parents('.interest-point').eq(0).removeClass('is-open');
         });
       }
+    },
+    softScroll: function softScroll() {
+      $('html, body').on('click', 'a[href*="#"]', function (event) {
+        var target = $(this).attr('href');
+
+        if ($(target).length > 0) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          var headerHeight = $('#header').outerHeight();
+          $('html, body').animate({
+            scrollTop: $(target).offset().top - headerHeight
+          }, 1000);
+        }
+      });
     }
   }; // Start
 

@@ -68,6 +68,9 @@
                 // Gallery
                 self.gallery();
 
+                //softScroll
+                self.softScroll();
+
             } );
             
         },
@@ -586,6 +589,20 @@
                     $(this).parents('.interest-point').eq(0).removeClass('is-open');
                 });
             }
+        },
+
+        softScroll: function() {
+            $('html, body').on('click', 'a[href*="#"]', function(event) {
+                let target = $(this).attr('href');
+                if($(target).length > 0) {
+                    event.preventDefault(); 
+                    event.stopImmediatePropagation();
+                    let headerHeight = $('#header').outerHeight();
+                    $('html, body').animate({
+                        scrollTop: $(target).offset().top - headerHeight
+                    }, 1000);
+                }
+            })
         }
 
     };
