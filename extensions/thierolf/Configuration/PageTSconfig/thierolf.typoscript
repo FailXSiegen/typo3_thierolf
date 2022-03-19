@@ -1,8 +1,5 @@
-RTE.default {
-   //--Eigene  CSS Klassen für Links festlegen--//
- buttons.link.properties.class.allowedClasses := addToList(buttontransparent, buttonrot, buttonkellblau, buttonblau, buttontransparentbreit, buttonrotbreit, buttonkellblaubreit, buttonblaubreit )
-}
-
+RTE.default.preset = thierolf
+RTE.default.buttons.link.queryParametersSelector.enabled = 1
 mod.wizards.newContentElement.wizardItems {
    // add the content element to the tab "common"
    common {

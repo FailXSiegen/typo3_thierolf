@@ -1,7 +1,7 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
       data-namespace-typo3-fluid="true">
     <nav class="nav flex-fill align-content-end">
-        <ul id="primary-nav" class="primary-nav d-flex justify-content-xl-end is-fixed flex-column flex-xl-row">
+        <ul id="primary-nav" class="primary-nav d-flex justify-content-xl-start is-fixed flex-column flex-xl-row">
             <f:for each="{mainNavigation}" as="menu">
                 <li class="layout-{menu.data.layout} {f:if(condition: menu.children, then:' has-children ')}{f:if(condition: '{menu.current} || {menu.active}', then:'current')}" itemprop="name">
                     <f:if condition="{menu.children}">
