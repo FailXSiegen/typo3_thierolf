@@ -7,3 +7,14 @@
 .slidercontent .caption-body p:last-child {
   margin-bottom: 0;
 }
+
+.tx-ws-flexslider .style1 .caption-text,
+.tx-ws-flexslider .style2 .caption-text {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  background: rgba(255, 255, 255, 0.9);
+}
+.tx-ws-flexslider .style2 .caption-text {
+  top: auto;
+}

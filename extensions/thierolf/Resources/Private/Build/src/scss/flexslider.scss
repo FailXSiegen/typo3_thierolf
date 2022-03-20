@@ -8,3 +8,20 @@
         }
     }
 }
+.tx-ws-flexslider {
+    .style1,
+    .style2 {
+        .caption-text { 
+            position: absolute; 
+            left: 20px;
+            top: 20px; 
+            background: rgba(255,255,255,0.9); 
+        }
+    }
+    .style2 {
+        .caption-text { 
+            top: auto; 
+        }
+    }
+} 
+  
