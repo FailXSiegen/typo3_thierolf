@@ -1,0 +1,10 @@
+.slidercontent {
+    .caption-text {
+        background: rgba(255,255,255,0.9);
+    }
+    .caption-body {
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

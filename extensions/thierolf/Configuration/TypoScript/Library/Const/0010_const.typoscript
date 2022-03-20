@@ -44,3 +44,9 @@ SLIDERID = 21
 GITTARENNAVIID = 6
 
 styles.content.textmedia.maxW = 1200
+
+plugin.tx_wsflexslider.view {
+    templateRootPath = EXT:thierolf/Resources/Private/Extensions/Flexslider/Templates/
+    partialRootPath = EXT:thierolf/Resources/Private/Extensions/Flexslider/Partials/
+    layoutRootPath = EXT:ws_flexslider/Resources/Private/Layouts/
+}

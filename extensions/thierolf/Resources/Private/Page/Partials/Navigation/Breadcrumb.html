@@ -1,4 +1,37 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
       data-namespace-typo3-fluid="true">
-    <f:format.raw>{HEADER}</f:format.raw>
+
+  <f:if condition="{breadcrumbNavigation}">
+      <section class="banner-section">
+        <div class="section-bg"></div>
+        <div class="container">
+          <div class="row">
+            <div class="page-banner-content col">
+              <span class="h1 text-white">{sectionTitle}</h1>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="container breadcrumb_thierolf" aria-label="breadcrumb">
+        <a href="/">Startseite</a>
+        <f:for each="{breadcrumbNavigation}" as="item" iteration="iterator">
+          <f:if condition="{item.current}">
+              <f:then>
+                &nbsp;>&nbsp;
+                <span aria-current="page">
+                  <strong>{item.title}</strong>
+                </span>
+              </f:then>
+              <f:else>
+                &nbsp;>&nbsp;
+                <a 
+                    href="{item.link}" 
+                    title="{item.title}">
+                    {item.title}
+                </a>
+              </f:else>
+          </f:if>
+      </f:for>
+      </div>
+  </f:if>
 </html>

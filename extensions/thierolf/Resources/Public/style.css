@@ -2167,65 +2167,12 @@ support for no js
   background-color: #08213e;
   opacity: 0.8;
 }
-.page-banner-content h1 {
+.page-banner-content .h1 {
   font-size: 36px;
   line-height: 1.25;
   margin-bottom: 0;
-  font-weight: 600; }
-.page-banner-content span {
-    font-size: 20px;
-    line-height: 1.7;
-    color: #aeb2ba;
-    margin-bottom: 3px;
-    margin-top: 3px;
-    display: block;
+  font-weight: 600; 
 }
-.page-banner-content .page-breadcrumb {
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  display: inline-block;
-  list-style: outside none none;
-  margin: 0;
-  padding: 4px 16px;
-  color: #aeb2ba;
-  background-color: rgba(0, 0, 0, 0.4901960784313725);
-  white-space: nowrap;
-  font-size: 14.7px;
-  border-radius: 4px;
-  transform: translateY(-51%);
-}
-.page-banner-content .page-breadcrumb li {
-  position: relative;
-  display: inline-block;
-  margin-right: 30px;
-}
-.page-banner-content .page-breadcrumb li::after {
-  position: absolute;
-  right: -18px;
-  top: 12px;
-  content: "";
-  display: inline-block;
-  height: 0;
-  width: 0;
-  border-top: 4px solid transparent;
-  border-bottom: 4px solid transparent;
-  border-left: 4px solid #fff;
-}
-.page-banner-content .page-breadcrumb li:last-child {
-   margin-right: 0;
-}
-.page-banner-content .page-breadcrumb li:last-child::after {
-   display: none;
-}
-.page-banner-content .page-breadcrumb li a {
-   color: #fff;
-   font-weight: 500;
-}
-.page-banner-content .page-breadcrumb li a:hover {
-   color: #226d95;
-}
-
 /* Slider
 --------------------------------------------- */
 .slider-area { position: relative; height: calc( 100vh - 81px ); z-index: 3; }
@@ -5730,7 +5677,7 @@ support for no js
         .banner-section {
           padding: 50px 0;
         }
-        .page-banner-content h1 {
+        .page-banner-content h1, .page-banner-content .h1 {
       font-size: 24px;
     }
     .page-banner-content .page-breadcrumb {

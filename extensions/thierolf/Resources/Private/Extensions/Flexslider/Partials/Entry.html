@@ -1,0 +1,40 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:f="http://typo3.org/ns/fluid/ViewHelpers">
+
+    <f:section name="Entry">
+    <f:variable name="flexsliderClass" value="" />
+    <f:switch expression="{item.styleclass}">
+        <f:case value="style1">
+            <f:asset.css href="EXT:ws_flexslider/Resources/Public/Css/mods.css" identifier="flexslider_mods" />
+            <f:variable name="flexsliderClass" value="wsflexslider-{item.styleclass}" /> 
+        </f:case>
+        <f:case value="style2">
+            <f:asset.css href="EXT:ws_flexslider/Resources/Public/Css/mods.css" identifier="flexslider_mods" />
+            <f:variable name="flexsliderClass" value="wsflexslider-{item.styleclass}" /> 
+        </f:case>
+        <f:defaultCase></f:defaultCase>
+    </f:switch>
+    <li>
+        <div class="slidercontent wsflexslider position-relative {flexsliderClass}">
+            <f:if condition="{item.falImage}">
+                <f:image src="{item.falImage.uid}" treatIdAsReference="1" title="{item.falImage.originalResource.title}" alt="{item.falImage.originalResource.alternative}" width="{settings.maxwidth}" height="{settings.maxheight}" />
+            </f:if>
+            <div class="caption-wrapper caption-align-{item.textposition} {item.styleclass}">
+                <f:if condition="{item.title}||{item.description}">
+                <div class="caption-text p-3">
+                    <p class="caption-title mb-0">{item.title}</p>
+                    <f:if condition="{item.description}">
+                        <div class="caption-body"><f:format.html>{item.description}</f:format.html></div>
+                    </f:if>
+                </div>
+                </f:if>
+                <f:if condition="{item.link}">
+                    <div class="caption-link">
+                        <f:link.typolink parameter="{item.link}"><f:translate key="more">More</f:translate></f:link.typolink>
+                    </div>
+                </f:if>
+            </div>
+        </div>
+    </li>
+    </f:section>
+</div>

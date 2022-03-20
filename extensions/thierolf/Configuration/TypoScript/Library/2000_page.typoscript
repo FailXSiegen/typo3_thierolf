@@ -62,6 +62,15 @@ page {
             }
           }
       }
+
+      20 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+      20 {
+          special = rootline
+          special.range = 1|2
+          as = breadcrumbNavigation
+      }
+      30 = GeorgRinger\News\DataProcessing\AddNewsToMenuProcessor
+      30.menus = breadcrumbNavigation
     }
     variables {
         logosrc = TEXT
@@ -86,6 +95,9 @@ page {
 
         footerBox4Id = TEXT
         footerBox4Id.value = {$FOOTERBOX4ID}
+
+        sectionTitle = TEXT
+        sectionTitle.field = subtitle // title
 
         NAVIGATION < temp.NAVIGATION
         HEADER < temp.breadcrumb

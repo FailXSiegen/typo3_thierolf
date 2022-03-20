@@ -24,3 +24,8 @@ page{
         main = {$thierolf.resourcePath}Public/JavaScript/main.js
     }
 }
+
+page.includeCSS {
+    flexslider > 
+    flexslider_mods >
+}

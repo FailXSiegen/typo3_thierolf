@@ -150,6 +150,7 @@ module.exports = {
         'accordion' : './src/scss/accordion.scss',   
         'teasermenu' : './src/scss/teasermenu.scss',  
         'style': './src/scss/main.scss',  
+        'flexslider': './src/scss/flexslider.scss',  
         'jquery.appear' : './../../Public/Vendor/jquery.appear/jquery.appear.js',
         'countto': './src/javascript/countto.js',
         'slick' : './../../Public/Vendor/slick-carousel/slick/slick.min.js',

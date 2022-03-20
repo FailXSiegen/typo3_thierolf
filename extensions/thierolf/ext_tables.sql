@@ -11,3 +11,10 @@ CREATE TABLE sys_file_reference (
 CREATE TABLE tt_content (
     teaserimage int(10) DEFAULT '0' NOT NULL
 );
+
+#
+# Table structure for table 'tx_wsflexslider_domain_model_image'
+#
+CREATE TABLE tx_wsflexslider_domain_model_image (
+    styleclass varchar(255) DEFAULT '' NOT NULL
+);
