@@ -66,22 +66,16 @@
 					</span>
 
 					<f:if condition="{newsItem.categories}">
-						<f:render partial="Category/Items" arguments="{categories:newsItem.categories, settings:settings}" />
+						&nbsp;|&nbsp;<f:render partial="Category/Items" arguments="{categories:newsItem.categories, settings:settings}" />
 					</f:if>
 
 					<f:if condition="{newsItem.tags}">
+						&nbsp;|&nbsp;
 						<!-- Tags -->
 						<span class="news-list-tags" itemprop="keywords">
 						<f:for each="{newsItem.tags}" as="tag">
 							{tag.title}
 						</f:for>
-						</span>
-					</f:if>
-
-					<f:if condition="{newsItem.author}">
-						<!-- author -->
-						<span class="news-list-author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
-							<f:translate key="author_simple" /> <span itemprop="name">{newsItem.author}</span>
 						</span>
 					</f:if>
 				</p>
@@ -93,17 +87,20 @@
 						<f:format.html>{newsItem.teaser}</f:format.html>
 					</div>
 				</f:if>
-
-				<f:if condition="{newsItem.contentElements}">
-					<!-- content elements -->
-					<f:cObject typoscriptObjectPath="lib.tx_news.contentElementRendering">{newsItem.contentElementIdList}</f:cObject>
-				</f:if>
-
-				<f:render partial="Detail/MediaContainer" arguments="{media: newsItem.mediaNonPreviews, settings:settings}" />
-
-				<!-- main text -->
-				<div class="news-text-wrap" itemprop="articleBody">
-					<f:format.html>{newsItem.bodytext}</f:format.html>
+				<div class="row">
+					<div class="col-12 col-md-8">
+						<!-- main text -->
+						<div class="news-text-wrap" itemprop="articleBody">
+							<f:format.html>{newsItem.bodytext}</f:format.html>
+						</div>
+						<f:if condition="{newsItem.contentElements}">
+							<!-- content elements -->
+							<f:cObject typoscriptObjectPath="lib.tx_news.contentElementRendering">{newsItem.contentElementIdList}</f:cObject>
+						</f:if>
+					</div>
+					<div class="col-12 col-md-4">
+						<f:render partial="Detail/MediaContainer" arguments="{media: newsItem.mediaNonPreviews, settings:settings}" />
+					</div>
 				</div>
 			</n:renderMedia>
 

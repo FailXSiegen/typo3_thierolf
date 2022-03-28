@@ -1,5 +1,33 @@
-plugin.tx_news.view {
-    partialRootPaths {
-        50 = {$thierolf.resourcePath}Private/Content/Partials/
+plugin.tx_news {
+    view {
+        partialRootPaths {
+            50 = {$thierolf.resourcePath}Private/Content/Partials/
+        }
+    }
+    settings {
+        detail {
+            media {
+				image {
+					lazyLoading = {$styles.content.image.lazyLoading}
+					maxWidth = 404
+					maxHeight =
+
+					# Get lightbox settings from fluid_styled_content
+					lightbox {
+						enabled = {$styles.content.textmedia.linkWrap.lightboxEnabled}
+						class = {$styles.content.textmedia.linkWrap.lightboxCssClass}
+						width = {$styles.content.textmedia.linkWrap.width}
+						height = {$styles.content.textmedia.linkWrap.height}
+						rel = lightbox[myImageSet]
+					}
+				}
+
+				video {
+					width = 404
+					height = 159
+				}
+			}
+
+        }
     }
 }
