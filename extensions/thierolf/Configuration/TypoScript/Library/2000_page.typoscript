@@ -106,17 +106,7 @@ page {
 }
 
 [traverse(request.getQueryParams(), 'tx_news_pi1/news') > 0]
-
-page.10.variables.sectionTitle >
-page.10.variables.sectionTitle = CONTENT
-page.10.variables.sectionTitle {
-  table = tx_news_domain_model_news
-  select {
-    uidInList.data = GP:tx_news_pi1|news
-    uidInList.intval = 1
-    pidInList = {$NEWLISTPID} 
-  }
-  renderObj = TEXT
-  renderObj.field = title
-}
+  page.10.variables.sectionTitle >
+  page.10.variables.sectionTitle = TEXT
+  page.10.variables.sectionTitle.value = News
 [end]
