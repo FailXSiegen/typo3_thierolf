@@ -90,6 +90,50 @@ call_user_func(
                     'rows' => 3,
                 ],
             ],
+            'space_start_class' => [
+                'label' => 'LLL:EXT:thierolf/Resources/Private/Language/locallang_db.xlf:space.start',
+                'config' => [
+                    'renderType' => 'selectSingle',
+                    'type' => 'select',
+                    'items' => [
+                        ['Default',''],
+                        ['0','pl-0'],
+                        ['1','pl-1'],
+                        ['2','pl-2'],
+                        ['3','pl-3'],
+                        ['4','pl-4'],
+                        ['5','pl-5'],
+                        ['6','pl-2 pl-md-4 pl-xl-6'],
+                        ['7','pl-2 pl-md-4 pl-xl-7'],
+                        ['8','pl-2 pl-md-5 pl-xl-8'],
+                        ['9','pl-2 pl-md-5 pl-xl-9'],
+                        ['10','pl-2 pl-md-5 pl-xl-10'],
+                        ['Auto','ms-auto'],
+                    ],
+                ],
+            ],
+            'space_end_class' => [
+                'label' => 'LLL:EXT:thierolf/Resources/Private/Language/locallang_db.xlf:space.end',
+                'config' => [
+                    'renderType' => 'selectSingle',
+                    'type' => 'select',
+                    'items' => [
+                        ['Default',''],
+                        ['0','pr-0'],
+                        ['1','pr-1'],
+                        ['2','pr-2'],
+                        ['3','pr-3'],
+                        ['4','pr-4'],
+                        ['5','pr-5'],
+                        ['6','pr-2 pr-md-4 pr-xl-6'],
+                        ['7','pr-2 pr-md-4 pr-xl-7'],
+                        ['8','pr-2 pr-md-5 pr-xl-8'],
+                        ['9','pr-2 pr-md-5 pr-xl-9'],
+                        ['10','pr-2 pr-md-5 pr-xl-10'],
+                        ['Auto','me-auto'],
+                    ],
+                ],
+            ],
             'teaserimage' => [
                 'exclude' => true,
                 'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.images',
@@ -150,6 +194,13 @@ call_user_func(
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
             'tt_content',
             $columns
+        );
+
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
+            'tt_content',
+            'frames',
+            'space_start_class, space_end_class, --linebreak--',
+            'after:space_after_class,'
         );
     },
     'thierolf'

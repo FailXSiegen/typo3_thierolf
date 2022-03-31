@@ -1,0 +1,36 @@
+<f:spaceless>
+    <f:switch expression="{data.layout}">
+        <f:case value="1">
+            <f:variable name="classparameter" value="{f:if(condition:'{classname}',then:'{classname}',else:' ')}" />
+            <f:render section="defaultContainer" arguments="{data:'{data}',classname:'{classparameter}'}" />
+        </f:case>
+        <f:case value="2">
+            <f:variable name="classparameter" value="{f:if(condition:'{classname}',then:'{classname}',else:' ')}" />
+            <f:render section="defaultContainer" arguments="{data:'{data}',classname:'{classparameter}'}" />
+        </f:case>
+        <f:case value="3">
+            <f:variable name="classparameter" value="{f:if(condition:'{classname}',then:'{classname}',else:'  px-0')}" />
+            <f:render section="defaultContainer" arguments="{data:'{data}',classname:'{classparameter}'}" />
+        </f:case>
+        <f:case value="4"></f:case>
+        <f:defaultCase>
+            <f:if condition="{data.tx_container_parent} > 0">
+                <f:then>
+                    <f:variable name="classparameter" value="{f:if(condition:'{classname}',then:'{classname}',else:'')}" />
+                    <f:render section="defaultContainer" arguments="{data:'{data}',classname:'{classparameter}'}" /> 
+                </f:then>
+                <f:else>
+                    <f:variable name="classparameter" value="{f:if(condition:'{classname}',then:'{classname}',else:' ')}" />
+                    <f:render section="defaultContainer" arguments="{data:'{data}',classname:'{classparameter}'}" /> 
+                </f:else>
+            </f:if>
+        </f:defaultCase>
+    </f:switch>
+
+<f:if condition="{data.frame_class} && {data.frame_class} != 'default'">
+    <f:asset.css identifier="{data.frame_class}" href="EXT:neurologiq/Resources/Public/StyleSheet/{data.frame_class}.css" />
+</f:if>
+<f:section name="defaultContainer">
+{data.frame_class} {classname} frame-type-{data.CType} {f:if(condition:data.layout, then: '{data.layout} ')} {data.space_before_class} {data.space_after_class} {data.space_start_class} {data.space_end_class}
+</f:section>
+</f:spaceless>
