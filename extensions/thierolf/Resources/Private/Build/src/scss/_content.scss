@@ -74,6 +74,11 @@ footer.site-footer.dark {
         }
     }
 }
+@media(max-width: 1199px) {
+    .additional-images {
+        display: none;
+    }
+}
 @media(max-width: 576px) {
     .site-wrapper {
         padding-bottom: 21px;
