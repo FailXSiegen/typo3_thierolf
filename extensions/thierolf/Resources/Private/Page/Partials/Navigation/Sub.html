@@ -31,6 +31,25 @@
                             title="{submenu.title}">
                             {submenu.title}
                         </a>
+                        <f:if condition="{submenu.files} || {submenu.data.abstract}">
+                            <span class="additional-images position-absolute top-0 end-0 p-5">
+                                <div class="d-flex">
+                                    <f:if condition="{submenu.data.abstract}">
+                                        <span class="description mr-5 me-5">
+                                            {submenu.data.abstract -> f:format.nl2br()}
+                                        </span>
+                                    </f:if>
+                                    <f:if condition="{submenu.files}">
+                                        <span class="image">
+                                            <f:image src="{submenu.files.0.uid}" 
+                                                treatIdAsReference="1"
+                                                class="img img-fluid"
+                                                width="617m" />
+                                        </span>
+                                    </f:if>
+                                </div>
+                            </span>
+                        </f:if>
                     </li>
                 </f:else>
             </f:if>

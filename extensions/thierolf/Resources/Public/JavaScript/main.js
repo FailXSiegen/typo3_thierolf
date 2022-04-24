@@ -56,6 +56,9 @@ var __webpack_exports__ = {};
 
         self.softScroll();
       });
+      self.config.$window.resize(function () {
+        self.cta();
+      });
     },
     // Sticky Header
     sticky: function sticky() {
@@ -287,36 +290,39 @@ var __webpack_exports__ = {};
     },
     // CTA Menu
     cta: function cta() {
-      if ($(".cta-bar").length >= 0) {
-        $('.cta-bar').stickit({
-          scope: StickScope.Document,
-          top: 142,
-          className: 'stick'
-        });
-      }
+      if ($(window).width() > 576) {
+        if ($(".cta-bar").length >= 0) {
+          $('.cta-bar').stickit('destroy');
+          $('.cta-bar').stickit({
+            scope: StickScope.Document,
+            top: 142,
+            className: 'stick'
+          });
+        }
 
-      if ($('.cta-bar').length) {
-        var scrollTrigger = 100,
-            // px
-        backToTop = function backToTop() {
-          var scrollTop = $(window).scrollTop();
+        if ($('.cta-bar').length) {
+          var scrollTrigger = 100,
+              // px
+          backToTop = function backToTop() {
+            var scrollTop = $(window).scrollTop();
 
-          if (scrollTop > scrollTrigger) {
-            $('.back-to-top').addClass('show');
-          } else {
-            $('.back-to-top').removeClass('show');
-          }
-        };
+            if (scrollTop > scrollTrigger) {
+              $('.back-to-top').addClass('show');
+            } else {
+              $('.back-to-top').removeClass('show');
+            }
+          };
 
-        $(window).on('scroll', function () {
-          backToTop();
-        });
-        $('.back-to-top').on('click', function (e) {
-          e.preventDefault();
-          $('html,body').animate({
-            scrollTop: 0
-          }, 700);
-        });
+          $(window).on('scroll', function () {
+            backToTop();
+          });
+          $('.back-to-top').on('click', function (e) {
+            e.preventDefault();
+            $('html,body').animate({
+              scrollTop: 0
+            }, 700);
+          });
+        }
       }
     },
     // Counters

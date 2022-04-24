@@ -72,7 +72,9 @@
                 self.softScroll();
 
             } );
-            
+            self.config.$window.resize(function() {
+                self.cta();
+            });
         },
 
         // Sticky Header
@@ -319,30 +321,33 @@
 
         // CTA Menu
         cta: function() {
-           if ($(".cta-bar").length >= 0) {
-                $('.cta-bar').stickit({ scope: StickScope.Document, top: 142, className: 'stick' });
-            }
+            if($(window).width() > 576) {
+                if ($(".cta-bar").length >= 0) {
+                    $('.cta-bar').stickit('destroy');
+                    $('.cta-bar').stickit({ scope: StickScope.Document, top: 142, className: 'stick' });
+                }
 
-            if ($('.cta-bar').length) { 
-                var scrollTrigger = 100, // px
-                backToTop = function () {
-                    var scrollTop = $(window).scrollTop();
-                    if (scrollTop > scrollTrigger) {
-                        $('.back-to-top').addClass('show');
-                    } else {
-                        $('.back-to-top').removeClass('show');
-                    }
-                };
-                $(window).on('scroll', function () {
-                    backToTop();
-                });
+                if ($('.cta-bar').length) { 
+                    var scrollTrigger = 100, // px
+                    backToTop = function () {
+                        var scrollTop = $(window).scrollTop();
+                        if (scrollTop > scrollTrigger) {
+                            $('.back-to-top').addClass('show');
+                        } else {
+                            $('.back-to-top').removeClass('show');
+                        }
+                    };
+                    $(window).on('scroll', function () {
+                        backToTop();
+                    });
 
-                $('.back-to-top').on('click', function (e) {
-                    e.preventDefault();
-                    $('html,body').animate({
-                        scrollTop: 0
-                    }, 700);
-                });
+                    $('.back-to-top').on('click', function (e) {
+                        e.preventDefault();
+                        $('html,body').animate({
+                            scrollTop: 0
+                        }, 700);
+                    });
+                }
             }
         },
 

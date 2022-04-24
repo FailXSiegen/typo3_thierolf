@@ -1,3 +1,5 @@
+@import 'variables';
+
 .bg-image {
     z-index: -1;
 }
@@ -24,6 +26,80 @@
 .start-50 {
     left: 50%;
 }
+.start-25 {
+    left: 25%;
+}
 .translate-middle {
     transform: translate(-50%,-50%)!important;
+}
+body, html {
+    .section-block {
+        color: black;
+    }
+}
+#header .header-top {
+    background-color: $blue;
+    a {
+        color: white;
+    }
+}
+footer.site-footer.dark {
+    .footer-area {
+        background-color: $lightblue;
+        .widget h3:before {
+            background: white;
+        }
+    }
+    .copyright {
+        background-color: $blue;
+        a {
+            color: white;
+        }
+    }
+}
+.site-wrapper .cta-bar ul li a {
+    background-color: $orange; 
+}
+.additional-images {
+    opacity: 0;
+    visibility: hidden;
+    width: 75%;
+}
+.dropdown-nav li {
+    &:hover {
+        .additional-images {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity .5s ease-in-out;
+        }
+    }
+}
+@media(max-width: 576px) {
+    .site-wrapper {
+        padding-bottom: 21px;
+    }
+    .cta-bar.stick {
+        position: fixed;
+        display: block !important;
+        top: auto !important;
+        bottom: 0;
+        right: auto !important;
+        left: 0;
+        width: 100% !important;
+        ul {
+            display: flex;
+            li {
+                background-color: $orange;
+                text-align: center;
+                a {
+                    width: 50px !important;
+                    height: 50px !important;
+                    overflow: hidden;
+                }
+                a.back-to-top {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
 }
