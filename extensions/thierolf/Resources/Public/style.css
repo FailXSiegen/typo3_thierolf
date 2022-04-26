@@ -197,12 +197,6 @@ a:active { outline: 0; color: #333; text-decoration: none }
 
 /* Typography
 -------------------------------------------------------------- */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 { font-family: 'Source Sans Pro', sans-serif; color: #06163a; font-weight: 500; line-height: 1.5; margin: 0 0 10px; text-rendering: optimizeLegibility; }
 
 h1 { font-size: 2.428em; } /* 34px */
 h2 { font-size: 2.142em; } /* 30px */
@@ -2147,32 +2141,6 @@ support for no js
   visibility: visible;
 }
 
-/* Banner Section
---------------------------------------------- */
-.banner-section {
-  padding: 25px 0;
-  background-size: cover;
-  background-position: center center;
-  position: relative;
-  z-index: 1;
-}
-.banner-section::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background-color: #08213e;
-  opacity: 0.8;
-}
-.page-banner-content .h1 {
-  font-size: 36px;
-  line-height: 1.25;
-  margin-bottom: 0;
-  font-weight: 600; 
-}
 /* Slider
 --------------------------------------------- */
 .slider-area { position: relative; height: calc( 100vh - 81px ); z-index: 3; }
