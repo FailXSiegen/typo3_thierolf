@@ -2445,7 +2445,7 @@ support for no js
 /* CTA Bar
 --------------------------------------------- */
 .cta-bar {
-  position: absolute;
+  position: fixed;
   right: -150px;
   top: 142px;
   width: 200px;
