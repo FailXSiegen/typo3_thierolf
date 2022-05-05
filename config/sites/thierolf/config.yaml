@@ -4,7 +4,7 @@ baseVariants:
     base: 'http://local.thierolf.de'
     condition: 'applicationContext == "Development"'
   -
-    base: 'https://composer.thierolf.de'
+    base: 'https://dev-composer.thierolf.de'
     condition: 'applicationContext == "Production/Staging"'
 disableStaticFileCache: false
 languages:

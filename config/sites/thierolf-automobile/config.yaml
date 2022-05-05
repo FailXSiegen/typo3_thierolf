@@ -1,5 +1,11 @@
 base: 'https://automobile.thierolf.de'
-baseVariants: {  }
+baseVariants:
+  -
+    base: 'http://local-automobile.thierolf.de'
+    condition: 'applicationContext == "Development"'
+  -
+    base: 'https://dev-automobile-composer.thierolf.de'
+    condition: 'applicationContext == "Production/Staging"'
 errorHandling: {  }
 languages:
   -
