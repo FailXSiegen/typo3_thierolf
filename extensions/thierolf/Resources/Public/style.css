@@ -4887,7 +4887,7 @@ support for no js
 }
 /* Media Queries
 -------------------------------------------------------------- */
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1240px) {
   .section-block, .main-header.fullwidth .container {
         padding: 0 35px;
    }
@@ -5409,7 +5409,7 @@ support for no js
   }
 }
 
-@media only screen and (min-width: 1200px) and (max-width: 1367px) {
+@media only screen and (min-width: 1240px) and (max-width: 1367px) {
   .primary-nav .nav-gallery li:nth-child(6n+2) {
     display: none;
   }
@@ -5444,7 +5444,7 @@ support for no js
   }
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1240px) {
   .nav-on-left .main-logo {
     left: auto;
     right: 5%;

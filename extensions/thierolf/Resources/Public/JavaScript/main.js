@@ -4,7 +4,7 @@ var __webpack_exports__ = {};
   !*** ./src/javascript/main.js ***!
   \********************************/
 (function ($) {
-  var MqL = 1200;
+  var MqL = 1240;
   var autoshowTheme = {
     // Main init function
     init: function init() {

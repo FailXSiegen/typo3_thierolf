@@ -1,5 +1,5 @@
 (function($) {
-    var MqL = 1200;
+    var MqL = 1240;
 
     var autoshowTheme = {
 
