@@ -1,4 +1,7 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<html 
+        xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" 
+        xmlns:fx="http://typo3.org/ns/Failx/Thierolf/ViewHelpers" 
+        data-namespace-typo3-fluid="true">
     <f:comment>
         <f:media class="image-embed-item img img-fluid" file="{file}" width="{dimensions.width}"
                  height="{dimensions.height}" alt="{file.alternative}" title="{file.title}" />
@@ -11,18 +14,59 @@
     </f:if>
     
     <picture class="{pictureClass}">
+        <fx:exists file="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'767m',cropVariant:'smartphone-portrait') -> fx:substring(start:'1')}.webp">
+                <source media="(max-width: 767px) and (orientation:portrait)"
+                        srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'767m',cropVariant:'smartphone-portrait')}.webp"
+                        type="image/webp"
+                >
+        </fx:exists>
+        
         <source media="(max-width: 767px) and (orientation:portrait)"
                 srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'767m',cropVariant:'smartphone-portrait')}">
+
+        <fx:exists file="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'767m',cropVariant:'smartphone-landscape') -> fx:substring(start:'1')}.webp">
+                <source media="(max-width: 767px) and (orientation:landscape)"
+                        srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'767m',cropVariant:'smartphone-landscape')}.webp"
+                        type="image/webp"
+                        >
+        </fx:exists>
         <source media="(max-width: 767px) and (orientation:landscape)"
                 srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'767m',cropVariant:'smartphone-landscape')}">
+
+        <fx:exists file="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'991m',cropVariant:'tablet-portrait') -> fx:substring(start:'1')}.webp">
+                <source media="(max-width: 991px) and (orientation:portrait)"
+                        srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'991m',cropVariant:'tablet-portrait')}.webp"
+                        type="image/webp"
+                >
+        </fx:exists>
         <source media="(max-width: 991px) and (orientation:portrait)"
                 srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'991m',cropVariant:'tablet-portrait')}">
+
+        <fx:exists file="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'991m',cropVariant:'tablet-landscape') -> fx:substring(start:'1')}.webp">
+                <source media="(max-width: 991px) and (orientation:landscape)"
+                        srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'991m',cropVariant:'tablet-landscape')}.webp"
+                        type="image/webp"
+                >
+        </fx:exists>
         <source media="(max-width: 991px) and (orientation:landscape)"
                 srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'991m',cropVariant:'tablet-landscape')}">
+
+        <fx:exists file="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'1200m',cropVariant:'desktop-md') -> fx:substring(start:'1')}.webp">
+                <source media="(max-width: 1199px) and (min-width:992px)"
+                        srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'1200m',cropVariant:'desktop-md')}.webp"
+                        type="image/webp"
+                        >
+        </fx:exists>
         <source media="(max-width: 1199px) and (min-width:992px)"
                 srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'1200m',cropVariant:'desktop-md')}">
+        <fx:exists file="{f:uri.image(src:'{file.uid}', treatIdAsReference:'1', width:'{dimensions.width}', maxWidth: '1920', cropVariant:'default') -> fx:substring(start:'1')}.webp">
+                <source media="(min-width: 1200px)"
+                        srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1', width:'{dimensions.width}',maxWidth: '1920',cropVariant:'default')}.webp"
+                        type="image/webp"
+                        >
+        </fx:exists>
         <source media="(min-width: 1200px)"
-                srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'{dimensions.width}',maxWidth: '2121',cropVariant:'default')}">
+                srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'{dimensions.width}',maxWidth: '1920',cropVariant:'default')}">
         <f:image treatIdAsReference="1"
                  class="{imageClass}" 
                  width="{dimensions.width}" 
