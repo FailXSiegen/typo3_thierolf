@@ -1,0 +1,7 @@
+plugin.tx_wsflexslider {
+    view {
+        partialRootPaths {
+            50 = {$thierolf.resourcePath}Private/Content/Partials/
+        }
+    }
+}

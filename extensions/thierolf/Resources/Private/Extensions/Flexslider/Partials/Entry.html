@@ -15,7 +15,16 @@
     <li>
         <div class="slidercontent wsflexslider position-relative {flexsliderClass}">
             <f:if condition="{item.falImage}">
-                <f:image src="{item.falImage.uid}" treatIdAsReference="1" title="{item.falImage.originalResource.title}" alt="{item.falImage.originalResource.alternative}" width="{settings.maxwidth}" height="{settings.maxheight}" />
+                <f:render 
+                    partial="Media/Rendering/Image"
+                    arguments="{
+                        file: item.falImage,
+                        dimensions: 
+                            { 
+                                width: '{settings.maxwidth}',
+                                height: '{settings.maxheight}'
+                            }
+                    }" />
             </f:if>
             <div class="caption-wrapper caption-align-{item.textposition} {item.styleclass}">
                 <f:if condition="{item.title}||{item.description}">
