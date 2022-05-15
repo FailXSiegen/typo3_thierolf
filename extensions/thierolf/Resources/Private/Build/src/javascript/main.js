@@ -624,7 +624,7 @@
         //Gallery Mosaic
         magnificPopupInit: function () {
             $('.slidercontent').each(function () {
-                this.magnificPopup({
+                $(this).magnificPopup({
                     delegate: '.magnific-popup',
                     type: 'image',
                     gallery: {

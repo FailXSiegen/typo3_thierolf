@@ -578,7 +578,7 @@ var __webpack_exports__ = {};
     //Gallery Mosaic
     magnificPopupInit: function magnificPopupInit() {
       $('.slidercontent').each(function () {
-        this.magnificPopup({
+        $(this).magnificPopup({
           delegate: '.magnific-popup',
           type: 'image',
           gallery: {
