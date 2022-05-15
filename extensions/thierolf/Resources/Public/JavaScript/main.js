@@ -577,12 +577,14 @@ var __webpack_exports__ = {};
     },
     //Gallery Mosaic
     magnificPopupInit: function magnificPopupInit() {
-      $('.slidercontent').magnificPopup({
-        delegate: '.magnific-popup',
-        type: 'image',
-        gallery: {
-          enabled: true
-        }
+      $('.slidercontent').each(function () {
+        this.magnificPopup({
+          delegate: '.magnific-popup',
+          type: 'image',
+          gallery: {
+            enabled: true
+          }
+        });
       });
     }
   }; // Start

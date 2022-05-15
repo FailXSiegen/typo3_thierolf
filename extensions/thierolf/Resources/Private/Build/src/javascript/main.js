@@ -623,12 +623,14 @@
 
         //Gallery Mosaic
         magnificPopupInit: function () {
-            $('.slidercontent').magnificPopup({
-                delegate: '.magnific-popup',
-                type: 'image',
-                gallery: {
-                    enabled: true
-                },
+            $('.slidercontent').each(function () {
+                this.magnificPopup({
+                    delegate: '.magnific-popup',
+                    type: 'image',
+                    gallery: {
+                        enabled: true
+                    },
+                })
             });
 
         },
