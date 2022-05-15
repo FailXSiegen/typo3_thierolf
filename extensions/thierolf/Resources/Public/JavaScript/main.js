@@ -577,7 +577,7 @@ var __webpack_exports__ = {};
     },
     //Gallery Mosaic
     magnificPopupInit: function magnificPopupInit() {
-      $('.slidercontent').each(function () {
+      $('.tx-ws-flexslider').each(function () {
         $(this).magnificPopup({
           delegate: '.magnific-popup',
           type: 'image',

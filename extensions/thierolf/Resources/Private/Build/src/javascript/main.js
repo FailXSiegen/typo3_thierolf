@@ -623,7 +623,7 @@
 
         //Gallery Mosaic
         magnificPopupInit: function () {
-            $('.slidercontent').each(function () {
+            $('.tx-ws-flexslider').each(function () {
                 $(this).magnificPopup({
                     delegate: '.magnific-popup',
                     type: 'image',
