@@ -1,66 +1,70 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
-	  data-namespace-typo3-fluid="true">
+	xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers" data-namespace-typo3-fluid="true">
 <!--
 	=====================
 		Partials/List/Item.html
 -->
 <n:excludeDisplayedNews newsItem="{newsItem}" />
-<div class="col-12 col-sm-6 col-xl-4">
+<div class="col-12 col-sm-6 col-xl-4 mb-4">
 	<div class="news-list-item d-flex flex-column">
 		<f:render partial="General/AdditionalInformation" arguments="{settings:settings,newsItem:newsItem}" />
 
 		<n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
 			<f:if condition="{newsItem.mediaPreviews}">
 				<f:then>
-					<f:render partial="Media/Rendering/Image" 
-						arguments="{
+					<f:render partial="Media/Rendering/Image" arguments="{
 							file: newsItem.mediaPreviews.0
 						}" />
 					<f:comment>
-					<f:media class="img-responsive" 
-						file="{newsItem.mediaPreviews.0}" 
-						title="{newsItem.mediaPreviews.0.originalResource.title}" 
-						alt="{newsItem.mediaPreviews.0.originalResource.alternative}" 
-						loading="{settings.list.media.image.lazyLoading}"  
-						width="{f:if(condition: settings.media.maxWidth, then: settings.media.maxWidth, else: settings.list.media.image.width)}" 
-						height="{f:if(condition: settings.media.maxHeight, then: settings.media.maxHeight, else:'')}" />
+						<f:media class="img-responsive" file="{newsItem.mediaPreviews.0}"
+							title="{newsItem.mediaPreviews.0.originalResource.title}"
+							alt="{newsItem.mediaPreviews.0.originalResource.alternative}"
+							loading="{settings.list.media.image.lazyLoading}"
+							width="{f:if(condition: settings.media.maxWidth, then: settings.media.maxWidth, else: settings.list.media.image.width)}"
+							height="{f:if(condition: settings.media.maxHeight, then: settings.media.maxHeight, else:'')}" />
 					</f:comment>
 				</f:then>
 				<f:else>
 					<f:if condition="{settings.displayDummyIfNoMedia}">
-						<f:image class="img-dummy img-responsive" src="{settings.list.media.dummyImage}" title="" alt="" loading="{settings.list.media.image.lazyLoading}"  maxWidth="{settings.list.media.image.maxWidth}" maxHeight="{settings.list.media.image.maxHeight}" />
+						<f:image class="img-dummy img-responsive" src="{settings.list.media.dummyImage}" title="" alt=""
+							loading="{settings.list.media.image.lazyLoading}"
+							maxWidth="{settings.list.media.image.maxWidth}"
+							maxHeight="{settings.list.media.image.maxHeight}" />
 					</f:if>
 				</f:else>
 			</f:if>
 		</n:link>
-		<div class="articletype-{newsItem.type}{f:if(condition: newsItem.istopnews, then: ' topnews')}" itemscope="itemscope" itemtype="http://schema.org/Article">
+		<div class="mt-3 articletype-{newsItem.type}{f:if(condition: newsItem.istopnews, then: ' topnews')}"
+			itemscope="itemscope" itemtype="http://schema.org/Article">
 			<h3 itemprop="headline">
 				<n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
 					{newsItem.title}
 				</n:link>
 			</h3>
 
-			
+
 			<!-- teaser -->
 			<div class="lead" itemprop="description">
 				<n:removeMediaTags>
 					<f:if condition="{newsItem.teaser}">
 						<f:then>
-							{newsItem.teaser -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
+							{newsItem.teaser -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}',
+							respectWordBoundaries:'1') -> f:format.html()}
 						</f:then>
 						<f:else>
-							{newsItem.bodytext -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
+							{newsItem.bodytext -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}',
+							respectWordBoundaries:'1') -> f:format.html()}
 						</f:else>
 					</f:if>
 				</n:removeMediaTags>
 			</div>
 
-			<n:link newsItem="{newsItem}" 
-				settings="{settings}" title="{newsItem.title}">
-				<span class="fa fa-chevron-right"></span>&nbsp;<f:translate key="more-link" />
+			<n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
+				<span class="fa fa-chevron-right"></span>&nbsp;
+				<f:translate key="more-link" />
 			</n:link>
 		</div>
 	</div>
 </div>
+
 </html>

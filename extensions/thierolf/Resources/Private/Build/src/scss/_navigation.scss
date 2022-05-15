@@ -6,24 +6,80 @@
 .nav {
     float: none;
 }
+
 #primary-nav {
     width: 100%;
     max-width: 260px;
     overflow: hidden;
-    @include media-breakpoint-up(xl) { 
+
+
+    @include media-breakpoint-up(xl) {
         max-width: 100%;
         overflow: visible;
     }
+
     .layout-1 {
-        position:static;
-        > ul.dropdown-nav {
+        position: static;
+
+        >ul.dropdown-nav {
             width: 100%;
             left: 0;
         }
     }
+
     .item-width-50 {
         li {
             width: 50%;
         }
+    }
+
+}
+
+.site-wrapper.header-top-with {
+    padding-top: 130px;
+}
+
+.main-logo {
+    height: 80px;
+}
+
+.header-buttons {
+    height: 80px;
+}
+
+@include media-breakpoint-down(xl) {
+    #primary-nav {
+        background-color: $lightgrey;
+
+        ul {
+            background-color: $lightgrey;
+        }
+    }
+
+    .primary-nav,
+    .primary-nav ul {
+
+        a {
+            color: $darkgrey;
+        }
+
+        .has-children>a::before,
+        .has-children>a::after,
+        .go-back a::before,
+        .go-back a::after {
+            background: $darkgrey;
+        }
+    }
+
+    .main-logo {
+        height: 60px;
+    }
+
+    .header-buttons {
+        height: 60px;
+    }
+
+    .site-wrapper.header-top-with {
+        padding-top: 120px;
     }
 }

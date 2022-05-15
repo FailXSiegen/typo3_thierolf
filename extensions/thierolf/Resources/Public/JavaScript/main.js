@@ -17,6 +17,28 @@ var __webpack_exports__ = {};
         $window: $(window),
         $document: $(document)
       };
+      $.extend(true, $.magnificPopup.defaults, {
+        tClose: 'Schließen (Esc)',
+        // Alt text on close button
+        tLoading: 'Laden...',
+        // Text that is displayed during loading. Can contain %curr% and %total% keys
+        gallery: {
+          tPrev: 'Vorherige (Linke Pfeiltaste)',
+          // Alt text on left arrow
+          tNext: 'Nächste (Rechte Pfeiltaste)',
+          // Alt text on right arrow
+          tCounter: '%curr% von %total%' // Markup for "1 of 7" counter
+
+        },
+        image: {
+          tError: '<a href="%url%">Das Bild</a> konnte nicht geladen werden.' // Error message when image could not be loaded
+
+        },
+        ajax: {
+          tError: '<a href="%url%">The content</a> could not be loaded.' // Error message when ajax request failed
+
+        }
+      });
     },
     // Events
     events: function events() {
@@ -54,7 +76,9 @@ var __webpack_exports__ = {};
 
         self.gallery(); //softScroll
 
-        self.softScroll();
+        self.softScroll(); //softScroll
+
+        self.magnificPopupInit();
       });
       self.config.$window.resize(function () {
         self.cta();
@@ -548,6 +572,16 @@ var __webpack_exports__ = {};
           $('html, body').animate({
             scrollTop: $(target).offset().top - headerHeight
           }, 1000);
+        }
+      });
+    },
+    //Gallery Mosaic
+    magnificPopupInit: function magnificPopupInit() {
+      $('.slidercontent').magnificPopup({
+        delegate: '.magnific-popup',
+        type: 'image',
+        gallery: {
+          enabled: true
         }
       });
     }

@@ -31,6 +31,14 @@ if (!defined('TYPO3_MODE')) {
 call_user_func(
     function ($_EXTKEY) {
         $columns = [
+            'zoom' => [
+                'exclude' => 0,
+                'label' => 'Zoom',
+                'config' => [
+                    'type' => 'check',
+                    'renderType' => 'checkboxToggle',
+                ]
+            ],
             'styleclass' => [
                 'exclude' => 0,
                 'label' => 'LLL:EXT:ws_flexslider/Resources/Private/Language/locallang_db.xlf:tx_wsflexslider_domain_model_image.styleclass',
@@ -74,6 +82,13 @@ call_user_func(
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
             'tx_wsflexslider_domain_model_image',
             $columns
+        );
+
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
+            'tx_wsflexslider_domain_model_image',
+            'zoom, --linebreak--',
+            '',
+            'after:styleclass'
         );
     },
     'thierolf'

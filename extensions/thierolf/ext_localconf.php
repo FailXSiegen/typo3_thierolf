@@ -25,3 +25,5 @@
 
 
 $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['thierolf'] = 'EXT:thierolf/Configuration/RTE/Default.yaml';
+\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Object\Container\Container::class)
+    ->registerImplementation(\WapplerSystems\WsFlexslider\Domain\Model\Image::class, \Failx\Thierolf\Domain\Model\Image::class);

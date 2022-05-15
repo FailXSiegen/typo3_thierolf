@@ -18,5 +18,6 @@ CREATE TABLE tt_content (
 # Table structure for table 'tx_wsflexslider_domain_model_image'
 #
 CREATE TABLE tx_wsflexslider_domain_model_image (
-    styleclass varchar(255) DEFAULT '' NOT NULL
+    styleclass varchar(255) DEFAULT '' NOT NULL,
+    zoom int(4) DEFAULT '0' NOT NULL
 );

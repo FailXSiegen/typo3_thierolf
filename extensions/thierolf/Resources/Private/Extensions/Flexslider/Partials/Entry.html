@@ -1,47 +1,65 @@
-<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
-     xmlns:f="http://typo3.org/ns/fluid/ViewHelpers">
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:f="http://typo3.org/ns/fluid/ViewHelpers">
 
     <f:section name="Entry">
-    <f:variable name="flexsliderClass" value="" />
-    <f:switch expression="{item.styleclass}">
-        <f:case value="style1">
-            <f:variable name="flexsliderClass" value="wsflexslider-{item.styleclass}" /> 
-        </f:case>
-        <f:case value="style2">
-            <f:variable name="flexsliderClass" value="wsflexslider-{item.styleclass}" /> 
-        </f:case>
-        <f:defaultCase></f:defaultCase>
-    </f:switch>
-    <li>
-        <div class="slidercontent wsflexslider position-relative {flexsliderClass}">
-            <f:if condition="{item.falImage}">
-                <f:render 
-                    partial="Media/Rendering/Image"
-                    arguments="{
-                        file: item.falImage,
-                        dimensions: 
-                            { 
-                                width: '{settings.maxwidth}',
-                                height: '{settings.maxheight}'
-                            }
-                    }" />
-            </f:if>
-            <div class="caption-wrapper caption-align-{item.textposition} {item.styleclass}">
-                <f:if condition="{item.title}||{item.description}">
-                <div class="caption-text p-3">
-                    <p class="caption-title mb-0">{item.title}</p>
-                    <f:if condition="{item.description}">
-                        <div class="caption-body"><f:format.html>{item.description}</f:format.html></div>
+        <f:variable name="flexsliderClass" value="" />
+        <f:switch expression="{item.styleclass}">
+            <f:case value="style1">
+                <f:variable name="flexsliderClass" value="wsflexslider-{item.styleclass}" />
+            </f:case>
+            <f:case value="style2">
+                <f:variable name="flexsliderClass" value="wsflexslider-{item.styleclass}" />
+            </f:case>
+            <f:defaultCase></f:defaultCase>
+        </f:switch>
+        <li>
+            <div class="slidercontent wsflexslider position-relative {flexsliderClass}">
+                <f:if condition="{item.falImage}">
+                    <f:if condition="{item.zoom}">
+                        <f:then>
+                            <a class="magnific-popup"
+                                href="{f:uri.image(src:'{item.falImage.uid}',treatIdAsReference:'1')}">
+                                <f:render partial="Media/Rendering/Image" arguments="{
+                                    file: item.falImage,
+                                    dimensions: 
+                                        { 
+                                            width: '{settings.maxwidth}',
+                                            height: '{settings.maxheight}'
+                                        }
+                                }" />
+                            </a>
+                        </f:then>
+                        <f:else>
+                            <f:render partial="Media/Rendering/Image" arguments="{
+                                file: item.falImage,
+                                dimensions: 
+                                    { 
+                                        width: '{settings.maxwidth}',
+                                        height: '{settings.maxheight}'
+                                    }
+                            }" />
+                        </f:else>
+                    </f:if>
+                </f:if>
+                <div class="caption-wrapper caption-align-{item.textposition} {item.styleclass}">
+                    <f:if condition="{item.title}||{item.description}">
+                        <div class="caption-text p-3">
+                            <p class="caption-title mb-0">{item.title}</p>
+                            <f:if condition="{item.description}">
+                                <div class="caption-body">
+                                    <f:format.html>{item.description}</f:format.html>
+                                </div>
+                            </f:if>
+                        </div>
+                    </f:if>
+                    <f:if condition="{item.link}">
+                        <div class="caption-link">
+                            <f:link.typolink parameter="{item.link}">
+                                <f:translate key="more">More</f:translate>
+                            </f:link.typolink>
+                        </div>
                     </f:if>
                 </div>
-                </f:if>
-                <f:if condition="{item.link}">
-                    <div class="caption-link">
-                        <f:link.typolink parameter="{item.link}"><f:translate key="more">More</f:translate></f:link.typolink>
-                    </div>
-                </f:if>
             </div>
-        </div>
-    </li>
+        </li>
     </f:section>
 </div>

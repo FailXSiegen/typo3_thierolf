@@ -1,27 +1,42 @@
-(function($) {
+(function ($) {
     var MqL = 1240;
 
     var autoshowTheme = {
 
         // Main init function
-        init : function() {
+        init: function () {
             this.initConfig();
             this.events();
         },
 
         // Define vars for caching
-        initConfig : function() {
+        initConfig: function () {
             this.config = {
-                $window : $(window),
-                $document : $(document),
+                $window: $(window),
+                $document: $(document),
             };
+            $.extend(true, $.magnificPopup.defaults, {
+                tClose: 'Schließen (Esc)', // Alt text on close button
+                tLoading: 'Laden...', // Text that is displayed during loading. Can contain %curr% and %total% keys
+                gallery: {
+                    tPrev: 'Vorherige (Linke Pfeiltaste)', // Alt text on left arrow
+                    tNext: 'Nächste (Rechte Pfeiltaste)', // Alt text on right arrow
+                    tCounter: '%curr% von %total%' // Markup for "1 of 7" counter
+                },
+                image: {
+                    tError: '<a href="%url%">Das Bild</a> konnte nicht geladen werden.' // Error message when image could not be loaded
+                },
+                ajax: {
+                    tError: '<a href="%url%">The content</a> could not be loaded.' // Error message when ajax request failed
+                }
+            });
         },
 
         // Events
-        events : function() {
+        events: function () {
             var self = this;
             // Run on document ready
-            self.config.$document.ready(function() {
+            self.config.$document.ready(function () {
 
                 // PreLoader
                 self.preLoader();
@@ -71,65 +86,68 @@
                 //softScroll
                 self.softScroll();
 
-            } );
-            self.config.$window.resize(function() {
+                //softScroll
+                self.magnificPopupInit();
+
+            });
+            self.config.$window.resize(function () {
                 self.cta();
             });
         },
 
         // Sticky Header
-        sticky: function() {
+        sticky: function () {
             var transparentLogo = $('#header .main-logo img').attr('data-transparent-logo');
             var stickyLogo = $('#header .main-logo img').attr('data-sticky-logo');
 
-            $(window).on('scroll load', function() {
+            $(window).on('scroll load', function () {
 
+                // CSS adjustment
+                $("#header").css({
+                    position: 'fixed',
+                });
+
+                var headerOffset = $("#header").height();
+
+                if ($(window).scrollTop() >= headerOffset) {
+                    $("#header").addClass('sticky');
+                    $(".wrapper-with-transparent-header #header").addClass('sticky').removeClass("transparent-header unsticky");
+                } else {
+                    $("#header").removeClass("sticky");
+                    $(".wrapper-with-transparent-header #header").addClass('transparent-header unsticky').removeClass("sticky");
+                }
+
+                if ($('.transparent-header #header').hasClass('sticky')) {
+                    $("#header.sticky .main-logo img").attr("src", stickyLogo);
+                } else {
+                    $("#header .main-logo img").attr("src", transparentLogo);
+                }
+
+                $(window).on('load resize', function () {
+                    var headerOffset = $("#header-container").height();
+                    $("#wrapper").css({ 'padding-top': headerOffset });
+                });
+
+            });
+
+            $("#header").on('mouseenter', function () {
+
+                var headerOffset = $("#header").height();
+
+                if ($(window).scrollTop() <= headerOffset) {
                     // CSS adjustment
                     $("#header").css({
                         position: 'fixed',
                     });
-            
-                    var headerOffset = $("#header").height();
+                    $(".transparent-header #header").addClass('sticky');
+                    $("#header.sticky .main-logo img").attr("src", stickyLogo);
+                }
 
-                    if($(window).scrollTop() >= headerOffset){
-                        $("#header").addClass('sticky');
-                        $(".wrapper-with-transparent-header #header").addClass('sticky').removeClass("transparent-header unsticky");
-                    } else {
-                        $("#header").removeClass("sticky");
-                        $(".wrapper-with-transparent-header #header").addClass('transparent-header unsticky').removeClass("sticky");
-                    }
-
-                    if( $('.transparent-header #header').hasClass('sticky')) {
-                        $("#header.sticky .main-logo img").attr("src", stickyLogo);
-                    } else {
-                        $("#header .main-logo img").attr("src", transparentLogo);
-                    } 
-
-                    $(window).on('load resize', function() {
-                        var headerOffset = $("#header-container").height();
-                        $("#wrapper").css({'padding-top': headerOffset});
-                    });
-             
             });
 
-            $("#header").on('mouseenter', function() {
-
-                    var headerOffset = $("#header").height();
-
-                    if($(window).scrollTop() <= headerOffset){
-                        // CSS adjustment
-                        $("#header").css({
-                            position: 'fixed',
-                        });
-                        $(".transparent-header #header").addClass('sticky');
-                        $("#header.sticky .main-logo img").attr("src", stickyLogo);
-                    }
-               
-            });
-
-            $("#header").on('mouseleave', function() {
+            $("#header").on('mouseleave', function () {
                 var headerOffset = $("#header").height();
-                if($(window).scrollTop() <= headerOffset){
+                if ($(window).scrollTop() <= headerOffset) {
                     $(".transparent-header #header").removeClass("sticky");
                     $("#header .main-logo img").attr("src", transparentLogo);
                 }
@@ -137,8 +155,8 @@
         },
 
         // PreLoader
-        preLoader: function() {
-            if ( $().animsition ) {
+        preLoader: function () {
+            if ($().animsition) {
                 $('.animsition').animsition({
                     inClass: 'fade-in',
                     outClass: 'fade-out',
@@ -154,21 +172,21 @@
                         '-webkit-animation-duration',
                         '-moz-animation-duration',
                         'animation-duration'
-                        ],
+                    ],
                     overlay: false,
                     overlayClass: 'animsition-overlay-slide',
                     overlayParentElement: 'body',
-                    transition: function(url){ window.location.href = url; }
+                    transition: function (url) { window.location.href = url; }
                 });
             }
         },
 
         // Wow
-        wowSet: function() {
+        wowSet: function () {
             new WOW().init();
         },
 
-        closeNav: function() {
+        closeNav: function () {
             $('.nav-trigger').removeClass('nav-is-visible');
             $('.primary-nav').removeClass('nav-is-visible');
             $('.has-children ul').addClass('is-hidden');
@@ -179,7 +197,7 @@
             });
         },
 
-        toggleSearch: function(type) {
+        toggleSearch: function (type) {
             if (type == "close") {
                 //close serach 
                 $('.search').removeClass('is-visible');
@@ -195,7 +213,7 @@
             }
         },
 
-        checkWindowWidth: function() {
+        checkWindowWidth: function () {
             //check window width (scrollbar included)
             var e = window,
                 a = 'inner';
@@ -210,7 +228,7 @@
             }
         },
 
-        moveNavigation: function() {
+        moveNavigation: function () {
             var navigation = $('.nav:not(.nav-tabs)');
             var desktop = autoshowTheme.checkWindowWidth();
             if (desktop) {
@@ -223,7 +241,7 @@
         },
 
         // Menu Navigation
-        menuNav: function() {
+        menuNav: function () {
             //move nav element position according to window width
             autoshowTheme.moveNavigation();
 
@@ -262,25 +280,25 @@
             });
 
             //prevent default clicking on direct children of .cd-primary-nav 
-            $('.primary-nav').children('.has-children').children('a').on('click', function(event){
+            $('.primary-nav').children('.has-children').children('a').on('click', function (event) {
                 event.preventDefault();
             });
             //open submenu
-            $('.primary-nav > .has-children').children('a').on('mouseenter', function (event) { 
-                if( autoshowTheme.checkWindowWidth() ) {
-                event.preventDefault();
-                var selected = $(this);
-                if( selected.next('ul').hasClass('is-hidden') ) {
-                    //desktop version only
-                    selected.addClass('selected').next('ul').removeClass('is-hidden').end().parent('.has-children').parent('ul').addClass('moves-out');
-                    selected.parent('.has-children').siblings('.has-children').children('ul').addClass('is-hidden').end().children('a').removeClass('selected');
-                    $('.overlay').addClass('is-visible');
-                }
-                //else {
-                //  selected.removeClass('selected').next('ul').addClass('is-hidden').end().parent('.has-children').parent('ul').removeClass('moves-out');
-                //  $('.overlay').removeClass('is-visible');
-                //}
-                //autoshowTheme.toggleSearch('close');
+            $('.primary-nav > .has-children').children('a').on('mouseenter', function (event) {
+                if (autoshowTheme.checkWindowWidth()) {
+                    event.preventDefault();
+                    var selected = $(this);
+                    if (selected.next('ul').hasClass('is-hidden')) {
+                        //desktop version only
+                        selected.addClass('selected').next('ul').removeClass('is-hidden').end().parent('.has-children').parent('ul').addClass('moves-out');
+                        selected.parent('.has-children').siblings('.has-children').children('ul').addClass('is-hidden').end().children('a').removeClass('selected');
+                        $('.overlay').addClass('is-visible');
+                    }
+                    //else {
+                    //  selected.removeClass('selected').next('ul').addClass('is-hidden').end().parent('.has-children').parent('ul').removeClass('moves-out');
+                    //  $('.overlay').removeClass('is-visible');
+                    //}
+                    //autoshowTheme.toggleSearch('close');
                 }
             });
 
@@ -310,27 +328,27 @@
         },
 
         // Search Icon
-        searchIcon: function() {
+        searchIcon: function () {
             //open search form
             $('.search-trigger').on('click', function (event) {
                 event.preventDefault();
                 autoshowTheme.toggleSearch();
                 autoshowTheme.closeNav();
-            });            
+            });
         },
 
         // CTA Menu
-        cta: function() {
-            if ($('.cta-bar').length) { 
+        cta: function () {
+            if ($('.cta-bar').length) {
                 var scrollTrigger = 100, // px
-                backToTop = function () {
-                    var scrollTop = $(window).scrollTop();
-                    if (scrollTop > scrollTrigger) {
-                        $('.back-to-top').addClass('show');
-                    } else {
-                        $('.back-to-top').removeClass('show');
-                    }
-                };
+                    backToTop = function () {
+                        var scrollTop = $(window).scrollTop();
+                        if (scrollTop > scrollTrigger) {
+                            $('.back-to-top').addClass('show');
+                        } else {
+                            $('.back-to-top').removeClass('show');
+                        }
+                    };
                 $(window).on('scroll', function () {
                     backToTop();
                 });
@@ -345,14 +363,14 @@
         },
 
         // Counters
-        counters: function() {
+        counters: function () {
             //Counter activation
-            if ( $().countTo ) { 
-                $('.counters').appear(function() {
-                    $(this).find('.accent').each(function() {
+            if ($().countTo) {
+                $('.counters').appear(function () {
+                    $(this).find('.accent').each(function () {
                         var to = $(this).data('to'),
                             speed = $(this).data('speed');
-                            
+
                         $(this).countTo({
                             to: to,
                             speed: speed
@@ -363,77 +381,77 @@
         },
 
         //Partner
-        partners: function() {           
-            if ( $().owlCarousel ) {
-                $('.partners').each(function(){
+        partners: function () {
+            if ($().owlCarousel) {
+                $('.partners').each(function () {
                     var
-                    $this = $(this),
-                    auto = $this.data("auto"),
-                    loop = $this.data("loop"),
-                    item = $this.data("column"),
-                    item2 = $this.data("column2"),
-                    item3 = $this.data("column3"),
-                    gap = Number($this.data("gap"));
+                        $this = $(this),
+                        auto = $this.data("auto"),
+                        loop = $this.data("loop"),
+                        item = $this.data("column"),
+                        item2 = $this.data("column2"),
+                        item3 = $this.data("column3"),
+                        gap = Number($this.data("gap"));
 
                     $this.find('.owl-carousel').owlCarousel({
                         loop: loop,
                         margin: gap,
                         nav: false,
-                        navigation : false,
+                        navigation: false,
                         pagination: true,
                         autoplay: auto,
                         autoplayTimeout: 5000,
                         responsive: {
-                            0:{
-                                items:item3
+                            0: {
+                                items: item3
                             },
-                            600:{
-                                items:item2
+                            600: {
+                                items: item2
                             },
-                            1000:{
-                                items:item
+                            1000: {
+                                items: item
                             }
                         }
                     });
                 });
-            }   
+            }
         },
 
         // Parallax
-        parallax: function() {
+        parallax: function () {
             $('.section-bg').parallax("50%", 0.1);
         },
 
         // Testimonials
-        testimonials: function() {
-            if ( $().owlCarousel ) {
-                $('.testimonials').each(function(){
+        testimonials: function () {
+            if ($().owlCarousel) {
+                $('.testimonials').each(function () {
                     var
-                    $this = $(this),
-                    auto = $this.data("auto"),
-                    loop = $this.data("loop"),
-                    item = $this.data("column"),
-                    item2 = $this.data("column2"),
-                    item3 = $this.data("column3"),
-                    gap = Number($this.data("gap"));
+                        $this = $(this),
+                        auto = $this.data("auto"),
+                        loop = $this.data("loop"),
+                        item = $this.data("column"),
+                        item2 = $this.data("column2"),
+                        item3 = $this.data("column3"),
+                        gap = Number($this.data("gap"));
 
                     $this.find('.owl-carousel').owlCarousel({
                         loop: loop,
                         margin: gap,
                         nav: true,
-                        navigation : true,
+                        navigation: true,
                         pagination: true,
                         autoplay: auto,
                         autoplayTimeout: 5000,
                         responsive: {
-                            0:{
-                                items:item3
+                            0: {
+                                items: item3
                             },
-                            600:{
-                                items:item2
+                            600: {
+                                items: item2
                             },
-                            1000:{
-                                items:item
+                            1000: {
+                                items: item
                             }
                         }
                     });
@@ -442,111 +460,111 @@
         },
 
         // CarCarousel
-        carCarousel: function() {
-            if ( $().owlCarousel ) {
-                $('.car-carousel').each(function(){
+        carCarousel: function () {
+            if ($().owlCarousel) {
+                $('.car-carousel').each(function () {
                     var
-                    $this = $(this),
-                    auto = $this.data("auto"),
-                    loop = $this.data("loop"),
-                    item = $this.data("column"),
-                    nav = $this.data("nav"),
-                    item2 = $this.data("column2"),
-                    item3 = $this.data("column3"),
-                    gap = Number($this.data("gap"));
+                        $this = $(this),
+                        auto = $this.data("auto"),
+                        loop = $this.data("loop"),
+                        item = $this.data("column"),
+                        nav = $this.data("nav"),
+                        item2 = $this.data("column2"),
+                        item3 = $this.data("column3"),
+                        gap = Number($this.data("gap"));
 
                     $this.find('.owl-carousel').owlCarousel({
                         loop: loop,
                         margin: gap,
                         nav: nav,
-                        navigation : nav,
+                        navigation: nav,
                         pagination: true,
                         autoplay: auto,
                         autoplayTimeout: 5000,
                         responsive: {
-                            0:{
-                                items:item3
+                            0: {
+                                items: item3
                             },
-                            600:{
-                                items:item2
+                            600: {
+                                items: item2
                             },
-                            1000:{
-                                items:item
+                            1000: {
+                                items: item
                             }
                         }
                     });
                 });
             }
         },
-        
+
         //Sliding Button Icon
-        slidingButton: function() {
-            $(window).on('load', function() {
-                $(".button.button-sliding-icon").each(function() {
-                    var buttonWidth = $(this).outerWidth()+30;
-                    $(this).css('width',buttonWidth);
+        slidingButton: function () {
+            $(window).on('load', function () {
+                $(".button.button-sliding-icon").each(function () {
+                    var buttonWidth = $(this).outerWidth() + 30;
+                    $(this).css('width', buttonWidth);
                 });
             });
         },
 
         // Slider Activation
-        mainSlider: function() {
+        mainSlider: function () {
             var startSlider = $(".slider-active");
-            startSlider.on("init", function(e, slick) {
-              var $firstAnimatingElements = $(".single-slider:first-child").find(
-                "[data-animation]"
-              );
-              doAnimations($firstAnimatingElements);
+            startSlider.on("init", function (e, slick) {
+                var $firstAnimatingElements = $(".single-slider:first-child").find(
+                    "[data-animation]"
+                );
+                doAnimations($firstAnimatingElements);
             });
-            startSlider.on("beforeChange", function(e, slick, currentSlide, nextSlide) {
-              var $animatingElements = $(
-                '.single-slider[data-slick-index="' + nextSlide + '"]'
-              ).find("[data-animation]");
-              doAnimations($animatingElements);
+            startSlider.on("beforeChange", function (e, slick, currentSlide, nextSlide) {
+                var $animatingElements = $(
+                    '.single-slider[data-slick-index="' + nextSlide + '"]'
+                ).find("[data-animation]");
+                doAnimations($animatingElements);
             });
             startSlider.slick({
-              autoplay: true,
-              autoplaySpeed: 10000,
-              fade: true,
-              prevArrow:
-                '<button type="button" class="slick-prev"><i class="icofont-long-arrow-left"></i>Prev</button>',
-              nextArrow:
-                '<button type="button" class="slick-next"><i class="icofont-long-arrow-right"></i>Next</button>',
-              arrows: false,
-              dots: true,
-              responsive: [
-                { breakpoint: 767, settings: { dots: false, arrows: false } }
-              ]
+                autoplay: true,
+                autoplaySpeed: 10000,
+                fade: true,
+                prevArrow:
+                    '<button type="button" class="slick-prev"><i class="icofont-long-arrow-left"></i>Prev</button>',
+                nextArrow:
+                    '<button type="button" class="slick-next"><i class="icofont-long-arrow-right"></i>Next</button>',
+                arrows: false,
+                dots: true,
+                responsive: [
+                    { breakpoint: 767, settings: { dots: false, arrows: false } }
+                ]
             });
 
-            function doAnimations(elements) {
-              var animationEndEvents =
-                "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
-              elements.each(function() {
-                var $this = $(this);
-                var $animationDelay = $this.data("delay");
-                var $animationType = "animated " + $this.data("animation");
-                $this.css({
-                  "animation-delay": $animationDelay,
-                  "-webkit-animation-delay": $animationDelay
+            function doAnimations (elements) {
+                var animationEndEvents =
+                    "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
+                elements.each(function () {
+                    var $this = $(this);
+                    var $animationDelay = $this.data("delay");
+                    var $animationType = "animated " + $this.data("animation");
+                    $this.css({
+                        "animation-delay": $animationDelay,
+                        "-webkit-animation-delay": $animationDelay
+                    });
+                    $this.addClass($animationType).one(animationEndEvents, function () {
+                        $this.removeClass($animationType);
+                    });
                 });
-                $this.addClass($animationType).one(animationEndEvents, function() {
-                  $this.removeClass($animationType);
-                });
-              });
             }
         },
 
         //Gallery Mosaic
-        gallery: function() {
+        gallery: function () {
             var $container;
 
             $(window).on('load', function () {
                 if ($(".gallery").length) {
                     $container = $('.mosaic').masonry({
-                      // options
-                      itemSelector: '.grid-item',
-                      columnWidth: '.grid-sizer'
+                        // options
+                        itemSelector: '.grid-item',
+                        columnWidth: '.grid-sizer'
                     });
                 }
             });
@@ -555,22 +573,22 @@
                 if ($(this).find("a").attr("data-action") == 'gallery') {
                     window.setTimeout(function () {
                         $container.masonry('layout');
-                    }, 200);                                
+                    }, 200);
                 }
             });
 
             $('.gallery').magnificPopup({
-                type:'image',
+                type: 'image',
                 delegate: '.image-link',
                 gallery: {
-                  enabled: true
+                    enabled: true
                 }
             });
 
         },
 
         // Car Interest
-        carInterest: function() {
+        carInterest: function () {
             if ($(".car-interest").length > 0) {
                 //open interest point description
                 $('.interest-point').children('a').on('click', function () {
@@ -589,11 +607,11 @@
             }
         },
 
-        softScroll: function() {
-            $('html, body').on('click', 'a[href*="#"]', function(event) {
+        softScroll: function () {
+            $('html, body').on('click', 'a[href*="#"]', function (event) {
                 let target = $(this).attr('href');
-                if($(target).length > 0) {
-                    event.preventDefault(); 
+                if ($(target).length > 0) {
+                    event.preventDefault();
                     event.stopImmediatePropagation();
                     let headerHeight = $('#header').outerHeight();
                     $('html, body').animate({
@@ -601,7 +619,19 @@
                     }, 1000);
                 }
             })
-        }
+        },
+
+        //Gallery Mosaic
+        magnificPopupInit: function () {
+            $('.slidercontent').magnificPopup({
+                delegate: '.magnific-popup',
+                type: 'image',
+                gallery: {
+                    enabled: true
+                },
+            });
+
+        },
 
     };
 
