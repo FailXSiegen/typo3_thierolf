@@ -24,6 +24,7 @@ mod.wizards.newContentElement.wizardItems {
 }
 
 TCEFORM {
+    tx_wsflexslider_domain_model_image.styleclass.disabled = 1
     pages {
         layout {
             altLabels {

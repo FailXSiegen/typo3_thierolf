@@ -78,6 +78,45 @@ call_user_func(
                     ],
                 ],
             ],
+            'positionclass' => [
+                'exclude' => 0,
+                'label' => 'LLL:EXT:ws_flexslider/Resources/Private/Language/locallang_db.xlf:tx_wsflexslider_domain_model_image.styleclass',
+                'config' => [
+                    'type' => 'select',
+                    'renderType' => 'selectSingle',
+                    'items' => [
+                        
+                        [
+                            'Oben Links',
+                            'position-absolute m-3 top-0 start-0'
+                        ],
+                        [
+                            'Unten Links',
+                            'position-absolute m-3 bottom-0 start-0'
+                        ],
+                        [
+                            'Oben Rechts',
+                            'position-absolute m-3 top-0 end-0'
+                        ],
+                        [
+                            'Unten Rechts',
+                            'position-absolute m-3 bottom-0 end-0'
+                        ],
+                        [
+                            'Mitte',
+                            'position-absolute top-50 start-50 translate-middle'
+                        ],
+                        [
+                            'style1',
+                            'style1'
+                        ],
+                        [
+                            'style2',
+                            'style2'
+                        ],
+                    ],
+                ],
+            ],
             'fal_image' => [
                 'exclude' => 0,
                 'l10n_mode' => 'mergeIfNotBlank',
@@ -136,7 +175,7 @@ call_user_func(
 
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
             'tx_wsflexslider_domain_model_image',
-            'zoom, --linebreak--',
+            'positionclass, --linebreak--, zoom, --linebreak--',
             '',
             'after:styleclass'
         );

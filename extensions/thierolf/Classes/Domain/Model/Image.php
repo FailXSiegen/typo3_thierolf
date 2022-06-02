@@ -26,6 +26,13 @@ class Image extends \WapplerSystems\WsFlexslider\Domain\Model\Image
      */
     protected $zoom;
 
+     /**
+     * positionclass
+     *
+     * @var string
+     */
+    protected $positionclass;
+
     /**
      * Returns the zoom
      *
@@ -45,5 +52,26 @@ class Image extends \WapplerSystems\WsFlexslider\Domain\Model\Image
     public function setZoom($zoom)
     {
         $this->zoom = $zoom;
+    }
+
+    /**
+     * Returns the position class
+     *
+     * @return string $positionclass
+     */
+    public function getPositionclass()
+    {
+        return $this->positionclass;
+    }
+
+    /**
+     * Sets the position class
+     *
+     * @param string $positionclass
+     * @return void
+     */
+    public function setPositionclass($positionclass)
+    {
+        $this->positionclass = $positionclass;
     }
 }

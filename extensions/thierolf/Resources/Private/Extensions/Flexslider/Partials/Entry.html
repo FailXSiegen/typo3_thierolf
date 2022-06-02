@@ -40,7 +40,8 @@
                         </f:else>
                     </f:if>
                 </f:if>
-                <div class="caption-wrapper caption-align-{item.textposition} {item.styleclass}">
+                <div
+                    class="caption-wrapper caption-align-{item.textposition} {f:if(condition: item.positionclass, then: '{item.positionclass}',else: '{item.styleclass}')}">
                     <f:if condition="{item.title}||{item.description}">
                         <div class="caption-text p-3">
                             <p class="caption-title mb-0">{item.title}</p>
