@@ -77,6 +77,56 @@ call_user_func(
                         ],
                     ],
                 ],
+            ],
+            'fal_image' => [
+                'exclude' => 0,
+                'l10n_mode' => 'mergeIfNotBlank',
+                'label' => 'LLL:EXT:ws_flexslider/Resources/Private/Language/locallang_db.xlf:tx_wsflexslider_domain_model_image.image',
+                'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+                    'fal_image',
+                    [
+                        'minitems' => 0,
+                        'maxitems' => 1,
+                        'appearance' => [
+                            'createNewRelationLinkTitle' => 'LLL:EXT:ws_flexslider/Resources/Private/Language/locallang_db.xlf:add_image',
+                            'showAllLocalizationLink' => true,
+                            'headerThumbnail' => [
+                                'height' => '90c',
+                                'width' => 90
+                            ]
+                        ],
+                        'foreign_match_fields' => [
+                            'fieldname' => 'fal_image',
+                            'tablenames' => 'tx_wsflexslider_domain_model_image',
+                            'table_local' => 'sys_file',
+                        ],
+                        'foreign_types' => [
+                            '0' => [
+                                'showitem' => '
+                                    --palette--;LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette,
+                                    --palette--;;imageoverlayPalette,
+                                    --palette--;;filePalette'
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+                                'showitem' => '
+                                    --palette--;LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette,
+                                    --palette--;;imageoverlayPalette,
+                                    --palette--;;filePalette'
+                            ],
+                        ],
+                        'overrideChildTca' => [
+                            'types' => [
+                                \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+                                    'showitem' => '
+                                        --palette--;;imageoverlayPalette,
+                                        --palette--;;filePalette'
+                                ],
+                            ],
+                        ],
+                    ],
+                    'gif,jpg,jpeg,png,svg'
+                )
+    
             ]
         ];
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(

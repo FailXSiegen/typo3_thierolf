@@ -4,9 +4,9 @@
     "license": "GPL-3.0-or-later",
     "repositories": [
         {
-             "type": "composer",
-             "url": "https://composer.typo3.org/",
-             "options": {
+            "type": "composer",
+            "url": "https://composer.typo3.org/",
+            "options": {
                 "ssl": {
                     "verify_peer": "false"
                 }
@@ -62,16 +62,17 @@
         "typo3/cms-dashboard": "^10.4",
         "helhum/typo3-console": "^6.0",
         "helhum/dotenv-connector": "^2.1",
-        "gridelementsteam/gridelements":"^10.0",
+        "gridelementsteam/gridelements": "^10.0",
         "laxap/bootstrap-grids": "^2.2",
         "t3/min": "^1.7",
         "georgringer/news": "^9.1",
         "lochmueller/staticfilecache": "^11.1",
         "svewap/ws-flexslider": "^1.5",
-        "jigal/t3adminer":"^9.5",
+        "jigal/t3adminer": "^9.5",
         "thierolf/ttpdf": "@dev",
         "failx/templates-thierolf": "@dev",
-        "plan2net/webp": "^4.1"
+        "plan2net/webp": "^4.1",
+        "jweiland/sync-crop-areas": "^2.2"
     },
     "extra": {
         "typo3/cms": {

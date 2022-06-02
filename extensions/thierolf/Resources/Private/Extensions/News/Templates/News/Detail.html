@@ -1,7 +1,6 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
-	  xmlns:rx="http://typo3.org/ns/Reelworx/RxShariff/ViewHelper"
-	  data-namespace-typo3-fluid="true">
+	xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+	xmlns:rx="http://typo3.org/ns/Reelworx/RxShariff/ViewHelper" data-namespace-typo3-fluid="true">
 
 <f:layout name="Detail" />
 
@@ -18,18 +17,18 @@
 				<f:if condition="{settings.detail.showMetaTags}">
 					<f:render partial="Detail/Opengraph" arguments="{newsItem: newsItem, settings:settings}" />
 				</f:if>
-                <f:if condition="{newsItem.alternativeTitle}">
-                    <f:then>
-                        <n:titleTag>
-                            <f:format.htmlentitiesDecode>{newsItem.alternativeTitle}</f:format.htmlentitiesDecode>
-                        </n:titleTag>
-                    </f:then>
-                    <f:else>
-                        <n:titleTag>
-                            <f:format.htmlentitiesDecode>{newsItem.title}</f:format.htmlentitiesDecode>
-                        </n:titleTag>
-                    </f:else>
-                </f:if>
+				<f:if condition="{newsItem.alternativeTitle}">
+					<f:then>
+						<n:titleTag>
+							<f:format.htmlentitiesDecode>{newsItem.alternativeTitle}</f:format.htmlentitiesDecode>
+						</n:titleTag>
+					</f:then>
+					<f:else>
+						<n:titleTag>
+							<f:format.htmlentitiesDecode>{newsItem.title}</f:format.htmlentitiesDecode>
+						</n:titleTag>
+					</f:else>
+				</f:if>
 			</n:format.nothing>
 			<f:if condition="{settings.detail.showPrevNext}">
 				<n:simplePrevNext pidList="{newsItem.pid}" news="{newsItem}" as="paginated" sortField="datetime">
@@ -60,27 +59,31 @@
 				<p>
 					<!-- date -->
 					<span class="news-list-date">
-						<time itemprop="datePublished" datetime="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}">
+						<time itemprop="datePublished"
+							datetime="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}">
 							<f:format.date format="{f:translate(key:'dateFormat')}">{newsItem.datetime}</f:format.date>
 						</time>
 					</span>
 
 					<f:if condition="{newsItem.categories}">
-						&nbsp;|&nbsp;<f:render partial="Category/Items" arguments="{categories:newsItem.categories, settings:settings}" />
+						&nbsp;|&nbsp;
+						<f:render partial="Category/Items"
+							arguments="{categories:newsItem.categories, settings:settings}" />
 					</f:if>
 
 					<f:if condition="{newsItem.tags}">
 						&nbsp;|&nbsp;
 						<!-- Tags -->
 						<span class="news-list-tags" itemprop="keywords">
-						<f:for each="{newsItem.tags}" as="tag">
-							{tag.title}
-						</f:for>
+							<f:for each="{newsItem.tags}" as="tag">
+								{tag.title}
+							</f:for>
 						</span>
 					</f:if>
 				</p>
 			</div>
-			<n:renderMedia news="{newsItem}" imgClass="img-responsive" videoClass="video-wrapper" audioClass="audio-wrapper">
+			<n:renderMedia news="{newsItem}" imgClass="img-responsive" videoClass="video-wrapper"
+				audioClass="audio-wrapper">
 				<f:if condition="{newsItem.teaser}">
 					<!-- teaser -->
 					<div class="teaser-text" itemprop="description">
@@ -95,11 +98,13 @@
 						</div>
 						<f:if condition="{newsItem.contentElements}">
 							<!-- content elements -->
-							<f:cObject typoscriptObjectPath="lib.tx_news.contentElementRendering">{newsItem.contentElementIdList}</f:cObject>
+							<f:cObject typoscriptObjectPath="lib.tx_news.contentElementRendering">
+								{newsItem.contentElementIdList}</f:cObject>
 						</f:if>
 					</div>
 					<div class="col-12 col-md-4">
-						<f:render partial="Detail/MediaContainer" arguments="{media: newsItem.mediaNonPreviews, settings:settings}" />
+						<f:render partial="Detail/MediaContainer"
+							arguments="{media: newsItem.mediaNonPreviews, settings:settings}" />
 					</div>
 				</div>
 			</n:renderMedia>
@@ -135,7 +140,6 @@
 					- {newsItem.relatedFromSortedByForeign}: all related from sorted by foreign sorting
 					- {newsItem.relatedFromSorted}: all related from, sorted by date
 				</f:comment>
-
 				<f:if condition="{newsItem.allRelatedSorted}">
 					<!-- Related news records -->
 					<div class="news-related news-related-news">
@@ -145,7 +149,10 @@
 						<ul>
 							<f:for each="{newsItem.allRelatedSorted}" as="related">
 								<li>
-									<span class="news-related-news-date"><f:format.date format="{f:translate(key:'dateFormat')}">{related.datetime}</f:format.date></span>
+									<span class="news-related-news-date">
+										<f:format.date format="{f:translate(key:'dateFormat')}">{related.datetime}
+										</f:format.date>
+									</span>
 									<n:link newsItem="{related}" settings="{settings}" title="{related.title}">
 										{related.title}
 									</n:link>
@@ -166,8 +173,11 @@
 							<f:for each="{newsItem.relatedFiles}" as="relatedFile">
 								<li>
 									<span class="news-related-files-link">
-										<a href="{relatedFile.originalResource.publicUrl -> f:format.htmlspecialchars()}" target="_blank">
-											{f:if(condition:relatedFile.originalResource.title, then:relatedFile.originalResource.title, else:relatedFile.originalResource.name)}
+										<a href="{relatedFile.originalResource.publicUrl -> f:format.htmlspecialchars()}"
+											target="_blank">
+											{f:if(condition:relatedFile.originalResource.title,
+											then:relatedFile.originalResource.title,
+											else:relatedFile.originalResource.name)}
 										</a>
 									</span>
 									<span class="news-related-files-size">
@@ -188,8 +198,12 @@
 						<ul>
 							<f:for each="{newsItem.relatedLinks}" as="relatedLink">
 								<li>
-									<f:link.typolink parameter="{relatedLink.uri}" title="{relatedLink.title}" target="{n:targetLink(link:relatedLink.uri)}">{f:if(condition: relatedLink.title, then: relatedLink.title, else: relatedLink.uri)}</f:link.typolink>
-									<f:if condition="{relatedLink.description}"><span>{relatedLink.description}</span></f:if>
+									<f:link.typolink parameter="{relatedLink.uri}" title="{relatedLink.title}"
+										target="{n:targetLink(link:relatedLink.uri)}">{f:if(condition:
+										relatedLink.title, then: relatedLink.title, else: relatedLink.uri)}
+									</f:link.typolink>
+									<f:if condition="{relatedLink.description}"><span>{relatedLink.description}</span>
+									</f:if>
 								</li>
 							</f:for>
 						</ul>
@@ -202,4 +216,5 @@
 		</f:else>
 	</f:if>
 </f:section>
+
 </html>
