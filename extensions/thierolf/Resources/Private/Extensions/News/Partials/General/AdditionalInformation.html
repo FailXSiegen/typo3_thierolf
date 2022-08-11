@@ -14,7 +14,7 @@
 	</time>
 
 	<f:if condition="{newsItem.tags}">
-		<span class="glyphicon glyphicon-tags"> </span> <span class="news-list-tags" itemprop="keywords">
+		| <span class="glyphicon glyphicon-tags"> </span> <span class="news-list-tags" itemprop="keywords">
 			<f:for each="{newsItem.tags}" as="tag" iteration="tagIterator">
 				<span class="label label-info">{tag.title}</span>
 				<f:if condition="{tagIterator.isLast}">
