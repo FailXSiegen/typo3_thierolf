@@ -23,14 +23,12 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-$EM_CONF[$_EXTKEY] = [
+$EM_CONF['thierolf'] = [
     'title' => 'Thierolf Basis extension',
     'description' => 'Provider extension for pages content and more.',
     'category' => 'misc',
     'version' => '1.0.0',
     'state' => 'stable',
-    'uploadfolder' => false,
-    'createDirs' => '',
     'clearCacheOnLoad' => true,
     'author' => 'Felix Herrmann',
     'author_email' => 'info@failx.de',

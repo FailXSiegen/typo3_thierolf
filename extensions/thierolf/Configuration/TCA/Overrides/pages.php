@@ -25,12 +25,12 @@
   *  This copyright notice MUST APPEAR in all copies of the script!
   ***************************************************************/
 
-if (!defined('TYPO3_MODE')) {
+if (!defined('TYPO3')) {
     die('Access denied.');
 }
 
 call_user_func(
-    function ($_EXTKEY) {
+    function ($extkey) {
 
         // $columns = [
         //     'fa_icon_name' => [
@@ -53,7 +53,7 @@ call_user_func(
         // \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('pages', 'fa_icon_name','','after:title');
 
         // get absolute path the PageTSconfig directory.
-        $path = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY).'Configuration/PageTSconfig/';
+        $path = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('thierolf').'Configuration/PageTSconfig/';
         // Collect .ts files.
         $filesTS = \TYPO3\CMS\Core\Utility\GeneralUtility::getFilesInDir($path, 'ts');
         // Collect .txt files
@@ -63,7 +63,7 @@ call_user_func(
         foreach ($files as $fileKey => $fileValue) {
             // Register all files under PageTS
             \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
-                $_EXTKEY,
+                'thierolf',
                 'Configuration/PageTSconfig/'.$fileValue,
                 $fileValue
             );

@@ -1,5 +1,5 @@
 <?php
-$EM_CONF[$_EXTKEY] = [
+$EM_CONF['ttpdf'] = [
     'title' => 'PDF Folder auslesen',
     'description' => 'Einbinden der Klassen für userFunc',
     'category' => 'fe',

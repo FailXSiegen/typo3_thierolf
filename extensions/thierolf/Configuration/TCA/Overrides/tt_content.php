@@ -24,12 +24,12 @@
   *  This copyright notice MUST APPEAR in all copies of the script!
   ***************************************************************/
 
-if (!defined('TYPO3_MODE')) {
+if (!defined('TYPO3')) {
     die('Access denied.');
 }
 
 call_user_func(
-    function ($_EXTKEY) {
+    function ($extkey) {
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
             'tt_content',
             'CType',

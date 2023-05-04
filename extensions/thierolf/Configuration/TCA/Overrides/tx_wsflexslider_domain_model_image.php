@@ -24,12 +24,12 @@
   *  This copyright notice MUST APPEAR in all copies of the script!
   ***************************************************************/
 
-if (!defined('TYPO3_MODE')) {
+if (!defined('TYPO3')) {
     die('Access denied.');
 }
 
 call_user_func(
-    function ($_EXTKEY) {
+    function ($extkey) {
         $columns = [
             'zoom' => [
                 'exclude' => 0,
@@ -142,13 +142,13 @@ call_user_func(
                         'foreign_types' => [
                             '0' => [
                                 'showitem' => '
-                                    --palette--;LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette,
+                                    --palette--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette,
                                     --palette--;;imageoverlayPalette,
                                     --palette--;;filePalette'
                             ],
                             \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
                                 'showitem' => '
-                                    --palette--;LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette,
+                                    --palette--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette,
                                     --palette--;;imageoverlayPalette,
                                     --palette--;;filePalette'
                             ],

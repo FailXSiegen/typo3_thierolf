@@ -7,7 +7,7 @@ namespace Failx\Thierolf\Utility;
  * For the full copyright and license information, please read the
  * LICENSE.md file that was distributed with this source code.
  */
-
+use TYPO3\CMS\Core\Package\Exception;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
@@ -45,7 +45,7 @@ class CoreUtility
      * Returns the current core minor version
      *
      * @return string
-     * @throws \TYPO3\CMS\Core\Package\Exception
+     * @throws Exception
      */
     public static function getCurrentCoreVersion()
     {
