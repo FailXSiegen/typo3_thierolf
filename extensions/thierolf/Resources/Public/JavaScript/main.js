@@ -28,56 +28,72 @@ var __webpack_exports__ = {};
           tNext: 'Nächste (Rechte Pfeiltaste)',
           // Alt text on right arrow
           tCounter: '%curr% von %total%' // Markup for "1 of 7" counter
-
         },
+
         image: {
           tError: '<a href="%url%">Das Bild</a> konnte nicht geladen werden.' // Error message when image could not be loaded
-
         },
+
         ajax: {
           tError: '<a href="%url%">The content</a> could not be loaded.' // Error message when ajax request failed
-
         }
       });
     },
+
     // Events
     events: function events() {
-      var self = this; // Run on document ready
-
+      var self = this;
+      // Run on document ready
       self.config.$document.ready(function () {
         // PreLoader
-        self.preLoader(); // Wow
+        self.preLoader();
 
-        self.wowSet(); // Menu Navigation
+        // Wow
+        self.wowSet();
 
-        self.menuNav(); // Search Icon
+        // Menu Navigation
+        self.menuNav();
 
-        self.searchIcon(); // CTA Menu
+        // Search Icon
+        self.searchIcon();
 
-        self.cta(); // Parallax
+        // CTA Menu
+        self.cta();
 
-        self.parallax(); // Testimonials
+        // Parallax
+        self.parallax();
 
-        self.testimonials(); // Counters
+        // Testimonials
+        self.testimonials();
 
-        self.counters(); // Partners
+        // Counters
+        self.counters();
 
-        self.partners(); // Car Interest
+        // Partners
+        self.partners();
 
-        self.carInterest(); // Car Carousel
+        // Car Interest
+        self.carInterest();
 
-        self.carCarousel(); // Sticky Header
+        // Car Carousel
+        self.carCarousel();
 
-        self.sticky(); // Sliding Button
+        // Sticky Header
+        self.sticky();
 
-        self.slidingButton(); // Main Slider
+        // Sliding Button
+        self.slidingButton();
 
-        self.mainSlider(); // Gallery
+        // Main Slider
+        self.mainSlider();
 
-        self.gallery(); //softScroll
+        // Gallery
+        self.gallery();
 
-        self.softScroll(); //softScroll
+        //softScroll
+        self.softScroll();
 
+        //softScroll
         self.magnificPopupInit();
       });
       self.config.$window.resize(function () {
@@ -94,7 +110,6 @@ var __webpack_exports__ = {};
           position: 'fixed'
         });
         var headerOffset = $("#header").height();
-
         if ($(window).scrollTop() >= headerOffset) {
           $("#header").addClass('sticky');
           $(".wrapper-with-transparent-header #header").addClass('sticky').removeClass("transparent-header unsticky");
@@ -102,13 +117,11 @@ var __webpack_exports__ = {};
           $("#header").removeClass("sticky");
           $(".wrapper-with-transparent-header #header").addClass('transparent-header unsticky').removeClass("sticky");
         }
-
         if ($('.transparent-header #header').hasClass('sticky')) {
           $("#header.sticky .main-logo img").attr("src", stickyLogo);
         } else {
           $("#header .main-logo img").attr("src", transparentLogo);
         }
-
         $(window).on('load resize', function () {
           var headerOffset = $("#header-container").height();
           $("#wrapper").css({
@@ -118,7 +131,6 @@ var __webpack_exports__ = {};
       });
       $("#header").on('mouseenter', function () {
         var headerOffset = $("#header").height();
-
         if ($(window).scrollTop() <= headerOffset) {
           // CSS adjustment
           $("#header").css({
@@ -130,7 +142,6 @@ var __webpack_exports__ = {};
       });
       $("#header").on('mouseleave', function () {
         var headerOffset = $("#header").height();
-
         if ($(window).scrollTop() <= headerOffset) {
           $(".transparent-header #header").removeClass("sticky");
           $("#header .main-logo img").attr("src", transparentLogo);
@@ -193,13 +204,11 @@ var __webpack_exports__ = {};
     checkWindowWidth: function checkWindowWidth() {
       //check window width (scrollbar included)
       var e = window,
-          a = 'inner';
-
+        a = 'inner';
       if (!('innerWidth' in window)) {
         a = 'client';
         e = document.documentElement || document.body;
       }
-
       if (e[a + 'Width'] >= MqL) {
         return true;
       } else {
@@ -209,7 +218,6 @@ var __webpack_exports__ = {};
     moveNavigation: function moveNavigation() {
       var navigation = $('.nav:not(.nav-tabs)');
       var desktop = autoshowTheme.checkWindowWidth();
-
       if (desktop) {
         navigation.detach();
         navigation.insertAfter('.header-buttons');
@@ -224,11 +232,11 @@ var __webpack_exports__ = {};
       autoshowTheme.moveNavigation();
       $(window).on('resize', function () {
         !window.requestAnimationFrame ? setTimeout(autoshowTheme.moveNavigation, 300) : window.requestAnimationFrame(autoshowTheme.moveNavigation);
-      }); //mobile - open lateral menu clicking on the menu icon
+      });
 
+      //mobile - open lateral menu clicking on the menu icon
       $('.nav-trigger').on('click', function (event) {
         event.preventDefault();
-
         if ($('.site-wrapper').hasClass('nav-is-visible')) {
           autoshowTheme.closeNav();
           $('.overlay').removeClass('is-visible');
@@ -241,8 +249,9 @@ var __webpack_exports__ = {};
           autoshowTheme.toggleSearch('close');
           $('.overlay').addClass('is-visible');
         }
-      }); //close lateral menu on mobile 
+      });
 
+      //close lateral menu on mobile 
       $('.overlay').on('swiperight', function () {
         if ($('.primary-nav').hasClass('nav-is-visible')) {
           autoshowTheme.closeNav();
@@ -253,34 +262,34 @@ var __webpack_exports__ = {};
         autoshowTheme.closeNav();
         autoshowTheme.toggleSearch('close');
         $('.overlay').removeClass('is-visible');
-      }); //prevent default clicking on direct children of .cd-primary-nav 
+      });
 
+      //prevent default clicking on direct children of .cd-primary-nav 
       $('.primary-nav').children('.has-children').children('a').on('click', function (event) {
         event.preventDefault();
-      }); //open submenu
-
+      });
+      //open submenu
       $('.primary-nav > .has-children').children('a').on('mouseenter', function (event) {
         if (autoshowTheme.checkWindowWidth()) {
           event.preventDefault();
           var selected = $(this);
-
           if (selected.next('ul').hasClass('is-hidden')) {
             //desktop version only
             selected.addClass('selected').next('ul').removeClass('is-hidden').end().parent('.has-children').parent('ul').addClass('moves-out');
             selected.parent('.has-children').siblings('.has-children').children('ul').addClass('is-hidden').end().children('a').removeClass('selected');
             $('.overlay').addClass('is-visible');
-          } //else {
+          }
+          //else {
           //  selected.removeClass('selected').next('ul').addClass('is-hidden').end().parent('.has-children').parent('ul').removeClass('moves-out');
           //  $('.overlay').removeClass('is-visible');
           //}
           //autoshowTheme.toggleSearch('close');
-
         }
       });
+
       $('.has-children').children('a').on('click', function (event) {
         if (!autoshowTheme.checkWindowWidth()) event.preventDefault();
         var selected = $(this);
-
         if (selected.next('ul').hasClass('is-hidden')) {
           //desktop version only
           selected.addClass('selected').next('ul').removeClass('is-hidden').end().parent('.has-children').parent('ul').addClass('moves-out');
@@ -290,10 +299,9 @@ var __webpack_exports__ = {};
           selected.removeClass('selected').next('ul').addClass('is-hidden').end().parent('.has-children').parent('ul').removeClass('moves-out');
           $('.overlay').removeClass('is-visible');
         }
-
         autoshowTheme.toggleSearch('close');
-      }); //submenu items - go back link
-
+      });
+      //submenu items - go back link
       $('.go-back').on('click', function () {
         $(this).parent('ul').addClass('is-hidden').parent('.has-children').parent('ul').removeClass('moves-out');
       });
@@ -316,17 +324,15 @@ var __webpack_exports__ = {};
     cta: function cta() {
       if ($('.cta-bar').length) {
         var scrollTrigger = 100,
-            // px
-        backToTop = function backToTop() {
-          var scrollTop = $(window).scrollTop();
-
-          if (scrollTop > scrollTrigger) {
-            $('.back-to-top').addClass('show');
-          } else {
-            $('.back-to-top').removeClass('show');
-          }
-        };
-
+          // px
+          backToTop = function backToTop() {
+            var scrollTop = $(window).scrollTop();
+            if (scrollTop > scrollTrigger) {
+              $('.back-to-top').addClass('show');
+            } else {
+              $('.back-to-top').removeClass('show');
+            }
+          };
         $(window).on('scroll', function () {
           backToTop();
         });
@@ -345,7 +351,7 @@ var __webpack_exports__ = {};
         $('.counters').appear(function () {
           $(this).find('.accent').each(function () {
             var to = $(this).data('to'),
-                speed = $(this).data('speed');
+              speed = $(this).data('speed');
             $(this).countTo({
               to: to,
               speed: speed
@@ -359,12 +365,12 @@ var __webpack_exports__ = {};
       if ($().owlCarousel) {
         $('.partners').each(function () {
           var $this = $(this),
-              auto = $this.data("auto"),
-              loop = $this.data("loop"),
-              item = $this.data("column"),
-              item2 = $this.data("column2"),
-              item3 = $this.data("column3"),
-              gap = Number($this.data("gap"));
+            auto = $this.data("auto"),
+            loop = $this.data("loop"),
+            item = $this.data("column"),
+            item2 = $this.data("column2"),
+            item3 = $this.data("column3"),
+            gap = Number($this.data("gap"));
           $this.find('.owl-carousel').owlCarousel({
             loop: loop,
             margin: gap,
@@ -397,12 +403,12 @@ var __webpack_exports__ = {};
       if ($().owlCarousel) {
         $('.testimonials').each(function () {
           var $this = $(this),
-              auto = $this.data("auto"),
-              loop = $this.data("loop"),
-              item = $this.data("column"),
-              item2 = $this.data("column2"),
-              item3 = $this.data("column3"),
-              gap = Number($this.data("gap"));
+            auto = $this.data("auto"),
+            loop = $this.data("loop"),
+            item = $this.data("column"),
+            item2 = $this.data("column2"),
+            item3 = $this.data("column3"),
+            gap = Number($this.data("gap"));
           $this.find('.owl-carousel').owlCarousel({
             loop: loop,
             margin: gap,
@@ -431,13 +437,13 @@ var __webpack_exports__ = {};
       if ($().owlCarousel) {
         $('.car-carousel').each(function () {
           var $this = $(this),
-              auto = $this.data("auto"),
-              loop = $this.data("loop"),
-              item = $this.data("column"),
-              nav = $this.data("nav"),
-              item2 = $this.data("column2"),
-              item3 = $this.data("column3"),
-              gap = Number($this.data("gap"));
+            auto = $this.data("auto"),
+            loop = $this.data("loop"),
+            item = $this.data("column"),
+            nav = $this.data("nav"),
+            item2 = $this.data("column2"),
+            item3 = $this.data("column3"),
+            gap = Number($this.data("gap"));
           $this.find('.owl-carousel').owlCarousel({
             loop: loop,
             margin: gap,
@@ -497,7 +503,6 @@ var __webpack_exports__ = {};
           }
         }]
       });
-
       function doAnimations(elements) {
         var animationEndEvents = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
         elements.each(function () {
@@ -547,14 +552,13 @@ var __webpack_exports__ = {};
         //open interest point description
         $('.interest-point').children('a').on('click', function () {
           var selectedPoint = $(this).parent('li');
-
           if (selectedPoint.hasClass('is-open')) {
             selectedPoint.removeClass('is-open');
           } else {
             selectedPoint.addClass('is-open').siblings('.interest-point.is-open').removeClass('is-open');
           }
-        }); //close interest point description
-
+        });
+        //close interest point description
         $('.interest-close-info').on('click', function (event) {
           event.preventDefault();
           $(this).parents('.interest-point').eq(0).removeClass('is-open');
@@ -564,7 +568,6 @@ var __webpack_exports__ = {};
     softScroll: function softScroll() {
       $('html, body').on('click', 'a[href*="#"]', function (event) {
         var target = $(this).attr('href');
-
         if ($(target).length > 0) {
           event.preventDefault();
           event.stopImmediatePropagation();
@@ -587,8 +590,9 @@ var __webpack_exports__ = {};
         });
       });
     }
-  }; // Start
+  };
 
+  // Start
   autoshowTheme.init();
 })(jQuery);
 /******/ })()

@@ -46,31 +46,30 @@
   #primary-nav ul {
     background-color: #f1f3f7;
   }
-
   .primary-nav a,
-.primary-nav ul a {
+  .primary-nav ul a {
     color: #2e3233;
   }
   .primary-nav .has-children > a::before,
-.primary-nav .has-children > a::after,
-.primary-nav .go-back a::before,
-.primary-nav .go-back a::after,
-.primary-nav ul .has-children > a::before,
-.primary-nav ul .has-children > a::after,
-.primary-nav ul .go-back a::before,
-.primary-nav ul .go-back a::after {
+  .primary-nav .has-children > a::after,
+  .primary-nav .go-back a::before,
+  .primary-nav .go-back a::after,
+  .primary-nav ul .has-children > a::before,
+  .primary-nav ul .has-children > a::after,
+  .primary-nav ul .go-back a::before,
+  .primary-nav ul .go-back a::after {
     background: #2e3233;
   }
-
   .main-logo {
     height: 60px;
   }
-
   .header-buttons {
     height: 60px;
   }
-
   .site-wrapper.header-top-with {
     padding-top: 120px;
   }
+}
+.site-footer .footer-area h3 {
+  text-transform: none !important;
 }
