@@ -43,6 +43,8 @@ FOOTERBOX4ID = 11
 SLIDERID = 21
 GITTARENNAVIID = 6
 NEWLISTPID = 116
+FACEBOOK_URL=https://www.facebook.com/treffpunktthierolf/
+INSTAGRAM_URL=https://www.instagram.com/treffpunktthierolf/
 
 styles.content.textmedia.maxW = 1200
 

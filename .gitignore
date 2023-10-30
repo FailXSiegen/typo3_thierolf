@@ -21,3 +21,4 @@ deploy_rsa
 node_modules/
 Vendor/
 update_aftersync.sql
+.htaccess_staging
