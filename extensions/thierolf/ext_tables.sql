@@ -13,12 +13,3 @@ CREATE TABLE tt_content (
     space_start_class VARCHAR(255) DEFAULT '' NOT NULL,
     space_end_class VARCHAR(255) DEFAULT '' NOT NULL
 );
-
-#
-# Table structure for table 'tx_wsflexslider_domain_model_image'
-#
-CREATE TABLE tx_wsflexslider_domain_model_image (
-    styleclass varchar(255) DEFAULT '' NOT NULL,
-    positionclass varchar(255) DEFAULT '' NOT NULL,
-    zoom int(4) DEFAULT '0' NOT NULL
-);

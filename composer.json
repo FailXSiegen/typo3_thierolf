@@ -22,7 +22,7 @@
     ],
     "config": {
         "platform": {
-            "php": "7.4.3"
+            "php": "8.1.24"
         },
         "allow-plugins": {
             "typo3/class-alias-loader": true,
@@ -31,7 +31,7 @@
         }
     },
     "require": {
-        "php": "^7.4",
+        "php": "^8.1",
         "typo3/cms-backend": "^11.5",
         "typo3/cms-core": "^11.5",
         "typo3/cms-extbase": "^11.5",
@@ -61,13 +61,12 @@
         "typo3/cms-recycler": "^11.5",
         "typo3/cms-dashboard": "^11.5",
         "helhum/typo3-console": "^7.1",
-        "helhum/dotenv-connector": "^2.1",
+        "helhum/dotenv-connector": "^3",
         "gridelementsteam/gridelements": "^11.0",
         "laxap/bootstrap-grids": "@dev",
         "t3/min": "^2.1",
         "georgringer/news": "^10",
         "lochmueller/staticfilecache": "^12.2",
-        "svewap/ws-flexslider": "@dev",
         "jigal/t3adminer": "^11.0",
         "thierolf/ttpdf": "@dev",
         "failx/templates-thierolf": "@dev",
@@ -86,7 +85,9 @@
         ]
     },
     "require-dev": {
-        "rector/rector": "*",
-        "ssch/typo3-rector": "*"
+        "deployer/deployer": "^7",
+		"deployer/recipes": "^6",
+		"rector/rector": "*",
+        "ssch/typo3-rector": "^1"
     }
 }

@@ -17,7 +17,7 @@ page{
         countto = {$thierolf.resourcePath}Public/JavaScript/countto.js
         slick = {$thierolf.resourcePath}Public/JavaScript/slick.js
         jquery-parallax = {$thierolf.resourcePath}Public/JavaScript/jquery-parallax.js
-        owl.carousel = {$thierolf.resourcePath}Public/JavaScript/owl.carousel.js
+        #owl.carousel = {$thierolf.resourcePath}Public/JavaScript/owl.carousel.js
         masonry-layout = {$thierolf.resourcePath}Public/JavaScript/masonry-layout.js
         magnific-popup = {$thierolf.resourcePath}Public/JavaScript/magnific-popup.js
         wow = {$thierolf.resourcePath}Public/JavaScript/wow.min.js

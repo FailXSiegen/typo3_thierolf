@@ -1,6 +1,8 @@
 <?php
 namespace Failx\Thierolf\Domain\Model;
 
+use TYPO3\CMS\Core\Resource\File;
+
 /**
  * This file is part of the TYPO3 CMS project.
  *
@@ -16,7 +18,7 @@ namespace Failx\Thierolf\Domain\Model;
 
 
 
-class Image extends \WapplerSystems\WsFlexslider\Domain\Model\Image
+class Image extends File
 {
 
     /**

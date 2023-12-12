@@ -1,47 +1,5 @@
-/*!
- * Bootstrap v4.6.1 (https://getbootstrap.com/)
- * Copyright 2011-2021 The Bootstrap Authors
- * Copyright 2011-2021 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
 
 @import "variables";
 
-@import "./../../../../Public/Vendor/bootstrap/scss/functions";
-@import "./../../../../Public/Vendor/bootstrap/scss/variables";
-@import "./../../../../Public/Vendor/bootstrap/scss/mixins";
-@import "./../../../../Public/Vendor/bootstrap/scss/root";
-@import "./../../../../Public/Vendor/bootstrap/scss/reboot";
-@import "./../../../../Public/Vendor/bootstrap/scss/type";
-@import "./../../../../Public/Vendor/bootstrap/scss/images";
-@import "./../../../../Public/Vendor/bootstrap/scss/code";
-@import "./../../../../Public/Vendor/bootstrap/scss/grid";
-@import "./../../../../Public/Vendor/bootstrap/scss/tables";
-@import "./../../../../Public/Vendor/bootstrap/scss/forms";
-@import "./../../../../Public/Vendor/bootstrap/scss/buttons";
-@import "./../../../../Public/Vendor/bootstrap/scss/transitions";
-@import "./../../../../Public/Vendor/bootstrap/scss/dropdown";
-@import "./../../../../Public/Vendor/bootstrap/scss/button-group";
-@import "./../../../../Public/Vendor/bootstrap/scss/input-group";
-@import "./../../../../Public/Vendor/bootstrap/scss/custom-forms";
-@import "./../../../../Public/Vendor/bootstrap/scss/nav";
-@import "./../../../../Public/Vendor/bootstrap/scss/navbar";
-@import "./../../../../Public/Vendor/bootstrap/scss/card";
-@import "./../../../../Public/Vendor/bootstrap/scss/breadcrumb";
-@import "./../../../../Public/Vendor/bootstrap/scss/pagination";
-@import "./../../../../Public/Vendor/bootstrap/scss/badge";
-@import "./../../../../Public/Vendor/bootstrap/scss/jumbotron";
-@import "./../../../../Public/Vendor/bootstrap/scss/alert";
-@import "./../../../../Public/Vendor/bootstrap/scss/progress";
-@import "./../../../../Public/Vendor/bootstrap/scss/media";
-@import "./../../../../Public/Vendor/bootstrap/scss/list-group";
-@import "./../../../../Public/Vendor/bootstrap/scss/close";
-@import "./../../../../Public/Vendor/bootstrap/scss/toasts";
-@import "./../../../../Public/Vendor/bootstrap/scss/modal";
-@import "./../../../../Public/Vendor/bootstrap/scss/tooltip";
-@import "./../../../../Public/Vendor/bootstrap/scss/popover";
-@import "./../../../../Public/Vendor/bootstrap/scss/carousel";
-@import "./../../../../Public/Vendor/bootstrap/scss/spinners";
-@import "./../../../../Public/Vendor/bootstrap/scss/utilities";
-@import "./../../../../Public/Vendor/bootstrap/scss/print";
+@import "./../../../../Public/Vendor/bootstrap/scss/bootstrap";
 @import "content";

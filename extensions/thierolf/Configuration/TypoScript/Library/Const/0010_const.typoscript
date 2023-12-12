@@ -47,9 +47,3 @@ FACEBOOK_URL=https://www.facebook.com/treffpunktthierolf/
 INSTAGRAM_URL=https://www.instagram.com/treffpunktthierolf/
 
 styles.content.textmedia.maxW = 1200
-
-plugin.tx_wsflexslider.view {
-    templateRootPath = EXT:thierolf/Resources/Private/Extensions/Flexslider/Templates/
-    partialRootPath = EXT:thierolf/Resources/Private/Extensions/Flexslider/Partials/
-    layoutRootPath = EXT:ws_flexslider/Resources/Private/Layouts/
-}

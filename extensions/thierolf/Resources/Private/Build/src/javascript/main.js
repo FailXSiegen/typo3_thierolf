@@ -62,14 +62,8 @@
                 // Counters
                 self.counters();
 
-                // Partners
-                self.partners();
-
                 // Car Interest
                 self.carInterest();
-
-                // Car Carousel
-                self.carCarousel();
 
                 // Sticky Header
                 self.sticky();
@@ -380,121 +374,11 @@
             }
         },
 
-        //Partner
-        partners: function () {
-            if ($().owlCarousel) {
-                $('.partners').each(function () {
-                    var
-                        $this = $(this),
-                        auto = $this.data("auto"),
-                        loop = $this.data("loop"),
-                        item = $this.data("column"),
-                        item2 = $this.data("column2"),
-                        item3 = $this.data("column3"),
-                        gap = Number($this.data("gap"));
-
-                    $this.find('.owl-carousel').owlCarousel({
-                        loop: loop,
-                        margin: gap,
-                        nav: false,
-                        navigation: false,
-                        pagination: true,
-                        autoplay: auto,
-                        autoplayTimeout: 5000,
-                        responsive: {
-                            0: {
-                                items: item3
-                            },
-                            600: {
-                                items: item2
-                            },
-                            1000: {
-                                items: item
-                            }
-                        }
-                    });
-                });
-            }
-        },
+        
 
         // Parallax
         parallax: function () {
             $('.section-bg').parallax("50%", 0.1);
-        },
-
-        // Testimonials
-        testimonials: function () {
-            if ($().owlCarousel) {
-                $('.testimonials').each(function () {
-                    var
-                        $this = $(this),
-                        auto = $this.data("auto"),
-                        loop = $this.data("loop"),
-                        item = $this.data("column"),
-                        item2 = $this.data("column2"),
-                        item3 = $this.data("column3"),
-                        gap = Number($this.data("gap"));
-
-                    $this.find('.owl-carousel').owlCarousel({
-                        loop: loop,
-                        margin: gap,
-                        nav: true,
-                        navigation: true,
-                        pagination: true,
-                        autoplay: auto,
-                        autoplayTimeout: 5000,
-                        responsive: {
-                            0: {
-                                items: item3
-                            },
-                            600: {
-                                items: item2
-                            },
-                            1000: {
-                                items: item
-                            }
-                        }
-                    });
-                });
-            }
-        },
-
-        // CarCarousel
-        carCarousel: function () {
-            if ($().owlCarousel) {
-                $('.car-carousel').each(function () {
-                    var
-                        $this = $(this),
-                        auto = $this.data("auto"),
-                        loop = $this.data("loop"),
-                        item = $this.data("column"),
-                        nav = $this.data("nav"),
-                        item2 = $this.data("column2"),
-                        item3 = $this.data("column3"),
-                        gap = Number($this.data("gap"));
-
-                    $this.find('.owl-carousel').owlCarousel({
-                        loop: loop,
-                        margin: gap,
-                        nav: nav,
-                        navigation: nav,
-                        pagination: true,
-                        autoplay: auto,
-                        autoplayTimeout: 5000,
-                        responsive: {
-                            0: {
-                                items: item3
-                            },
-                            600: {
-                                items: item2
-                            },
-                            1000: {
-                                items: item
-                            }
-                        }
-                    });
-                });
-            }
         },
 
         //Sliding Button Icon

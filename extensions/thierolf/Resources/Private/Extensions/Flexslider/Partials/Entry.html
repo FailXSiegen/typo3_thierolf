@@ -1,18 +1,18 @@
 <div xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:f="http://typo3.org/ns/fluid/ViewHelpers">
 
     <f:section name="Entry">
-        <f:variable name="flexsliderClass" value="" />
+        <f:variable name="sliderClass" value="" />
         <f:switch expression="{item.styleclass}">
             <f:case value="style1">
-                <f:variable name="flexsliderClass" value="wsflexslider-{item.styleclass}" />
+                <f:variable name="sliderClass" value="slider-{item.styleclass}" />
             </f:case>
             <f:case value="style2">
-                <f:variable name="flexsliderClass" value="wsflexslider-{item.styleclass}" />
+                <f:variable name="sliderClass" value="slider-{item.styleclass}" />
             </f:case>
             <f:defaultCase></f:defaultCase>
         </f:switch>
         <li>
-            <div class="slidercontent wsflexslider position-relative {flexsliderClass}">
+            <div class="slidercontent slider position-relative {sliderClass}">
                 <f:if condition="{item.falImage}">
                     <f:if condition="{item.zoom}">
                         <f:then>
