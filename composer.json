@@ -67,7 +67,7 @@
         "t3/min": "^2.1",
         "georgringer/news": "^10",
         "lochmueller/staticfilecache": "^12.2",
-        "jigal/t3adminer": "^11.0",
+        "jigal/t3adminer": "^12.0",
         "thierolf/ttpdf": "@dev",
         "failx/templates-thierolf": "@dev",
         "plan2net/webp": "^4.1",

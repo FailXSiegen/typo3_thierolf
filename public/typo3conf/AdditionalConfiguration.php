@@ -14,6 +14,7 @@ $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive(
                     'host' => $_ENV['TYPO3_DB_HOST'],
                     'password' => $_ENV['TYPO3_DB_PASSWORD'],
                     'user' => $_ENV['TYPO3_DB_USER'],
+                    'port' => $_ENV['TYPO3_DB_PORT'],
                 ],
             ],
         ],

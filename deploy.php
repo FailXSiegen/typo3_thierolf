@@ -1,18 +1,25 @@
 <?php
 namespace Deployer;
 
+
 require 'vendor/deployer/deployer/recipe/typo3.php';
-require 'vendor/deployer/recipes/recipe/rsync.php';
+require 'vendor/deployer/deployer/contrib/rsync.php';
 
 
 host('staging')
-    ->hostname('thierolf.de')
-    ->user('ssh-w00ae85a')
+    ->setHostname('thierolf.de')
+    ->setRemoteUser('ssh-w00ae85a')   
     ->set('deploy_path', '/www/htdocs/w00ae85a/dev-composer.thierolf.de');
 
 // Config
+set('repository', 'git@github.com:FailXSiegen/typo3_thierolf.git');
+set('http_user', 'w00ae85a');
 set('bin_folder', './vendor/bin/');
 set('typo3_webroot', 'public');
+
+set('bin/php', function () {
+    return which('php81');
+});
 
 add('shared_files', [
     '.env',
@@ -54,14 +61,14 @@ set('rsync',[
 
 // Tasks
 task('build', function () {
-    run('composer -q install');
-})->local();
+    runLocally('COMPOSER_MEMORY_LIMIT=-1 composer -q update');
+});
 
 task('typo3', function () {
-    run('cd {{release_path}} && {{bin_folder}}typo3cms install:fixfolderstructure');
-    run('cd {{release_path}} && {{bin_folder}}typo3cms database:updateschema *.add,*.change');
-    run('cd {{release_path}} && {{bin_folder}}typo3cms language:update');
-    run('cd {{release_path}} && {{bin_folder}}typo3cms cache:flush');
+    run('cd {{release_path}} && {{bin/php}} {{bin_folder}}typo3cms install:fixfolderstructure');
+    run('cd {{release_path}} && {{bin/php}} {{bin_folder}}typo3cms database:updateschema *.add,*.change');
+    run('cd {{release_path}} && {{bin/php}} {{bin_folder}}typo3cms language:update');
+    run('cd {{release_path}} && {{bin/php}} {{bin_folder}}typo3cms cache:flush');
 });
 
 //task('yarn', function () {
@@ -71,23 +78,21 @@ task('typo3', function () {
 // task('opcache', function () {
 //     run('cd {{release_path}} && {{bin_folder}}cachetool opcache:reset');
 // });
-
+desc('Deploy TYPO3');
 task('deploy', [
     'deploy:unlock',
-    'deploy:prepare',
+    'deploy:setup',
     'deploy:lock',
     'build',
-//    'yarn',
     'deploy:release',
     'rsync',
     'deploy:shared',
     'typo3',
     'deploy:symlink',
-    // 'opcache',
     'deploy:unlock',
-    'cleanup',
-    'success'
-])->desc('Deploy TYPO3');
+    'deploy:cleanup',
+    'deploy:success'
+]);
 
 // [Optional] if deploy fails automatically unlock.
 after('deploy:failed', 'deploy:unlock');
