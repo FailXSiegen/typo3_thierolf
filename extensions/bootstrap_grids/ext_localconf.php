@@ -48,4 +48,3 @@ call_user_func(
     },
     'bootstrap_grids'
 );
-?>

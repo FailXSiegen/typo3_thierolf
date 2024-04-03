@@ -1,0 +1,60 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+    <a href="#"
+        class="{f:if(condition: menu.active, then:'active')}"
+        role="button" 
+        data-bs-toggle="dropdown"
+        {f:if(condition:menu.target,then: 'target="{menu.target}"')}
+        itemprop="url"
+        title="{menu.title}">
+        {menu.title}
+    </a>
+    <f:variable name="columnCounter" value="1" />
+    <f:for each="{menu.children}" as="submenu">
+        <f:if condition="{submenu.spacer}">
+            <f:variable name="columnCounter" value="{columnCounter + 1}" />
+        </f:if>
+    </f:for>
+    <ul class="dropdown-nav is-hidden item-width-{100 / columnCounter}">
+        <li class="go-back"><a href="#0">Menu</a></li>
+        <f:for each="{menu.children}" as="submenu">
+            <f:if condition="{submenu.spacer}">
+                <f:then>
+                    <li class="w-100 clearfix"></li>
+                </f:then>
+                <f:else>
+                    <li>
+                        <a href="{submenu.link}"
+                            class="{f:if(condition: submenu.active, then:'active')}"
+                            {f:if(condition:submenu.target,then: 'target="{submenu.target}"')}
+                            itemprop="url"
+                            title="{submenu.title}">
+                            {submenu.title}
+                        </a>
+                        <f:if condition="{submenu.files} || {submenu.data.abstract}">
+                            <span class="additional-images position-absolute top-0 end-0 p-5">
+                                <div class="d-flex">
+                                    <f:if condition="{submenu.data.abstract}">
+                                        <span class="description mr-5 me-5">
+                                            {submenu.data.abstract -> f:format.nl2br()}
+                                        </span>
+                                    </f:if>
+                                    <f:if condition="{submenu.files}">
+                                        <span class="image">
+                                            <f:image src="{submenu.files.0.uid}" 
+                                                treatIdAsReference="1"
+                                                class="img img-fluid"
+                                                width="617m"
+                                                height="302m" />
+                                        </span>
+                                    </f:if>
+                                </div>
+                            </span>
+                        </f:if>
+                    </li>
+                </f:else>
+            </f:if>
+           
+        </f:for>
+    </ul>  
+</html>

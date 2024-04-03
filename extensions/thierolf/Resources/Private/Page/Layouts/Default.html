@@ -3,16 +3,14 @@
 
     <f:layout name="Default" />
     <f:asset.css 
-        href="EXT:thierolf/Resources/Public/style.css"
-        identifier="style" />
-    <f:asset.css 
         href="EXT:thierolf/Resources/Public/StyleSheet/style.css"
         identifier="mainstyle" />
-    <div class="animsitiosdawdn">
-        <div class="site-wrapper header-top-with">
-            <f:render partial="Header" arguments="{_all}" />
-            <f:render section="Main" />
-            <f:render partial="Footer" arguments="{_all}" />
-        </div>
+    <f:if condition="{theme} != 'none' && {theme} != ''">
+        <f:asset.css identifier="{theme}" href="EXT:thierolf/Resources/Public/StyleSheet/{theme}.css" />
+    </f:if>
+    <div class="site-wrapper header-top-with">
+        <f:render partial="Header" arguments="{_all}" />
+        <f:render section="Main" />
+        <f:render partial="Footer" arguments="{_all}" />
     </div>
 </html>

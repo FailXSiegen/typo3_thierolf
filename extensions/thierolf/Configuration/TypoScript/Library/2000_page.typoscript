@@ -1,13 +1,13 @@
-<INCLUDE_TYPOSCRIPT: source="DIR: ./Temp" extensions="typoscript">
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:thierolf/Configuration/TypoScript/Library/Temp" extensions="typoscript">
 
 page = PAGE
 page {
   typeNum = 0
   headerData.14 = TEXT
   headerData.14.value (
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-      <link rel="shortcut icon" href="fileadmin/layout/icon/favicon.png">
-      <link rel="apple-touch-icon-precomposed" href="fileadmin/layout/icon/apple-touch-icon-158-precomposed.png">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="shortcut icon" href="/fileadmin/layout/icon/favicon.png">
+      <link rel="apple-touch-icon-precomposed" href="/fileadmin/layout/icon/apple-touch-icon-158-precomposed.png">
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
       <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -75,6 +75,10 @@ page {
     variables {
         logosrc = TEXT
         logosrc.value = {$LOGOSRC}
+
+        logosrcmobile = TEXT
+        logosrcmobile.value = {$LOGOSRCMOBILE}
+        
         topHeaderId = TEXT
         topHeaderId.value = {$TOPHEADERID}
 
@@ -105,8 +109,18 @@ page {
         instagram = TEXT
         instagram.value = {$INSTAGRAM_URL}
 
+        NAVBOTTOM < styles.content.get
+        NAVBOTTOM.select.pidInList = {$SPECIALFOOTERNAVIGATION}
+
         NAVIGATION < temp.NAVIGATION
         HEADER < temp.breadcrumb
+
+        theme = TEXT
+        theme {
+          field = theme
+          override = {$failx.defaultTheme}
+          override.if.isFalse.field = theme
+        }
       }
   }
 }
@@ -139,3 +153,5 @@ page.footerData.500.value (
 <!-- End Matomo Code -->
 )
 [end]
+
+

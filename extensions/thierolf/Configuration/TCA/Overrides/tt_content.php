@@ -53,8 +53,7 @@ call_user_func(
                     --palette--;;access,
                ',
         ];
-
-
+       
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
             'tt_content',
             'CType',
@@ -81,6 +80,33 @@ call_user_func(
             ',
         ];
 
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+            'tt_content',
+            'CType',
+            [
+                 'Sidebar',
+                 'sidebar',
+                 'content-menu-sitemap-pages',
+             ],
+            'textmedia',
+            'after'
+        );
+
+        $GLOBALS['TCA']['tt_content']['types']['sidebar'] = [
+            'showitem' => '
+                     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+                    --palette--;;general,
+                    header;Interner Titel,
+                    pages;Seiten für die Sidebar,
+                    pages_mobile,
+                    --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
+                    --palette--;;frames,
+                    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+                    --palette--;;hidden,
+                    --palette--;;access,
+            ',
+        ];
+
         // Create TCA columns.
         $columns = [
             'header' => [
@@ -88,6 +114,16 @@ call_user_func(
                     'type' => 'text',
                     'cols' => 40,
                     'rows' => 3,
+                ],
+            ],
+            'pages_mobile' => [
+                'label' => 'Seiten für die Sidebar (Mobile Only)',
+                'exclude' => 1,
+                'config' => [
+                    'type' => 'group',
+                    'maxitems' => 50,
+                    'size' => 3,
+                    'allowed' => 'pages'
                 ],
             ],
             'space_start_class' => [
@@ -134,6 +170,18 @@ call_user_func(
                     ],
                 ],
             ],
+            'background_color' => [
+                'label' => 'Hintergrundfarbe',
+                'config' => [
+                    'renderType' => 'selectSingle',
+                    'type' => 'select',
+                    'items' => [
+                        ['---',''],
+                        ['Schwarz','bg-black']
+                    ],
+                ],
+            ],
+            
             'teaserimage' => [
                 'exclude' => true,
                 'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.images',
@@ -195,12 +243,17 @@ call_user_func(
             'tt_content',
             $columns
         );
-
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
+            'tt_content',
+            'frames',
+            'background_color',
+            'after:layout'
+        );
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
             'tt_content',
             'frames',
             'space_start_class, space_end_class, --linebreak--',
-            'after:space_after_class,'
+            'after:space_after_class'
         );
     },
     'thierolf'

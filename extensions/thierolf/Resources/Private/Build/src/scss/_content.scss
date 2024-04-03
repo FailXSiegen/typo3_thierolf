@@ -8,30 +8,10 @@
     height: 100%;
     object-fit: cover;
 }
-.top-0 {
-    top: 0;
-}
-.start-0 {
-    left: 0;
-}
-.bottom-0 {
-    bottom: 0;
-}
-.end-0 {
-    right: 0;
-}
-.top-50 {
-    top: 50%;
-}
-.start-50 {
-    left: 50%;
-}
 .start-25 {
     left: 25%;
 }
-.translate-middle {
-    transform: translate(-50%,-50%)!important;
-}
+
 body, html {
     .section-block {
         color: black;
@@ -45,27 +25,25 @@ body, html {
 }
 footer.site-footer.dark {
     .footer-area {
-        background-color: $lightblue;
+        background-color: $black;
         .widget h3:before {
             background: white;
         }
     }
     .copyright {
-        background-color: $blue;
-        a {
+        background-color: $black;
+        p, a {
             color: white;
         }
     }
 }
-.site-wrapper .cta-bar ul li a {
-    background-color: $orange; 
-}
+
 .additional-images {
     opacity: 0;
     visibility: hidden;
     width: 75%;
 }
-.dropdown-nav li {
+.dropdown-menu li {
     &:hover {
         .additional-images {
             opacity: 1;
@@ -81,37 +59,23 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Source Sans Pro', sans-serif; 
+    // font-family: 'Source Sans Pro', sans-serif; 
     color: $blue; 
     font-weight: 500; 
     line-height: 1.5; 
     margin: 0 0 10px; 
     text-rendering: optimizeLegibility; 
 }
-.banner-section {
-    padding: 25px 0;
-    background-size: cover;
-    background-position: center center;
-    position: relative;
-    z-index: 1;
-    &:before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        background-color: $lightblue;
-        opacity: 1;
-    }
-}
-
 .page-banner-content .h1 {
     font-size: 36px;
     line-height: 1.25;
     margin-bottom: 0;
     font-weight: 600; 
+}
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-nav .dropdown-menu {
+        margin-top: 0;
+    }
 }
 @media(max-width: 1199px) {
     .additional-images {
@@ -122,28 +86,31 @@ h6 {
     .site-wrapper {
         padding-bottom: 21px;
     }
-    .cta-bar.stick {
-        position: fixed;
-        display: block !important;
-        top: auto !important;
-        bottom: 0;
-        right: auto !important;
+}
+.btn.fa-solid {
+    position: relative;
+    font-family: inherit;
+
+    &:before {
+        font-family: var(--fa-style-family,"Font Awesome 6 Free");
+        font-weight: 600;
+        position: absolute;
+        right: 10px;
+    }
+}
+
+blockquote {
+    position: relative;
+    background-color: #f7f9fb;
+    margin: 3em 0 30px;
+    padding: 30px;
+    &:before {
+        content: "";
+        position: absolute;
         left: 0;
-        width: 100% !important;
-        ul {
-            display: flex;
-            li {
-                background-color: $orange;
-                text-align: center;
-                a {
-                    width: 50px !important;
-                    height: 50px !important;
-                    overflow: hidden;
-                }
-                a.back-to-top {
-                    margin-top: 0;
-                }
-            }
-        }
+        top: 0;
+        width: 4px;
+        height: 100%;
+        background-color: $black;
     }
 }

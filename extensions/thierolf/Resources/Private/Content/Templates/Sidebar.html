@@ -1,0 +1,51 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-bs-namespace-typo3-fluid="true">
+    <f:asset.css identifier="sidebar" href="EXT:thierolf/Resources/Public/StyleSheet/sidebar.css" />
+    <f:if condition="{menu}">
+        <ul>
+            <f:if condition="{pages_mobile}">
+                <f:for each="{pages_mobile}" as="sidebaritem">
+                    <li class="d-lg-none">
+                        <f:render section="linkelement" arguments="{sidebaritem: sidebaritem}" />
+                    </li>
+                </f:for>
+            </f:if>
+            <f:for each="{menu}" as="sidebaritem">
+                <li>
+                   <f:render section="linkelement" arguments="{sidebaritem: sidebaritem}" />
+                </li>
+            </f:for>
+            <li class="mt-lg-10">
+                <span style="cursor:pointer" class="pe-2 w-100 text-decoration-none text-white mb-lg-1 text-uppercase d-flex align-items-center justify-content-center justify-content-lg-start back-to-top" title="Back to top">
+                    <i class="fa-solid fa-2xl fa-chevron-up" style="width:50px; height:50px; line-height: 50px; text-align: center;"></i>
+                    <span class="d-none d-lg-block">Seitenanfang</span>
+                </span>
+            </li>
+        </ul>
+
+    </f:if>
+    <f:section name="linkelement">
+        <a 
+        href="{sidebaritem.link}" 
+        class="pe-2 w-100 text-decoration-none text-white mb-lg-1 text-uppercase h-100 d-flex align-items-center justify-content-center justify-content-lg-start"
+        title="{sidebaritem.title}">    
+        <f:if condition="{sidebaritem.files}">
+            <f:then>
+                <f:image 
+                    src="{sidebaritem.files.0.uid}" 
+                    width="50m"
+                    height="50m"
+                    treatIdAsReference="1" 
+                    alt="{sidebaritem.title}" />
+            </f:then>
+            <f:else>
+                <f:if condition="{sidebaritem.data.fa_icon_name}">
+                    <i class="{sidebaritem.data.fa_icon_name}"></i>
+                </f:if>
+            </f:else>
+        </f:if>
+        <span class="d-none d-lg-block">
+            {sidebaritem.title}
+        </span>
+    </a>
+    </f:section> 
+</html>

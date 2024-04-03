@@ -1,22 +1,54 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+        xmlns:fx="http://typo3.org/ns/Failx/Thierolf/ViewHelpers" 
       data-namespace-typo3-fluid="true">
-      <header id="header" class="main-header">
-        <div class="header-top d-inline-block w-100">
-            <f:cObject 
-                typoscriptObjectPath="lib.dynamicContent" 
-                data="{colPos:'0', pageUid: topHeaderId}" />
-        </div>
-        <div class="container d-flex justify-content-between">
-            <a class="main-logo" href="/">
-                <f:image src="{logosrc}" 
-                    width="260m"
-                    height="40m"
-                    alt="Treffpunkt Thierolf" />
-            </a>
-            <ul class="header-buttons">
-                <li><a class="nav-trigger">Menu<span></span></a></li>
-            </ul>
-            <f:render partial="Navigation/Main" arguments="{_all}" />
-        </div>
+      <f:variable name="mobileLogoExists" value="0" />
+      <fx:exists file="{logosrcmobile}">
+        <f:variable name="mobileLogoExists" value="1" />
+      </fx:exists>
+      <header id="header" class="main-header fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark w-100 pt-0 pb-0 flex-column">
+            <div class="container-fluid bg-black">
+                <div class="container py-3 d-flex">
+                    <a class="main-logo" href="/">
+                    
+                        <f:image 
+                            src="{logosrc}"
+                            class="img img-fluid d-none d-lg-block"
+                            height="80m"
+                            alt="Treffpunkt Thierolf" />
+                        <f:if condition="{mobileLogoExists}">
+                            <f:then>
+                                <f:image 
+                                    src="{logosrcmobile}"
+                                    class="img img-fluid d-block d-lg-none"
+                                    width="250m"
+                                    height="80m"
+                                    alt="Treffpunkt Thierolf" />
+                            </f:then>
+                            <f:else>
+                                <f:image 
+                                    src="{logosrc}"
+                                    class="img img-fluid d-block d-lg-none"
+                                    width="250m"
+                                    alt="Treffpunkt Thierolf" />
+                            </f:else>
+                        </f:if> 
+                    </a>
+                    <button 
+                        class="navbar-toggler ms-auto" 
+                        type="button" 
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#mainNavigation" 
+                        aria-controls="mainNavigation"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </div>
+            <div id="navigation-container" class="container bg-white d-flex justify-content-between">
+                <f:render partial="Navigation/Main" arguments="{_all}" />
+            </div>
+        </nav>
     </header>
 </html>

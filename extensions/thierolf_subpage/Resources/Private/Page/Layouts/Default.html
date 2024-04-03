@@ -1,0 +1,15 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+    <f:layout name="Default" />
+    <f:asset.css 
+        href="EXT:thierolf_subpage/Resources/Public/style.css"
+        identifier="mainstyle" />
+    <div class="animsitiosdawdn">
+        <div class="site-wrapper header-top-with">
+            <f:render partial="Header" arguments="{_all}" />
+            <f:render section="Main" />
+            <f:render partial="Footer" arguments="{_all}" />
+        </div>
+    </div>
+</html>

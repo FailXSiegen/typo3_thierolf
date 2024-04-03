@@ -1,0 +1,26 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+    <nav class="nav flex-fill align-content-end">
+        <ul id="primary-nav" class="primary-nav d-flex justify-content-xl-start is-fixed flex-column flex-xl-row">
+            <f:for each="{mainNavigation}" as="menu">
+                <li class="layout-{menu.data.layout} {f:if(condition: menu.children, then:' has-children ')}{f:if(condition: '{menu.current} || {menu.active}', then:'current')}" itemprop="name">
+                    <f:if condition="{menu.children}">
+                        <f:then>
+                            <f:render partial="Navigation/Sub" arguments="{menu:menu}" />
+                        </f:then>
+                        <f:else>
+                            <a href="{menu.link}"
+                                class="nav-link {f:if(condition: menu.active, then:'active')}"
+                                {f:if(condition:menu.target,then: 'target="{menu.target}"')}
+                                itemprop="url"
+                                title="{menu.title}">
+                                {menu.title}
+                            </a>
+                        </f:else>
+                    </f:if>
+                </li>
+            </f:for>
+        </ul>
+                
+    </nav>
+</html>

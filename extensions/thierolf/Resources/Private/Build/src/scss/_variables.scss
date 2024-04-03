@@ -16,10 +16,30 @@ $container-max-widths: (
 );
 $card-cap-bg: transparent;
 $card-bg: transparent;
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  6: $spacer * 4,
+  7: $spacer * 5,
+  8: $spacer * 6,
+  9: $spacer * 7,
+  10: $spacer * 8,  
+  11: $spacer * 9,
+  12: $spacer * 10,
+  13: $spacer * 11,
+  14: $spacer * 12,
+  15: $spacer * 13
+);
 
-$blue: #115092;
+$blue: #00498d;
 $red: #e21f2d;
-$lightblue: #4573A4;
-$orange: #DE7031;
-$lightgrey: #f1f3f7;
-$darkgrey: #2e3233;
+$gray-600: #6c757d;
+$border-radius: .375rem;
+$light: white;
+$dark: black;
+$lightgrey: $gray-600;

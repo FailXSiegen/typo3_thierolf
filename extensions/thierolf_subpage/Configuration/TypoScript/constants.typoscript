@@ -1,0 +1,15 @@
+BASEURL = https://automobile.thierolf.de/
+NAVIGATION = 67
+TOPHEADERID = 72
+FOOTERID = 73
+LOGOSRC = fileadmin/layout/img/logo_automobile.png
+FOOTERBOX1ID = 76
+FOOTERBOX2ID = 77
+FOOTERBOX3ID = 78
+FOOTERBOX4ID = 79
+SLIDERID = 88
+GITTARENNAVIID = 95
+FACEBOOK_URL=https://www.facebook.com/thierolfautomobile/
+SPECIALFOOTERNAVIGATION = 88
+thierolfsubpage.resourcePath = EXT:thierolf_subpage/Resources/
+styles.content.textmedia.maxW = 1180

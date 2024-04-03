@@ -13,7 +13,18 @@
 			<f:if condition="{newsItem.mediaPreviews}">
 				<f:then>
 					<f:render partial="Media/Rendering/Image" arguments="{
-							file: newsItem.mediaPreviews.0
+							file: newsItem.mediaPreviews.0,
+							pMobileXsWidth: '551',
+							pMobileWidth: '246',
+							pTabletWidth: '336',
+							pSmallDesktopWidth: '456',
+							pDesktopWidth: '339',
+
+							pMobileXsHeight: '551c',
+							pMobileHeight: '246c',
+							pTabletHeight: '336c',
+							pSmallDesktopHeight: '456c',
+							pDesktopHeight: '339c'
 						}" />
 					<f:comment>
 						<f:media class="img-responsive" file="{newsItem.mediaPreviews.0}"
@@ -60,7 +71,7 @@
 			</div>
 
 			<n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
-				<span class="fa fa-chevron-right"></span>&nbsp;
+				<span class="fa fa-solid fa-chevron-right"></span>&nbsp;
 				<f:translate key="more-link" />
 			</n:link>
 		</div>

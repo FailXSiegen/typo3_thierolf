@@ -37,10 +37,42 @@ tt_content {
     teasermenu {
         templateName = Teasermenu
         dataProcessing {
-            10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            10 = files
             10 {
                 references.fieldName = image
                 as = tiles
+            }
+        }
+    }
+    sidebar =< lib.contentElement
+    sidebar {
+        templateName = Sidebar
+        dataProcessing {      
+            10 = menu                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+            10 {
+                special = list
+                special.value.field = pages
+                levels = 1
+                dataProcessing {
+                    10 = files
+                    10 {
+                        references.fieldName = custom_icon
+                    }
+                }
+            }
+            20 = menu     
+            20 {
+                as = pages_mobile
+                special = list
+                special.value.field = pages_mobile
+                levels = 1
+                excludeUidList = 3
+                dataProcessing {
+                    10 = files
+                    10 {
+                        references.fieldName = custom_icon
+                    }
+                }
             }
         }
     }

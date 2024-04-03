@@ -48,6 +48,7 @@ module.exports = {
                         loader: "css-loader",
                         options: {
                             sourceMap: true,
+                            url: false,
                             importLoaders: 2
                         }
                     },
@@ -147,6 +148,13 @@ module.exports = {
         'accordion' : './src/scss/accordion.scss',   
         'teasermenu' : './src/scss/teasermenu.scss',  
         'style': './src/scss/main.scss',
+        'theme-white': './src/scss/theme-white.scss',
+        'theme-black': './src/scss/theme-black.scss',
+        'sidebar': './src/scss/sidebar.scss',
+        'rte': './src/scss/rte.scss',
+        'gslider': './src/scss/gslider.scss',
+        '2clickcss' : './src/scss/2click.scss',
+        '2click' : './src/javascript/2click.js',
         'jquery.appear' : './../../Public/Vendor/jquery.appear/jquery.appear.js',
         'countto': './src/javascript/countto.js',
         'slick' : './../../Public/Vendor/slick-carousel/slick/slick.min.js',

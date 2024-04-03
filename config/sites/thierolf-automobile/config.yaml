@@ -1,7 +1,7 @@
 base: 'https://automobile.thierolf.de'
 baseVariants:
   -
-    base: 'http://local-automobile.thierolf.de'
+    base: 'https://thierolf-automobile.ddev.site'
     condition: 'applicationContext == "Development"'
   -
     base: 'https://dev-automobile-composer.thierolf.de'
@@ -24,3 +24,108 @@ languages:
 rootPageId: 67
 routes: {  }
 websiteTitle: ''
+
+routeEnhancers:
+  News:
+    type: Extbase
+    extension: News
+    plugin: Pi1
+    routes:
+      -
+        routePath: '/page-{page}'
+        _controller: 'News::list'
+        _arguments:
+          page: '@widget_0/currentPage'
+      -
+        routePath: '/{news-title}'
+        _controller: 'News::detail'
+        _arguments:
+          news-title: news
+      -
+        routePath: '/{category-name}'
+        _controller: 'News::list'
+        _arguments:
+          category-name: overwriteDemand/categories
+      -
+        routePath: '/{date-year}'
+        _controller: 'News::list'
+        _arguments:
+          date-year: 'overwriteDemand/year'
+          page: '@widget_0/currentPage'
+        requirements:
+          date-year: '^20[0-9]{2}$'
+      -
+        routePath: '/{date-year}/page-{page}'
+        _controller: 'News::list'
+        _arguments:
+          date-year: 'overwriteDemand/year'
+          page: '@widget_0/currentPage'
+        requirements:
+          date-year: '^20[0-9]{2}$'
+          page: '\d+'
+      -
+        routePath: '/{date-year}/{date-month}'
+        _controller: 'News::list'
+        _arguments:
+          date-month: 'overwriteDemand/month'
+          date-year: 'overwriteDemand/year'
+          page: '@widget_0/currentPage'
+        requirements:
+          date-year: '^20[0-9]{2}$'
+          date-month: '^[a-zA-Z0-9]{10}$'
+      -
+        routePath: '/{date-year}/{date-month}/page-{page}'
+        _controller: 'News::list'
+        _arguments:
+          date-month: 'overwriteDemand/month'
+          date-year: 'overwriteDemand/year'
+          page: '@widget_0/currentPage'
+        requirements:
+          date-year: '^20[0-9]{2}$'
+          page: '\d+'
+          date-month: '^[a-zA-Z0-9]{10}$'
+
+      -
+        routePath: '/{tag-name}'
+        _controller: 'News::list'
+        _arguments:
+          tag-name: overwriteDemand/tags
+    defaultController: 'News::list'
+    defaults:
+      page: '0'
+    aspects:
+      news-title:
+        type: PersistedAliasMapper
+        tableName: tx_news_domain_model_news
+        routeFieldName: path_segment
+      page:
+        type: StaticRangeMapper
+        start: '1'
+        end: '250'
+      category-name:
+        type: PersistedAliasMapper
+        tableName: sys_category
+        routeFieldName: slug
+      tag-name:
+        type: PersistedAliasMapper
+        tableName: tx_news_domain_model_tag
+        routeFieldName: slug
+      date-month:
+        type: StaticValueMapper
+        map:
+          januar: '01'
+          februar: '02'
+          maerz: '03'
+          april: '04'
+          mai: '05'
+          juni: '06'
+          juli: '07'
+          august: '08'
+          september: '09'
+          oktober: '10'
+          november: '11'
+          dezember: '12'
+      date-year:
+        type: StaticRangeMapper
+        start: '2004'
+        end: '2030'

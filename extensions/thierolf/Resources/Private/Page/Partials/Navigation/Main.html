@@ -1,26 +1,41 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
       data-namespace-typo3-fluid="true">
-    <nav class="nav flex-fill align-content-end">
-        <ul id="primary-nav" class="primary-nav d-flex justify-content-xl-start is-fixed flex-column flex-xl-row">
-            <f:for each="{mainNavigation}" as="menu">
-                <li class="layout-{menu.data.layout} {f:if(condition: menu.children, then:' has-children ')}{f:if(condition: '{menu.current} || {menu.active}', then:'current')}" itemprop="name">
+    <div class="collapse navbar-collapse" id="mainNavigation">
+        <ul class="navbar-nav w-100 py-3 position-relative">
+            <li class="nav-item pe-3 d-none d-lg-block" itemprop="name">
+                <a href="/"><i class="fa-solid fa-home"></i></a>
+            </li>
+            <f:for each="{mainNavigation}" as="menu" iteration="iterator">
+                <f:variable name="navclass" value="nav-item layout-{menu.data.layout}" />
+                <f:if condition="{menu.children}">
+                    <f:variable name="navclass" value="{navclass} position-static dropdown" />
+                </f:if>
+                <f:if condition="{menu.current} || {menu.active}">
+                    <f:variable name="navclass" value="{navclass} current" />
+                </f:if>
+                <f:if condition="{iterator.isLast} && {menu.data.fa_icon_name}">
+                    <f:variable name="navclass" value="{navclass} ms-auto" />
+                </f:if>
+                <li class="{navclass}" itemprop="name">
                     <f:if condition="{menu.children}">
                         <f:then>
                             <f:render partial="Navigation/Sub" arguments="{menu:menu}" />
                         </f:then>
                         <f:else>
                             <a href="{menu.link}"
-                                class="nav-link {f:if(condition: menu.active, then:'active')}"
+                                class="text-decoration-none text-uppercase py-3 py-lg-0 w-100 w-lg-auto d-block {f:if(condition: menu.active, then:'active')}"
                                 {f:if(condition:menu.target,then: 'target="{menu.target}"')}
                                 itemprop="url"
                                 title="{menu.title}">
+                                <f:if condition="{menu.data.fa_icon_name}">
+                                    <i class="{menu.data.fa_icon_name}"></i>&nbsp;
+                                </f:if>
                                 {menu.title}
                             </a>
                         </f:else>
                     </f:if>
                 </li>
             </f:for>
-        </ul>
-                
-    </nav>
+        </ul> 
+    </div>
 </html>

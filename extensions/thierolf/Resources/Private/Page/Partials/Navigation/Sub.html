@@ -1,13 +1,13 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
       data-namespace-typo3-fluid="true">
     <a href="#"
-        class="{f:if(condition: menu.active, then:'active')}"
+        class="text-decoration-none text-uppercase {f:if(condition: menu.active, then:'active')} me-lg-3 py-3 py-lg-0 w-100 w-lg-auto text-end d-block"
         role="button" 
         data-bs-toggle="dropdown"
         {f:if(condition:menu.target,then: 'target="{menu.target}"')}
         itemprop="url"
         title="{menu.title}">
-        {menu.title}
+        {menu.title} <i class="fa-solid fa-chevron-down fa-lg"></i>
     </a>
     <f:variable name="columnCounter" value="1" />
     <f:for each="{menu.children}" as="submenu">
@@ -15,8 +15,7 @@
             <f:variable name="columnCounter" value="{columnCounter + 1}" />
         </f:if>
     </f:for>
-    <ul class="dropdown-nav is-hidden item-width-{100 / columnCounter}">
-        <li class="go-back"><a href="#0">Menu</a></li>
+    <ul class="dropdown-menu p-3 rounded-0 border-0 w-100 text-end text-lg-start overflow-hidden item-width-{100 / columnCounter}">
         <f:for each="{menu.children}" as="submenu">
             <f:if condition="{submenu.spacer}">
                 <f:then>
@@ -25,14 +24,14 @@
                 <f:else>
                     <li>
                         <a href="{submenu.link}"
-                            class="{f:if(condition: submenu.active, then:'active')}"
+                            class="text-decoration-none text-nowrap mb-4 d-block w-100 {f:if(condition: submenu.active, then:'active')}"
                             {f:if(condition:submenu.target,then: 'target="{submenu.target}"')}
                             itemprop="url"
                             title="{submenu.title}">
                             {submenu.title}
                         </a>
                         <f:if condition="{submenu.files} || {submenu.data.abstract}">
-                            <span class="additional-images position-absolute top-0 end-0 p-5">
+                            <span class="additional-images position-absolute top-0 end-0 p-3 overflow-hidden">
                                 <div class="d-flex">
                                     <f:if condition="{submenu.data.abstract}">
                                         <span class="description mr-5 me-5">
@@ -44,8 +43,8 @@
                                             <f:image src="{submenu.files.0.uid}" 
                                                 treatIdAsReference="1"
                                                 class="img img-fluid"
-                                                width="617m"
-                                                height="302m" />
+                                                width="423m"
+                                                height="302c" />
                                         </span>
                                     </f:if>
                                 </div>

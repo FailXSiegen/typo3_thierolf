@@ -6,33 +6,81 @@ imports:
 
 editor:
   config:
-    contentsCss: ["EXT:rte_ckeditor/Resources/Public/Css/contents.css"]
-    stylesSet:
-      - { name: "Button Transparent", element: "a", attributes: { class: "buttontransparent"} }
-      - { name: "Button Rot", element: "a", attributes: { class: "buttonrot"} }
-      - { name: "Button Dunkelblau", element: "a", attributes: { class: "buttonkellblauy"} }
-      - { name: "Button Blau", element: "a", attributes: { class: "buttonblau"} }
-      - { name: "Button Transparent Breit", element: "a", attributes: { class: "buttontransparentbreit"} }
-      - { name: "Button Rot Breit", element: "a", attributes: { class: "buttonrotbreit"} }
-      - { name: "Button Dunkelblau Breit", element: "a", attributes: { class: "buttonkellblaubreit"} }
-      - { name: "Button Blau Breit", element: "a", attributes: { class: "buttonblaubreit"} }
+    contentsCss:
+      - "EXT:thierolf/Resources/Public/StyleSheet/rte.css"
 
+    stylesSet:
+      - { name: "Btn Blau", element: "a", attributes: { class: "btn btn-primary rounded-0"} }
+      - { name: "Btn Schwarz", element: "a", attributes: { class: "btn btn-dark rounded-0"} }
+      - { name: "Btn Weiß", element: "a", attributes: { class: "btn btn-outline-dark rounded-0"} }
+      - { name: "Btn BG-Weiß", element: "a", attributes: { class: "btn btn-light rounded-0"} }
+      - { name: "Btn Blau 100%", element: "a", attributes: { class: "btn btn-primary rounded-0 w-100 "} }
+      - { name: "Btn Schwarz 100%", element: "a", attributes: { class: "btn btn-dark rounded-0 w-100"} }
+      - { name: "Btn Weiß 100%", element: "a", attributes: { class: "btn btn-outline-dark rounded-0 w-100"} }
+      - { name: "Btn BG-Weiß 100%", element: "a", attributes: { class: "btn btn-light rounded-0 w-100"} }
+      - { name: "Abstand Innen", element: "a", attributes: { class: "px-5"} }
+      - { name: "Abstand Rechs", element: "a", attributes: { class: "pe-5"} }
+      - { name: "Abstand Links", element: "a", attributes: { class: "ps-5"} }
+      - { name: "Pfeil Rechts", element: "a", attributes: { class: "fa-solid fa-chevron-right pe-5"} }
+      - { name: "Tabelle gestreift", element: "table", attributes: { class: "table table-striped"} }
+      - { name: "Tabelle hover", element: "table", attributes: { class: "table table-hover"} }
+      - { name: "Tabelle mit Linien", element: "table", attributes: { class: "table table-bordered"} }
+      - { name: "Tabelle ohne Linien", element: "table", attributes: { class: "table table-borderless"} }
+      - { name: "Tabelle Schmal", element: "table", attributes: { class: "table table-sm"} }
     format_tags: "p;h1;h2;h3;h4;h5;div"
-    toolbarGroups:
-      - { name: clipboard, groups: [clipboard, undo] }
-      - { name: editing,   groups: [find, selection, spellchecker] }
-      - { name: links }
-      - { name: insert }
-      - { name: tools }
-      - { name: table }
-      - { name: tabletools }
-      - { name: document,  groups: [ mode, document, doctools ] }
-      - { name: others }
-      - "/"
-      - { name: basicstyles, groups: [ basicstyles, align, cleanup ] }
-      - { name: paragraph,   groups: [ list, indent, blocks, align, bidi ] }
-      - "/"
-      - { name: styles }
+   
+    toolbar:
+      items:
+        - clipboard
+        - removeFormat
+        - undo
+        - redo
+        # grouping separator
+        - '|'
+        - find
+        - selectAll
+        - '|'
+        - link
+        - insertTable
+        - tableColumn
+        - tableRow
+        - mergeTableCells
+        - tableProperties
+        - tableSettings
+        - tableCellProperties
+        - toggleTableCaption
+        - '|'
+        - sourceEditing
+        - showBlocks
+        - horizontalLine
+        # line break
+        - '-'
+        - bold
+        - italic
+        - underline
+        - strikethrough
+        - subscript
+        - superscript
+        - softhyphen
+        - '|'
+        - bulletedList
+        - numberedList
+        - blockQuote
+        - indent
+        - outdent
+        - alignment
+        - '|'
+        - specialCharacters
+        - '-'
+        - style
+        - heading
+    
+    alignment:
+      options:
+        - { name: 'left', className: 'text-start' }
+        - { name: 'center', className: 'text-center' }
+        - { name: 'right', className: 'text-end' }
+        - { name: 'justify', className: 'text-justify' }
 
     justifyClasses:
       - text-left
@@ -45,6 +93,9 @@ editor:
       - font
       - find
       - bidi
+      - autolink
+      - wordcount
+      - autogrow
 
 
     #RTE default config removes image plugin - restore it:

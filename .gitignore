@@ -6,8 +6,11 @@ composer.lock
 vendor/
 .vscode/
 .database/
+.ddev/
+!/config/system/additional.php
 /public/typo3
 /public/fileadmin
+/public/_assets
 /public/typo3temp
 /public/uploads
 /public/index.php
@@ -22,3 +25,5 @@ node_modules/
 Vendor/
 update_aftersync.sql
 .htaccess_staging
+/extensions/gridelements
+/*.json

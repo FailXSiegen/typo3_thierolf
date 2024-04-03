@@ -1,0 +1,58 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+    <f:if condition="{file.extension} == 'youtube' || {file.extension} == 'vimeo'">
+        <f:then>
+            <f:asset.script
+                identifier="2clickjs"
+                src="EXT:thierolf/Resources/Public/JavaScript/2click.js" />
+            <f:asset.css
+                identifier="2clickjs"
+                href="EXT:thierolf/Resources/Public/StyleSheet/2clickcss.css" />
+            <f:variable name="widthSuffix" value="px" />
+            <f:if condition="{dimensions.width} == '100%'">
+                <f:variable name="widthSuffix" value="" />
+            </f:if>
+            <f:variable name="width" value="{f:if(condition:dimensions.width, then: dimensions.width, else: '400')}" />
+            <f:variable name="height" value="{f:if(condition:dimensions.height, then: dimensions.height, else: '400')}" />
+            <f:variable name="textclass" value="{f:if(condition:ptextclass, then: ptextclass, else: 'col-10 col-lg-6')}" />
+            <div class="video_wrapper overflow-hidden"
+                style="max-width:{width}{widthSuffix};height:{height}px"
+                >
+                <div class="video_trigger h-100 w-100"
+                     data-source="{file.contents}" data-type="youtube">
+                     <div class="video_trigger_content d-flex flex-column h-100 w-100 pt-5 align-items-center bg-red-100">
+                        <p class="text-center {textclass}">Mit dem Aufruf des Videos erklären Sie sich einverstanden,
+                            dass Ihre Daten an YouTube übermittelt werden und das Sie die
+                             <a href="{f:uri.typolink(parameter:'15')}" target="_blank">Datenschutzerklärung</a> gelesen haben.
+                        </p>
+                        <span class="text-center">
+                            <input type="button"
+                                class="btn btn-primary rounded-0 w-100"
+                                value="Akzeptieren" />
+                        </span>
+                     </div>
+                </div>
+                <div class="video_layer">
+                    <iframe
+                        style="width:{width}{widthSuffix};height:{height}px"
+                        src=""
+                        border="0">
+                    </iframe>
+                </div>
+            </div>
+        </f:then>
+        <f:else>
+            <f:media
+                class="video-embed-item"
+                file="{file}"
+                width="{dimensions.width}"
+                height="{dimensions.height}"
+                alt="{file.alternative}"
+                title="{file.title}"
+                additionalConfig="{settings.media.additionalConfig}" />
+        </f:else>
+    </f:if>
+
+
+</html>

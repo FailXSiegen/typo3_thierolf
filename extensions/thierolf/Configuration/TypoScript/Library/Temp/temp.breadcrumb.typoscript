@@ -5,11 +5,6 @@
     temp.breadcrumb = COA
     temp.breadcrumb {
         wrap =    |
-        10 = TEXT
-        10 {
-            field  = subtitle // title
-            wrap = <section class="banner-section"><div class="section-bg"></div><div class="container"><div class="row"><div class="page-banner-content col"><h1 class="text-white">|</h1></div></div></div></section>
-        }
         20 = HMENU
         20 {
             special = rootline

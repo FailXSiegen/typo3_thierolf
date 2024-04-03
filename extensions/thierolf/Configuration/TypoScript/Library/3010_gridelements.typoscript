@@ -3,6 +3,7 @@ tt_content.gridelements_pi1 {
         20 = {$thierolf.resourcePath}Private/Content/Templates/
     }
     partialRootPaths {
+        15 = {$thierolf.resourcePath}Private/Extensions/Gridelements/Partials/
         20 = {$thierolf.resourcePath}Private/Content/Partials/
     }
 }

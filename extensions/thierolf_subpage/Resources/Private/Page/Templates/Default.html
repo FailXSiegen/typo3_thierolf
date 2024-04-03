@@ -1,0 +1,28 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+    <f:layout name="Default" />
+    <f:section name="Main">
+
+      <div class="overlay"></div>
+      <f:render partial="Navigation/Breadcrumb" arguments="{_all}" />
+      <div class="light-section section-block">
+        <div class="container">
+          <div class="section-space"></div>
+          <div class="row">
+            <div class="col-lg-9 blog-post-items">
+              <f:cObject 
+                typoscriptObjectPath="lib.dynamicContent" 
+                data="{colPos:'0'}" />
+            </div>
+            <div class="col-lg-3 sidebar-blog">
+              <f:cObject 
+                typoscriptObjectPath="lib.dynamicContent" 
+                data="{colPos:'1', slide:'1'}" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <f:render partial="AfterContent" arguments="{_all}" />
+    </f:section>
+</html>

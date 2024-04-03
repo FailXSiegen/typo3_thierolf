@@ -42,7 +42,6 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     // callback method for every time the element is updated
     onComplete: null // callback method for when the element finishes updating
   };
-
   CountTo.prototype.init = function () {
     this.value = this.options.from;
     this.loops = Math.ceil(this.options.speed / this.options.refreshInterval);

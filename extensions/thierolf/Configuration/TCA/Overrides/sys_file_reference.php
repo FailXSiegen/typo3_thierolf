@@ -28,45 +28,6 @@ call_user_func(
                     'renderType' => 'checkboxToggle',
                 ]
             ],
-            'styleclass' => [
-                'exclude' => 0,
-                'label' => 'Text style class',
-                'config' => [
-                    'type' => 'select',
-                    'renderType' => 'selectSingle',
-                    'items' => [
-                        
-                        [
-                            'Oben Links',
-                            'position-absolute m-3 top-0 start-0'
-                        ],
-                        [
-                            'Unten Links',
-                            'position-absolute m-3 bottom-0 start-0'
-                        ],
-                        [
-                            'Oben Rechts',
-                            'position-absolute m-3 top-0 end-0'
-                        ],
-                        [
-                            'Unten Rechts',
-                            'position-absolute m-3 bottom-0 end-0'
-                        ],
-                        [
-                            'Mitte',
-                            'position-absolute top-50 start-50 translate-middle'
-                        ],
-                        [
-                            'style1',
-                            'style1'
-                        ],
-                        [
-                            'style2',
-                            'style2'
-                        ],
-                    ],
-                ],
-            ],
             'positionclass' => [
                 'exclude' => 0,
                 'label' => 'Text style class',
@@ -74,7 +35,10 @@ call_user_func(
                     'type' => 'select',
                     'renderType' => 'selectSingle',
                     'items' => [
-                        
+                        [
+                            '---',
+                            ''
+                        ],
                         [
                             'Oben Links',
                             'position-absolute m-3 top-0 start-0'
@@ -96,18 +60,27 @@ call_user_func(
                             'position-absolute top-50 start-50 translate-middle'
                         ],
                         [
-                            'style1',
-                            'style1'
+                            'Unten Mitte',
+                            'position-absolute my-3 bottom-0 start-50 translate-middle-x'
                         ],
                         [
-                            'style2',
-                            'style2'
+                            'Oben Mitte',
+                            'position-absolute my-3 top-0 start-50 translate-middle-x'
                         ],
                     ],
                 ],
             ],
+            'additionalcontent' => [
+                'exclude' => 0,
+                'label' => 'Zusatztext',
+                'config' => [
+                    'type' => 'text',
+                    'enableRichtext' => true
+                ],
+            ],
         ]);
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette($table, 'teaserPalette', 'tile_format');
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette($table, 'imageoverlayPalette', '--linebreak--, positionclass,--linebreak--, additionalcontent','after:title');
     },
     'thierolf',
     'sys_file_reference'

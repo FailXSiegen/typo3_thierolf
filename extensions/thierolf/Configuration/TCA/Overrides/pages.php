@@ -32,25 +32,105 @@ if (!defined('TYPO3')) {
 call_user_func(
     function ($extkey) {
 
-        // $columns = [
-        //     'fa_icon_name' => [
-        //         'exclude' => 0,
-        //         'label' => 'Font Awesome Icon',
-        //         'config' => [
-        //             'type' => 'input',
-        //             'size' => 20,
-        //             'eval' => 'trim',
-        //             'max' => 256
-        //         ]
-        //     ],
-
-        // ];
+        $columns = [
+            'theme' => [
+                'label' => 'LLL:EXT:'.$extkey.'/Resources/Private/Language/locallang_db.xlf:theme',
+                'description' => 'LLL:EXT:'.$extkey.'/Resources/Private/Language/locallang_db.xlf:theme.description',
+                'config' => [
+                    'type' => 'select',
+                    'renderType' => 'selectSingle',
+                    'items' => [
+                        ['---',''],
+                        ['Theme Weiß', 'theme-white', 'EXT:'.$extkey.'/Resources/Public/Icons/theme-white.png'],
+                        ['Theme Schwarz', 'theme-black', 'EXT:'.$extkey.'/Resources/Public/Icons/theme-black.png'],
+                    ],
+                    'fieldWizard' => [
+                        'selectIcons' => [
+                            'disabled' => false,
+                        ],
+                    ],
+                ],
+            ],
+            'fa_icon_name' => [
+                'exclude' => 0,
+                'label' => 'Font Awesome Icon',
+                'description' => 'Für Navigation und Sidebar, Möglichkeiten unter https://fontawesome.com/search?o=r&m=free und nur die Klasse eintragen, Beispiel: fa-solid fa-house',
+                'config' => [
+                    'type' => 'input',
+                    'size' => 20,
+                    'eval' => 'trim',
+                    'max' => 256
+                ]
+            ],
+            'custom_icon' => [
+                'exclude' => 0,
+                'label' => 'Individuells Icon',
+                'description' => 'Für Navigation und Sidebar, priorisiert über dem Font Awesome Icon',
+                'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+                    'image',
+                    [
+                        'behaviour' => [
+                            'allowLanguageSynchronization' => true,
+                        ],
+                        // custom configuration for displaying fields in the overlay/reference table
+                        // to use the newsPalette and imageoverlayPalette instead of the basicoverlayPalette
+                        'overrideChildTca' => [
+                            'types' => [
+                                \TYPO3\CMS\Core\Resource\File::FILETYPE_UNKNOWN => [
+                                    'showitem' => '
+                                        --palette--;Teaserformat;teaserPalette,
+                                        --palette--;;imageoverlayPalette,
+                                        --palette--;;filePalette'
+                                ],
+                                \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
+                                    'showitem' => '
+                                        --palette--;Teaserformat;teaserPalette,
+                                        --palette--;;imageoverlayPalette,
+                                        --palette--;;filePalette'
+                                ],
+                                \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+                                    'showitem' => '
+                                        --palette--;Teaserformat;teaserPalette,
+                                        --palette--;;imageoverlayPalette,
+                                        --palette--;;filePalette'
+                                ],
+                                \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => [
+                                    'showitem' => '
+                                        --palette--;Teaserformat;teaserPalette,
+                                        --palette--;;audioOverlayPalette,
+                                        --palette--;;filePalette'
+                                ],
+                                \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
+                                    'showitem' => '
+                                        --palette--;Teaserformat;teaserPalette,
+                                        --palette--;;videoOverlayPalette,
+                                        --palette--;;filePalette'
+                                ],
+                                \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => [
+                                    'showitem' => '
+                                        --palette--;Teaserformat;teaserPalette,
+                                        --palette--;;imageoverlayPalette,
+                                        --palette--;;filePalette'
+                                ]
+                            ],
+                        ],
+                    ],
+                    $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']
+                )
+            ],
+        ];
         // Add TCA columns.
-        // \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
-        //     'pages',
-        //     $columns
-        // );
-        // \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('pages', 'fa_icon_name','','after:title');
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
+            'pages',
+            $columns
+        );
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('pages', 'fa_icon_name,custom_icon','','after:subtitle');
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
+            'pages',
+            'theme,--linebreak--',
+            '',
+            'after:doktype'
+        );
 
         // get absolute path the PageTSconfig directory.
         $path = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('thierolf').'Configuration/PageTSconfig/';

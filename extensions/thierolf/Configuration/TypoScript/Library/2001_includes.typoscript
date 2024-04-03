@@ -1,7 +1,9 @@
 page{
     includeCSS {
         fonts = {$thierolf.resourcePath}Public/StyleSheet/fonts.css
-        fontawesome = {$thierolf.resourcePath}Public/css/font-awesome.css
+        #fontawesome = {$thierolf.resourcePath}Public/css/font-awesome.css
+        fontawesome = {$thierolf.resourcePath}Public/Vendor/@fortawesome/fontawesome-free/css/all.min.css
+        magnific = {$thierolf.resourcePath}Public/Vendor/magnific-popup/dist/magnific-popup.css
         bootstrap = {$thierolf.resourcePath}Public/StyleSheet/bootstrap.css
     }
     includeJSFooterlibs {
@@ -23,9 +25,4 @@ page{
         wow = {$thierolf.resourcePath}Public/JavaScript/wow.min.js
         main = {$thierolf.resourcePath}Public/JavaScript/main.js
     }
-}
-
-page.includeCSS {
-    flexslider > 
-    flexslider_mods >
 }

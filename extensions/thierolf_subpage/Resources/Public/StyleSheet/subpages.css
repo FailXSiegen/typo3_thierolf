@@ -1,0 +1,72 @@
+.nav {
+    float: none;
+  }
+  
+  #primary-nav {
+    width: 100%;
+    max-width: 260px;
+    overflow: hidden;
+  }
+  @media (min-width: 1240px) {
+    #primary-nav {
+      max-width: 100%;
+      overflow: visible;
+    }
+  }
+  #primary-nav .layout-1 {
+    position: static;
+  }
+  #primary-nav .layout-1 > ul.dropdown-nav {
+    width: 100%;
+    left: 0;
+  }
+  #primary-nav .item-width-50 li {
+    width: 50%;
+  }
+  
+  .site-wrapper.header-top-with {
+    padding-top: 130px;
+  }
+  
+  .main-logo {
+    height: 80px;
+  }
+  
+  .header-buttons {
+    height: 80px;
+  }
+  
+  @media (max-width: 1239.98px) {
+    #primary-nav {
+      background-color: #f1f3f7;
+    }
+    #primary-nav ul {
+      background-color: #f1f3f7;
+    }
+    .primary-nav a,
+    .primary-nav ul a {
+      color: #2e3233;
+    }
+    .primary-nav .has-children > a::before,
+    .primary-nav .has-children > a::after,
+    .primary-nav .go-back a::before,
+    .primary-nav .go-back a::after,
+    .primary-nav ul .has-children > a::before,
+    .primary-nav ul .has-children > a::after,
+    .primary-nav ul .go-back a::before,
+    .primary-nav ul .go-back a::after {
+      background: #2e3233;
+    }
+    .main-logo {
+      height: 60px;
+    }
+    .header-buttons {
+      height: 60px;
+    }
+    .site-wrapper.header-top-with {
+      padding-top: 120px;
+    }
+  }
+  .site-footer .footer-area h3 {
+    text-transform: none !important;
+  }

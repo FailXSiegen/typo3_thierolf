@@ -1,2 +1,2 @@
-<INCLUDE_TYPOSCRIPT: source="DIR: ./Library" extensions="typoscript">
-<INCLUDE_TYPOSCRIPT: source="DIR: ./Helper" extensions="typoscript">
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:thierolf/Configuration/TypoScript/Library" extensions="typoscript">
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:thierolf/Configuration/TypoScript/Helper" extensions="typoscript">

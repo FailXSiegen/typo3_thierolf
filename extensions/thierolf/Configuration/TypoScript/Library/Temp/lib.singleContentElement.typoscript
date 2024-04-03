@@ -1,0 +1,8 @@
+lib.singleContentElement = CONTENT
+lib.singleContentElement {
+    table = tt_content
+    select {
+        uidInList.field = contentUid
+        pidInList.field = pageUid
+    } 
+}

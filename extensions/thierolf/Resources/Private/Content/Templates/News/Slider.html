@@ -1,0 +1,75 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-bs-namespace-typo3-fluid="true">
+
+<f:layout name="Default"/>
+
+<f:section name="Main">
+    <f:if condition="{children}">
+        <f:asset.script identifier="gslider-js" src="EXT:thierolf/Resources/Public/Vendor/@glidejs/glide/dist/glide.min.js" />
+        <f:asset.css identifier="gslider-css-core" href="EXT:thierolf/Resources/Public/Vendor/@glidejs/glide/dist/css/glide.core.min.css" />
+        <f:asset.css identifier="gslider-css-theme" href="EXT:thierolf/Resources/Public/Vendor/@glidejs/glide/dist/css/glide.theme.min.css" />
+        <f:asset.css identifier="gslider-css-custom" href="EXT:thierolf/Resources/Public/StyleSheet/gslider.css" />
+        <f:asset.script identifier="center-active-bullet">
+            function centerActiveBulletWithTransform(glideElement) {
+                if(window.innerWidth <= 768) {
+                    var $activeBullet = $(glideElement).find('.glide__bullet--active'); // Selektieren des aktiven Bullets
+                    var $bulletsContainer = $(glideElement).find('.glide__bullets'); // Bullet-Container
+                    var activeBulletOffset = $activeBullet.position().left + $activeBullet.outerWidth() / 2; // Zentrum des aktiven Bullets
+                    var containerCenter = $bulletsContainer.width() / 2; // Zentrum des Containers
+                    var transformValue = containerCenter - activeBulletOffset; // Berechnung des Transform-Werts
+                
+                    // Anwendung der Transformation auf den Container
+                    $bulletsContainer.css('transform', 'translateX(' + transformValue + 'px)');
+                }
+            }
+            
+        </f:asset.script>
+        <f:asset.script identifier="gslider-js-init{data.uid}">
+            var glideElement = '#gslider<f:format.raw>{f:if(condition:data._LOCALIZED_UID, then:data._LOCALIZED_UID, else:data.uid)}</f:format.raw>';
+            var glide = new Glide(glideElement, {
+                type: 'carousel',
+                autoplay: false,
+                perView: 1,
+                focusAt: 'center',
+                peek: { 
+                    before: 100,
+                    after: 100 
+                }
+            }).mount()
+              
+              glide.on('move.after', function() {
+                centerActiveBulletWithTransform(glideElement); // Aufruf der Funktion zum Zentrieren des aktiven Bullets
+              });
+              // Initialer Aufruf für den Fall, dass das aktive Bullet beim Laden der Seite zentriert werden muss
+              centerActiveBulletWithTransform(glideElement);
+           
+        </f:asset.script>
+        <div class="glide" id="gslider{f:if(condition:data._LOCALIZED_UID, then:data._LOCALIZED_UID, else:data.uid)}">
+            <div class="glide__track" data-glide-el="track">
+                <ul class="glide__slides">
+                    <f:for each="{children}" as="columns" key="rowNumber">
+                        <f:if condition="{columns.101}">
+                            <f:for each="{columns.101}" as="child" iteration="iteration">
+                                <li class="glide__slide">
+                                    <f:render partial="Child" arguments="{data: child.data, children: child.children, options: options, settings: settings}"/>
+                                </li>
+                            </f:for>
+                        </f:if>
+                    </f:for>
+                </ul>
+            </div>
+            <div class="glide__bullets" data-glide-el="controls[nav]">
+                <f:for each="{children}" as="columns" key="rowNumber">
+                    <f:if condition="{columns.101}">
+                        <f:for each="{columns.101}" as="child" iteration="iteration">
+                            <button class="border-0 bg-transparent py-3" data-glide-dir="={iteration.index}">
+                                <span class="glide__bullet d-block m-0"></span>
+                            </button>
+                        </f:for>
+                    </f:if>
+                </f:for>
+            </div>
+        </div>   
+    </f:if>
+</f:section>
+
+</html>

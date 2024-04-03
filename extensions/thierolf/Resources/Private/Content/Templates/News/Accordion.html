@@ -1,0 +1,44 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:layout name="Default"/>
+
+<f:section name="Main">
+    <f:if condition="{children}">
+        <f:asset.css 
+            href="EXT:thierolf/Resources/Public/StyleSheet/accordion.css"
+            identifier="accordion" />
+        <div id="accordion-{f:if(condition:data._LOCALIZED_UID, then:data._LOCALIZED_UID, else:data.uid)}">
+            <f:for each="{children}" as="columns" key="rowNumber">
+                <f:if condition="{columns.101}">
+                    <f:for each="{columns.101}" as="child" iteration="iteration">
+                        <div class="card mb-3">
+                            <div class="card-header p-0" id="heading-c{child.data.uid}">
+                                <h5 class="mb-0">
+                                    <span 
+                                        role="button"
+                                        class="w-100 py-4 px-3 d-flex justify-content-between align-items-center {f:if(condition:iteration.index,then:'',else:'collapsed')}" 
+                                        data-bs-toggle="collapse" 
+                                        data-bs-parent="#accordion-{f:if(condition:data._LOCALIZED_UID, then:data._LOCALIZED_UID, else:data.uid)}" 
+                                        data-bs-target="#collapse-{child.data.uid}"
+                                        aria-expanded="{f:if(condition:iteration.index,then:'false',else:'true')}" 
+                                        aria-controls="collapse-{child.data.uid}">
+                                        <span>{child.data.header}</span>
+                                        <span class="fa fa-solid fa-chevron-down"></span>
+                                    </span>
+                                </h5>
+                               
+                            </div>
+                            <div id="collapse-{child.data.uid}" class="collapse {f:if(condition:iteration.index,then:'',else:'show')}" aria-labelledby="heading-c{child.data.uid}" data-parent="#accordion-{f:if(condition:data._LOCALIZED_UID, then:data._LOCALIZED_UID, else:data.uid)}">
+                                <div class="card-body">
+                                    <f:render partial="Child" arguments="{data: child.data, children: child.children, options: options, settings: settings}"/>
+                                </div>
+                            </div>
+                        </div>
+                    </f:for>
+                </f:if>
+            </f:for>
+        </div>
+    </f:if>
+</f:section>
+
+</html>

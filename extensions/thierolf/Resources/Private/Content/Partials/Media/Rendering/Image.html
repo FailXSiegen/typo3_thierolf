@@ -1,80 +1,167 @@
-<html 
-        xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" 
-        xmlns:fx="http://typo3.org/ns/Failx/Thierolf/ViewHelpers" 
-        data-namespace-typo3-fluid="true">
-    <f:comment>
-        <f:media class="image-embed-item img img-fluid" file="{file}" width="{dimensions.width}"
-                 height="{dimensions.height}" alt="{file.alternative}" title="{file.title}" />
-    </f:comment>
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:fx="http://typo3.org/ns/Failx/Thierolf/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+<f:comment>
+    <f:media class="image-embed-item img img-fluid" file="{file}" width="{dimensions.width}"
+                height="{dimensions.height}" alt="{file.alternative}" title="{file.title}" />
+</f:comment>
+<f:variable name="imageStyle" value="{file.properties.image_style}" />
+<f:variable name="pictureClass" value="{f:if(condition:pPictureClass, then:'{pPictureClass} {imageStyle}', else:'position-relative {imageStyle}')}" />
+
+<f:variable name="imageClass" value="{f:if(condition:pImageClass, then:'{pImageClass}', else:'image-embed-item  img img-fluid')}" />
+
+<f:variable name="maxImageWidth" value="" />
+<f:variable name="mobileXsWidth" value="{f:if(condition:pMobileXsWidth, then:'{pMobileXsWidth}', else:'551m')}" />
+<f:if condition="{mobileXsWidth} > {maxImageWidth} && {pMobileXsWidth}">
+    <f:variable name="maxImageWidth" value="{mobileXsWidth}" />
+</f:if>
+<f:variable name="mobileWidth" value="{f:if(condition:pMobileWidth, then:'{pMobileWidth}', else:'767m')}" />
+<f:if condition="{mobileWidth} > {maxImageWidth} && {pMobileWidth}">
+    <f:variable name="maxImageWidth" value="{mobileWidth}" />
+</f:if>
+<f:variable name="tabletWidth" value="{f:if(condition:pTabletWidth, then:'{pTabletWidth}', else:'991m')}" />
+<f:if condition="{tabletWidth} > {maxImageWidth} && {pTabletWidth}">
+    <f:variable name="maxImageWidth" value="{tabletWidth}" />
+</f:if>
+<f:variable name="smallDesktopWidth" value="{f:if(condition:pSmallDesktopWidth, then:'{pSmallDesktopWidth}', else:'1200m')}" />
+<f:if condition="{smallDesktopWidth} > {maxImageWidth} && {pSmallDesktopWidth}">
+    <f:variable name="maxImageWidth" value="{smallDesktopWidth}" />
+</f:if>
+<f:variable name="desktopWidth" value="{f:if(condition:pDesktopWidth, then:'{pDesktopWidth}', else:'{dimensions.width}')}" />
+<f:if condition="{desktopWidth} > {maxImageWidth} && {pDesktopWidth}">
+    <f:variable name="maxImageWidth" value="{desktopWidth}" />
+</f:if>
+<f:if condition="{maxImageWidth}">
+    <f:then></f:then>
+    <f:else>
+            <f:variable name="maxImageWidth" value="{smallDesktopWidth}" />
+    </f:else>
+</f:if>
+<f:variable name="mobileXsHeight" value="{f:if(condition:pMobileXsHeight, then:'{pMobileXsHeight}', else:'')}" />
+<f:variable name="mobileHeight" value="{f:if(condition:pMobileHeight, then:'{pMobileHeight}', else:'')}" />
+<f:variable name="tabletHeight" value="{f:if(condition:pTabletHeight, then:'{pTabletHeight}', else:'')}" />
+<f:variable name="smallDesktopHeight" value="{f:if(condition:pSmallDesktopHeight, then:'{pSmallDesktopHeight}', else:'')}" />
+<f:variable name="desktopHeight" value="{f:if(condition:pDesktopHeight, then:'{pDesktopHeight}', else:'{dimensions.height}')}" />
+
+
+<f:if condition="{file.properties.image_style}">
     <f:variable name="imageStyle" value="{file.properties.image_style}" />
-    <f:variable name="pictureClass" value="{f:if(condition:pPictureClass, then:'{pPictureClass} {imageStyle}', else:'position-relative {imageStyle}')}" />
-    <f:variable name="imageClass" value="{f:if(condition:pImageClass, then:'{pImageClass}', else:'image-embed-item  img img-fluid')}" />
-    <f:if condition="{file.originalResource.properties.image_style}">
-        <f:variable name="imageStyle" value="{file.originalResource.properties.image_style}" />
-    </f:if>
+</f:if>
+
+<picture class="{pictureClass}">
+
+    <f:render section="image" arguments="{
+        file: file,
+        dimensions: dimensions,
+        width: mobileXsWidth,
+        height: mobileXsHeight,
+        cropVariant:'smartphone-portrait',
+        responsiveWidth:'575px',
+        orientation:'portrait'
+    }" />
+    <f:render section="image" arguments="{
+        file: file,
+        dimensions: dimensions,
+        width: mobileXsWidth,
+        height: mobileXsHeight,
+        cropVariant:'smartphone-landscape',
+        responsiveWidth:'575px',
+        orientation:'landscape'
+    }" />
+    <f:render section="image" arguments="{
+        file: file,
+        dimensions: dimensions,
+        width: mobileWidth,
+        height: mobileHeight,
+        cropVariant:'smartphone-portrait',
+        responsiveWidth:'767px',
+        orientation:'portrait'
+    }" />
+    <f:render section="image" arguments="{
+        file: file,
+        dimensions: dimensions,
+        width: mobileWidth,
+        height: mobileHeight,
+        cropVariant:'smartphone-landscape',
+        responsiveWidth:'767px',
+        orientation:'landscape'
+    }" />
+    <f:render section="image" arguments="{
+        file: file,
+        dimensions: dimensions,
+        width: tabletWidth,
+        height: tabletHeight,
+        cropVariant:'tablet-portrait',
+        responsiveWidth:'991px',
+        orientation:'portrait'
+    }" />
+    <f:render section="image" arguments="{
+        file: file,
+        dimensions: dimensions,
+        width: tabletWidth,
+        height: tabletHeight,
+        cropVariant:'tablet-landscape',
+        responsiveWidth:'991px',
+        orientation:'landscape'
+    }" />
+    <f:render section="image" arguments="{
+        file: file,
+        dimensions: dimensions,
+        width: desktopWidth,
+        height: desktopHeight,
+        cropVariant:'default',
+        responsiveMinWidth:'992px',
+        responsiveMaxWidth:'1239px'
+    }" />
+    <f:render section="image" arguments="{
+        file: file,
+        dimensions: dimensions,
+        width: maxImageWidth,
+        cropVariant:'default',
+        responsiveMinWidth:'1240px',
+        maxWidth: '1920'
+    }" />
     
-    <picture class="{pictureClass}">
-        <fx:exists file="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'767m',cropVariant:'smartphone-portrait') -> fx:substring(start:'1')}.webp">
-                <source media="(max-width: 767px) and (orientation:portrait)"
-                        srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'767m',cropVariant:'smartphone-portrait')}.webp"
-                        type="image/webp"
-                >
-        </fx:exists>
-        
-        <source media="(max-width: 767px) and (orientation:portrait)"
-                srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'767m',cropVariant:'smartphone-portrait')}">
+    <f:image treatIdAsReference="1"
+                class="{imageClass}"
+                width="{maxImageWidth}"
+                maxWidth="2121"
+                height="{dimensions.height}"
+                src="{file.uid}"
+                title="{file.title}"
+                alt="{file.alternative}"
+                crop="{file.crop}" />
+    <f:if condition="{file.properties.additionalcontent}">
+        <div class="{file.properties.positionclass} bg-white bg-opacity-75 p-2 image-overlay-content">
+            {file.properties.additionalcontent -> f:format.html()}
+        </div>
+    </f:if>
+</picture>
 
-        <fx:exists file="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'767m',cropVariant:'smartphone-landscape') -> fx:substring(start:'1')}.webp">
-                <source media="(max-width: 767px) and (orientation:landscape)"
-                        srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'767m',cropVariant:'smartphone-landscape')}.webp"
-                        type="image/webp"
-                        >
-        </fx:exists>
-        <source media="(max-width: 767px) and (orientation:landscape)"
-                srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'767m',cropVariant:'smartphone-landscape')}">
+<f:section name="image">
+    <f:variable name="media" value="" />
+    <f:if condition="{responsiveWidth}">
+        <f:variable name="media" value="(max-width: {responsiveWidth}){f:if(condition:media,then:' and {media}')}" />
+    </f:if>
+    <f:if condition="{responsiveMaxWidth}">
+        <f:variable name="media" value="(max-width: {responsiveMaxWidth}){f:if(condition:media,then:' and {media}')}" />
+    </f:if>
+    <f:if condition="{responsiveMinWidth}">
+        <f:variable name="media" value="(min-width: {responsiveMinWidth}){f:if(condition:media,then:' and {media}')}" />
+    </f:if>
+    <f:if condition="{orientation}">
+        <f:variable name="media" value="(orientation: {orientation}){f:if(condition:media, then:' and {media}')}" />
+    </f:if>
+    <fx:exists file="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'{width}',maxWidth:'{maxWidth}',cropVariant:'{cropVariant}') -> fx:substring(start:'1')}.webp">
+        <source media="{media}"
+                srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'{width}',maxWidth:'{maxWidth}',height:'{height}',cropVariant:'{cropVariant}')}.webp"
+                type="image/webp"
+        >
+    </fx:exists>
 
-        <fx:exists file="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'991m',cropVariant:'tablet-portrait') -> fx:substring(start:'1')}.webp">
-                <source media="(max-width: 991px) and (orientation:portrait)"
-                        srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'991m',cropVariant:'tablet-portrait')}.webp"
-                        type="image/webp"
-                >
-        </fx:exists>
-        <source media="(max-width: 991px) and (orientation:portrait)"
-                srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'991m',cropVariant:'tablet-portrait')}">
+    <source media="{media}"
+            srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'{width}',maxWidth:'{maxWidth}',height:'{height}',cropVariant:'{cropVariant}')}">
 
-        <fx:exists file="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'991m',cropVariant:'tablet-landscape') -> fx:substring(start:'1')}.webp">
-                <source media="(max-width: 991px) and (orientation:landscape)"
-                        srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'991m',cropVariant:'tablet-landscape')}.webp"
-                        type="image/webp"
-                >
-        </fx:exists>
-        <source media="(max-width: 991px) and (orientation:landscape)"
-                srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'991m',cropVariant:'tablet-landscape')}">
-
-        <fx:exists file="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'1200m',cropVariant:'desktop-md') -> fx:substring(start:'1')}.webp">
-                <source media="(max-width: 1199px) and (min-width:992px)"
-                        srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'1200m',cropVariant:'desktop-md')}.webp"
-                        type="image/webp"
-                        >
-        </fx:exists>
-        <source media="(max-width: 1199px) and (min-width:992px)"
-                srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'1200m',cropVariant:'desktop-md')}">
-        <fx:exists file="{f:uri.image(src:'{file.uid}', treatIdAsReference:'1', width:'{dimensions.width}', maxWidth: '1920', cropVariant:'default') -> fx:substring(start:'1')}.webp">
-                <source media="(min-width: 1200px)"
-                        srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1', width:'{dimensions.width}',maxWidth: '1920',cropVariant:'default')}.webp"
-                        type="image/webp"
-                        >
-        </fx:exists>
-        <source media="(min-width: 1200px)"
-                srcset="{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'{dimensions.width}',maxWidth: '1920',cropVariant:'default')}">
-        <f:image treatIdAsReference="1"
-                 class="{imageClass}" 
-                 width="{dimensions.width}" 
-                 maxWidth="2121"
-                 height="{dimensions.height}" 
-                 src="{file.uid}" 
-                 title="{file.title}" 
-                 alt="{file.alternative}"
-                 crop="{file.crop}" />
-    </picture>
+</f:section>
 </html>

@@ -6,20 +6,27 @@ mod.wizards.newContentElement.wizardItems {
       elements {
          pdfviewer {
             iconIdentifier = content-bullets
-            title = pdfviewer
+            title = PDF-Ansicht der Angebote
             tt_content_defValues {
                CType = pdfviewer
             }
          }
          teasermenu {
             iconIdentifier = content-menu-sitemap-pages
-            title = teasermenu
+            title = Teaser Menu
             tt_content_defValues {
                CType = teasermenu
             }
          }
+         sidebar {
+            iconIdentifier = content-menu-sitemap-pages
+            title = Sidebar (Gitarren-Navigation)
+            tt_content_defValues {
+               CType = sidebar
+            }
+         }
       }
-      show := addToList(pdfviewer,teasermenu)
+      show := addToList(pdfviewer,teasermenu,sidebar)
    }
 }
 
@@ -40,6 +47,16 @@ TCEFORM {
                 1 = hellblau
                 2 = dunkelblau
                 3 = rot
+            }
+        }
+        frame_class {
+            removeItems = ruler-before,ruler-after,indent,indent-left,indent-right
+            altLabels {
+                default = ---
+            }
+            addItems {
+                container = Normale Breite
+                container-fluid = Volle Breite
             }
         }
         header_layout {
@@ -206,4 +223,26 @@ TCEFORM.sys_file_reference.crop.config.cropVariants {
 		selectedRatio = NaN
 		allowedAspectRatios < TCEFORM.sys_file_reference.crop.config.cropVariants.default.allowedAspectRatios
 	}
+}
+
+
+tx_gridelements {
+    setup {
+        slider {
+            title = Slider
+            description = 
+            iconIdentifier = tx-bootstrapgrids-accordion
+            frame = 2
+            topLevelLayout = 0
+            config {
+                colCount = 1
+                rowCount = 1
+                rows.1.columns.1 {
+                    name = Slides
+                    colPos = 101
+                }
+            }
+            #flexformDS = FILE:EXT:bootstrap_grids/Configuration/FlexForm/flexform_accordion.xml
+        }
+    }
 }

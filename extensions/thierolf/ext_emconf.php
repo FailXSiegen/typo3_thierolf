@@ -34,14 +34,14 @@ $EM_CONF['thierolf'] = [
     'author_email' => 'info@failx.de',
     'constraints' => [
         'depends' => [
-            'typo3' => '10.4.0-10.4.99',
+            'typo3' => '10.4.0-12.4.99',
         ],
         'conflicts' => [],
         'suggests' => [],
     ],
     'autoload' => [
         'psr-4' => [
-            'Failx\\Thierolf\\' => 'Classes',
+            'Failx\\ThierolfSubpage\\' => 'Classes',
         ],
     ],
 ];

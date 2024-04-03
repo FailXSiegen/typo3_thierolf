@@ -1,0 +1,48 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-bs-namespace-typo3-fluid="true">
+
+<f:layout name="Default"/>
+
+<f:section name="Main">
+    <f:if condition="{children}">
+        <f:asset.script identifier="gslider-js" src="EXT:thierolf/Resources/Public/Vendor/@glidejs/glide/dist/glide.min.js" />
+        <f:asset.css identifier="gslider-css-core" href="EXT:thierolf/Resources/Public/Vendor/@glidejs/glide/dist/css/glide.core.min.css" />
+        <f:asset.css identifier="gslider-css-theme" href="EXT:thierolf/Resources/Public/Vendor/@glidejs/glide/dist/css/glide.theme.min.css" />
+        <f:asset.css identifier="gslider-css-custom" href="EXT:thierolf/Resources/Public/StyleSheet/gslider.css" />
+        <f:asset.script identifier="gslider-js-init">
+            var glide = new Glide('#gslider<f:format.raw>{f:if(condition:data._LOCALIZED_UID, then:data._LOCALIZED_UID, else:data.uid)}</f:format.raw>', {
+                type: 'carousel',
+                autoplay: false,
+                perView: 1,
+                focusAt: 'center'
+              })
+              
+              glide.mount()
+        </f:asset.script>
+        <div class="glide" id="gslider{f:if(condition:data._LOCALIZED_UID, then:data._LOCALIZED_UID, else:data.uid)}">
+            <div class="glide__track" data-glide-el="track">
+                <ul class="glide__slides">
+                    <f:for each="{children}" as="columns" key="rowNumber">
+                        <f:if condition="{columns.101}">
+                            <f:for each="{columns.101}" as="child" iteration="iteration">
+                                <li class="glide__slide">
+                                    <f:render partial="Child" arguments="{data: child.data, children: child.children, options: options, settings: settings}"/>
+                                </li>
+                            </f:for>
+                        </f:if>
+                    </f:for>
+                </ul>
+            </div>
+            <div class="glide__bullets" data-glide-el="controls[nav]">
+                <f:for each="{children}" as="columns" key="rowNumber">
+                    <f:if condition="{columns.101}">
+                        <f:for each="{columns.101}" as="child" iteration="iteration">
+                            <button class="glide__bullet" data-glide-dir="={iteration.index}"></button>
+                        </f:for>
+                    </f:if>
+                </f:for>
+            </div>
+        </div>   
+    </f:if>
+</f:section>
+
+</html>

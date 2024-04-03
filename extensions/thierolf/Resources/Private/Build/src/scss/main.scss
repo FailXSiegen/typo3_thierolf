@@ -1,5 +1,50 @@
 @import "navigation";
 
+@import "../../../../Public/Vendor/bootstrap/scss/functions";
+@import "../../../../Public/Vendor/bootstrap/scss/variables";
+@import "../../../../Public/Vendor/bootstrap/scss/variables-dark";
+@import "../../../../Public/Vendor/bootstrap/scss/maps";
+@import "../../../../Public/Vendor/bootstrap/scss/mixins";
+@import "../../../../Public/Vendor/bootstrap/scss/utilities";
+
+.image-overlay-content {
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+.top {
+    &-25 {
+        top: 25%;
+    }
+}
 .site-footer .footer-area h3 {
     text-transform: none !important;
 }
+.news-list-item {
+    a {
+        text-decoration: none;
+    }
+}
+.light-section {
+    padding-bottom: 1.5rem;
+}
+.navbar_bottom {
+    &.bottom_stick {
+        margin-top: 0;
+        position: sticky;
+        bottom: 0;
+        left: 0;
+        z-index: 999;
+    }
+    @include media-breakpoint-down(lg) {
+        display: none;
+    }
+}
+.frame-type-table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}    
+figure.table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+} 

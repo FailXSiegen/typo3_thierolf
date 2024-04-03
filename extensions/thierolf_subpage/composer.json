@@ -1,0 +1,44 @@
+{
+  "name": "failx/templates-thierolf-subpage",
+  "type": "typo3-cms-extension",
+  "description": "",
+  "keywords": [
+    "TYPO3 CMS",
+    "Extension"
+  ],
+  "license": [
+    "GPL-3.0-or-later"
+  ],
+  "require": {
+    "thierolf": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Failx\\ThierolfSubpage\\": "Classes/"
+    }
+  },
+  "replace": {
+    "thierolf-subpage": "self.version",
+    "typo3-ter/thierolf-subpage": "self.version"
+  },
+  "scripts": {
+    "post-autoload-dump": [
+      "mkdir -p .Build/Web/typo3conf/ext/",
+      "[ -L .Build/Web/typo3conf/ext/thierolf_subpage ] || ln -snvf ../../../../. .Build/Web/typo3conf/ext/thierolf_subpage"
+    ]
+  },
+  "config": {
+    "vendor-dir": ".Build/vendor",
+    "bin-dir": ".Build/bin",
+    "platform": {
+      "php": "8.1"
+    }
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "thierolf_subpage",
+      "cms-package-dir": "{$vendor-dir}/typo3/cms",
+      "web-dir": ".Build/Web"
+    }
+  }
+}

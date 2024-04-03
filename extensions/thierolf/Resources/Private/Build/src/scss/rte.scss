@@ -1,0 +1,11 @@
+@import "bootstrap";
+$fa-font-path: '/typo3conf/ext/thierolf/Resources/Public/Vendor/@fortawesome/fontawesome-free/webfonts/';
+@font-face {
+    font-family: 'Font Awesome 6 Free';
+    font-style: normal;
+    font-weight: 900;
+    font-display: 'swap';
+    src: url('/typo3conf/ext/thierolf/Resources/Public/Vendor/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2') format('woff2'),
+      url('/typo3conf/ext/thierolf/Resources/Public/Vendor/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf') format('truetype');
+}
+@import "./../../../../Public/Vendor/@fortawesome/fontawesome-free/scss/fontawesome.scss";

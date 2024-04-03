@@ -1,0 +1,77 @@
+/*!***********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[3]!./src/scss/sidebar.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************/
+.cta-bar {
+  position: fixed;
+  z-index: 1200;
+}
+@media (max-width: 991.98px) {
+  .cta-bar {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .cta-bar {
+    top: 15%;
+    right: 0;
+  }
+}
+.cta-bar ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (max-width: 991.98px) {
+  .cta-bar ul {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+  }
+}
+.cta-bar a {
+  background-color: black;
+  overflow: hidden;
+}
+@media (min-width: 992px) {
+  .cta-bar a {
+    background-color: #00498d;
+    border-top-left-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+  }
+}
+@media (max-width: 991.98px) {
+  .cta-bar a {
+    text-align: center;
+  }
+}
+.cta-bar li > span {
+  background-color: black;
+}
+@media (min-width: 992px) {
+  .cta-bar li > span {
+    background-color: #00498d;
+    border-top-left-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+  }
+}
+@media (max-width: 991.98px) {
+  .cta-bar li {
+    flex: 1 1 auto;
+    border-right: 1px solid white;
+  }
+  .cta-bar li:last-child {
+    border: 0;
+  }
+}
+@media (min-width: 992px) {
+  .cta-bar li {
+    transform: translate(calc(100% - 50px), 0);
+    transition: transform 0.3s ease-in-out;
+  }
+  .cta-bar li:active, .cta-bar li:hover {
+    transform: translate(0, 0);
+    transition: transform 0.3s ease-in-out;
+  }
+}

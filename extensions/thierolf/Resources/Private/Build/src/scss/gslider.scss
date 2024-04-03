@@ -1,0 +1,55 @@
+@import "variables";
+.glide {
+    position: relative;
+    margin-bottom: 1.25rem;
+    overflow: hidden;
+    &:after,
+    &:before {
+        content:'';
+        position: absolute;
+        top: 0;
+        width:100px;
+        height: 100%; 
+        z-index: 9;   
+    }
+    &:after {
+        left: 0;
+        background-image: linear-gradient(to right, rgba(255,255,255,1) , rgba(255,255,255,0));
+    }
+    &:before {
+        right: 0;
+        background-image: linear-gradient(to right,  rgba(255,255,255,0), rgba(255,255,255,1));
+    }
+}
+.glide__bullets {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: translateX(0);
+    width: 100%;
+    justify-content: center;
+    button {
+        &:focus,
+        &:hover {
+            .glide__bullet {
+                border: 2px solid black;
+            }
+            
+        
+        }
+        &.glide__bullet--active {
+            .glide__bullet
+            {
+                background-color: black;
+                border: 2px solid black;
+            }
+        }
+    }
+    .glide__bullet {
+        background-color: $lightgrey;
+        width: 30px;
+        height: 6px;
+        border-radius: 3px;
+        border: 2px solid $lightgrey; 
+    }
+}
