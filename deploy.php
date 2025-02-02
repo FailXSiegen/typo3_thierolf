@@ -24,7 +24,7 @@ set('typo3_webroot', 'public');
 set('keep_releases', 5);
 
 set('bin/php', function () {
-    return which('php81');
+    return which('php82');
 });
 
 add('shared_files', [
@@ -86,7 +86,7 @@ set('rsync',[
 
 // Tasks
 task('build', function () {
-    runLocally('COMPOSER_MEMORY_LIMIT=-1 composer -q update');
+    run('cd {{release_path}} && COMPOSER_MEMORY_LIMIT=-1 {{bin/php}} /usr/bin/composer update -q');
 });
 
 task('typo3', function () {
@@ -109,10 +109,10 @@ task('deploy', [
     'deploy:unlock',
     'deploy:setup',
     'deploy:lock',
-    'build',
     'deploy:release',
     'rsync',
     'deploy:shared',
+    'build',
     'typo3',
     'deploy:symlink',
     'deploy:unlock',

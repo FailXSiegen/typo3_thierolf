@@ -22,7 +22,7 @@
     ],
     "config": {
         "platform": {
-            "php": "8.1.24"
+            "php": "8.2.13"
         },
         "allow-plugins": {
             "typo3/class-alias-loader": true,
@@ -31,7 +31,7 @@
         }
     },
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
         "typo3/cms-backend": "^12.4",
         "typo3/cms-core": "^12.4",
         "typo3/cms-extbase": "^12.4",
@@ -66,8 +66,8 @@
         "gridelementsteam/gridelements": "@dev",
         "laxap/bootstrap-grids": "@dev",
         "t3/min": "^3",
-        "georgringer/news": "^11",
-        "lochmueller/staticfilecache": "^13",
+        "georgringer/news": "^12",
+        "lochmueller/staticfilecache": "^14",
         "thierolf/ttpdf": "@dev",
         "failx/templates-thierolf": "@dev",
         "failx/templates-thierolf-subpage": "@dev",

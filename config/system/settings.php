@@ -35,6 +35,10 @@ return [
             'automaticInstallation' => '1',
             'offlineMode' => '0',
         ],
+        'form_custom_templates' => [
+            'doktype' => '125',
+            'typeNum' => '101',
+        ],
         'gridelements' => [
             'additionalStylesheet' => '',
             'disableAutomaticUnusedColumnCorrection' => '0',
@@ -103,15 +107,11 @@ return [
             'validFallbackHeaders' => 'Content-Type,Content-Language,Link,X-SFC-Tags',
             'validHtaccessHeaders' => 'Content-Type,Content-Language,Link,X-SFC-Tags',
         ],
-        't3adminer' => [
-            'IPaccess' => '',
-            'applyDevIpMask' => '0',
-            'exportDirectory' => 'fileadmin',
-        ],
         'webp' => [
             'convert_all' => '1',
             'converter' => 'Plan2net\\Webp\\Converter\\MagickConverter',
             'exclude_directories' => '',
+            'filter_pattern' => '/\\.(jpe?g|png|gif)\\.webp$/i',
             'hide_webp' => '1',
             'mime_types' => 'image/jpeg,image/png',
             'parameters' => 'image/jpeg::-quality 85 -define webp:lossless=true|image/png::-quality 85 -define webp:lossless=true',
