@@ -1,0 +1,129 @@
+@font-face {
+    font-family: 'HyundaiSansText';
+    src: url('../Fonts/HyundaiSans/HyundaiSansText-Regular.eot');
+    src: local('HyundaiSansText'), local('HyundaiSansText-Regular'),
+        url('../Fonts/HyundaiSans/HyundaiSansText-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../Fonts/HyundaiSans/HyundaiSansText-Regular.woff2') format('woff2'),
+        url('../Fonts/HyundaiSans/HyundaiSansText-Regular.woff') format('woff'),
+        url('../Fonts/HyundaiSans/HyundaiSansText-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'HyundaiSansText';
+    src: url('../Fonts/HyundaiSans/HyundaiSansText-Italic.eot');
+    src: local('HyundaiSansText'), local('HyundaiSansText-Italic'),
+        url('../Fonts/HyundaiSans/HyundaiSansText-Italic.eot?#iefix') format('embedded-opentype'),
+        url('../Fonts/HyundaiSans/HyundaiSansText-Italic.woff2') format('woff2'),
+        url('../Fonts/HyundaiSans/HyundaiSansText-Italic.woff') format('woff'),
+        url('../Fonts/HyundaiSans/HyundaiSansText-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'HyundaiSansText';
+    src: url('../Fonts/HyundaiSans/HyundaiSansText-Medium.eot');
+    src: local('HyundaiSansText'), local('HyundaiSansText-Medium'),
+        url('../Fonts/HyundaiSans/HyundaiSansText-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../Fonts/HyundaiSans/HyundaiSansText-Medium.woff2') format('woff2'),
+        url('../Fonts/HyundaiSans/HyundaiSansText-Medium.woff') format('woff'),
+        url('../Fonts/HyundaiSans/HyundaiSansText-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'HyundaiSansText';
+    src: url('../Fonts/HyundaiSans/HyundaiSansText-MediumItalic.eot');
+    src: local('HyundaiSansText'), local('HyundaiSansText-MediumItalic'),
+        url('../Fonts/HyundaiSans/HyundaiSansText-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('../Fonts/HyundaiSans/HyundaiSansText-MediumItalic.woff2') format('woff2'),
+        url('../Fonts/HyundaiSans/HyundaiSansText-MediumItalic.woff') format('woff'),
+        url('../Fonts/HyundaiSans/HyundaiSansText-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'HyundaiSansText';
+    src: url('../Fonts/HyundaiSans/HyundaiSansText-Bold.eot');
+    src: local('HyundaiSansText'), local('HyundaiSansText-Medium'),
+        url('../Fonts/HyundaiSans/HyundaiSansText-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../Fonts/HyundaiSans/HyundaiSansText-Bold.woff2') format('woff2'),
+        url('../Fonts/HyundaiSans/HyundaiSansText-Bold.woff') format('woff'),
+        url('../Fonts/HyundaiSans/HyundaiSansText-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'HyundaiSansText';
+    src: url('../Fonts/HyundaiSans/HyundaiSansText-BoldItalic.eot');
+    src: local('HyundaiSansText'), local('HyundaiSansText-Medium'),
+        url('../Fonts/HyundaiSans/HyundaiSansText-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('../Fonts/HyundaiSans/HyundaiSansText-BoldItalic.woff2') format('woff2'),
+        url('../Fonts/HyundaiSans/HyundaiSansText-BoldItalic.woff') format('woff'),
+        url('../Fonts/HyundaiSans/HyundaiSansText-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'HyundaiSansHead';
+    src: url('../Fonts/HyundaiSans/HyundaiSansHead-Regular.eot');
+    src: local('HyundaiSansHead'), local('HyundaiSansHead-Regular'),
+        url('../Fonts/HyundaiSans/HyundaiSansHead-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../Fonts/HyundaiSans/HyundaiSansHead-Regular.woff2') format('woff2'),
+        url('../Fonts/HyundaiSans/HyundaiSansHead-Regular.woff') format('woff'),
+        url('../Fonts/HyundaiSans/HyundaiSansHead-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'HyundaiSansHead';
+    src: url('../Fonts/HyundaiSans/HyundaiSansHead-Light.eot');
+    src: local('HyundaiSansHead'), local('HyundaiSansHead-Light'),
+        url('../Fonts/HyundaiSans/HyundaiSansHead-Light.eot?#iefix') format('embedded-opentype'),
+        url('../Fonts/HyundaiSans/HyundaiSansHead-Light.woff2') format('woff2'),
+        url('../Fonts/HyundaiSans/HyundaiSansHead-Light.woff') format('woff'),
+        url('../Fonts/HyundaiSans/HyundaiSansHead-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'HyundaiSansHead';
+    src: url('../Fonts/HyundaiSans/HyundaiSansHead-Medium.eot');
+    src: local('HyundaiSansHead'), local('HyundaiSansHead-Medium'),
+        url('../Fonts/HyundaiSans/HyundaiSansHead-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../Fonts/HyundaiSans/HyundaiSansHead-Medium.woff2') format('woff2'),
+        url('../Fonts/HyundaiSans/HyundaiSansHead-Medium.woff') format('woff'),
+        url('../Fonts/HyundaiSans/HyundaiSansHead-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'HyundaiSansHead';
+    src: url('../Fonts/HyundaiSans/HyundaiSansHead-Bold.eot');
+    src: local('HyundaiSansHead'), local('HyundaiSansHead-Bold'),
+        url('../Fonts/HyundaiSans/HyundaiSansHead-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../Fonts/HyundaiSans/HyundaiSansHead-Bold.woff2') format('woff2'),
+        url('../Fonts/HyundaiSans/HyundaiSansHead-Bold.woff') format('woff'),
+        url('../Fonts/HyundaiSans/HyundaiSansHead-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}

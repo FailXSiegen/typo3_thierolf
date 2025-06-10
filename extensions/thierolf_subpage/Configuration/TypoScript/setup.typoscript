@@ -97,3 +97,5 @@ tt_content.gridelements_pi1 {
         25 = {$thierolfsubpage.resourcePath}Private/Content/Partials/
     }
 }
+
+page.includeCSS.fonts = {$thierolfsubpage.resourcePath}Public/StyleSheet/fonts.css
